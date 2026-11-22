@@ -1,0 +1,417 @@
+<!DOCTYPE html><html lang="id"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Pengaturan - Bimbel Tunas Cendekia</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Custom Config -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#133e75',
+              navyDark: '#0f315d',
+              navyDeep: '#0d284c',
+              blueActive: '#2563eb',
+              lightBg: '#f0f5fa',
+              borderLight: '#e2e8f0',
+              textMain: '#1e293b',
+              textMuted: '#64748b'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Stylesheet for Layout & Nuances -->
+<style data-purpose="custom-layout">
+    /* Custom scrollbar styling for sidebar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.35);
+    }
+  </style>
+</head>
+<body class="bg-brand-lightBg text-slate-800 font-sans antialiased flex min-h-screen">
+<!-- BEGIN: Sidebar -->
+<aside class="w-64 bg-[#143e74] text-white flex flex-col flex-shrink-0 min-h-screen select-none justify-between" data-purpose="sidebar-navigation">
+<!-- Top Brand & Navigation -->
+<div class="flex flex-col">
+<!-- Logo Branding Header -->
+<div class="px-6 py-6 flex items-center space-x-3.5">
+<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMG2SThGRc5Pj__6ofn2O6sjv_S7-gw7iOrTPd0CsCiEIzkC03fy_TV8p9amtC4bkh1JC41CU9SNQKUdguSisD3rcfzWUX-ZukyL6MNTTWHw9CwRLtMf_krajdv4YUqz6hTZqYTSrIlnKuqoAcXjFMyKc1Bctq_MnzugXx423LVbRsfJR-GksQMCZHfiVPXwt2MJBUuexDr0dqpg3p1KpM5OzMtTgJjIjUOeVjMiUjrZrfR59la0F64w" class="w-10 h-10 object-contain rounded-full bg-white" alt="Logo Bimbel">
+<div class="flex flex-col leading-tight">
+<span class="text-base font-semibold tracking-wide text-white">Bimbel</span>
+<span class="text-xs text-blue-200 font-light">Tunas Cendekia</span>
+</div>
+</div>
+<!-- Main Navigation Menu -->
+<nav class="mt-2 px-3 space-y-1"><a class="flex items-center px-4 py-2.5 text-sm font-medium rounded-xl text-blue-100 hover:bg-[#1a4a86] transition-colors group" href="#"><svg class="w-5 h-5 mr-3 text-blue-200 group-hover:text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>Dashboard</a><a class="flex items-center px-4 py-2.5 text-sm font-medium rounded-xl text-blue-100 hover:bg-[#1a4a86] transition-colors group" href="#"><svg class="w-5 h-5 mr-3 text-blue-200 group-hover:text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>Data Siswa</a><a class="flex items-center px-4 py-2.5 text-sm font-medium rounded-xl text-blue-100 hover:bg-[#1a4a86] transition-colors group" href="#"><svg class="w-5 h-5 mr-3 text-blue-200 group-hover:text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>Data Pengajar</a><a class="flex items-center px-4 py-2.5 text-sm font-medium rounded-xl text-blue-100 hover:bg-[#1a4a86] transition-colors group" href="#"><svg class="w-5 h-5 mr-3 text-blue-200 group-hover:text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>Data Kelas</a><a class="flex items-center px-4 py-2.5 text-sm font-medium rounded-xl text-blue-100 hover:bg-[#1a4a86] transition-colors group" href="#"><svg class="w-5 h-5 mr-3 text-blue-200 group-hover:text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>Program Belajar</a><a class="flex items-center px-4 py-2.5 text-sm font-medium rounded-xl text-blue-100 hover:bg-[#1a4a86] transition-colors group" href="#"><svg class="w-5 h-5 mr-3 text-blue-200 group-hover:text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>Jadwal Bimbingan</a><a class="flex items-center px-4 py-2.5 text-sm font-medium rounded-xl text-blue-100 hover:bg-[#1a4a86] transition-colors group" href="#"><svg class="w-5 h-5 mr-3 text-blue-200 group-hover:text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>Pendaftaran Siswa</a><a class="flex items-center px-4 py-2.5 text-sm font-medium rounded-xl text-blue-100 hover:bg-[#1a4a86] transition-colors group" href="#"><svg class="w-5 h-5 mr-3 text-blue-200 group-hover:text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>Pembayaran</a><a class="flex items-center px-4 py-2.5 text-sm font-medium rounded-xl text-blue-100 hover:bg-[#1a4a86] transition-colors group" href="#"><svg class="w-5 h-5 mr-3 text-blue-200 group-hover:text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>Laporan</a></nav>
+</div>
+<!-- Bottom Logout Menu -->
+<div class="p-4 border-t border-blue-900/40">
+<a class="flex items-center px-4 py-2.5 text-sm font-medium rounded-xl text-blue-100 hover:bg-[#1a4a86] transition-colors group" href="#">
+<svg class="w-5 h-5 mr-3 text-blue-200 group-hover:text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+        Logout
+      </a>
+</div>
+</aside>
+<!-- END: Sidebar -->
+<!-- BEGIN: MainContentWrapper -->
+<div class="flex-1 flex flex-col min-h-screen bg-brand-lightBg overflow-x-hidden">
+<!-- BEGIN: TopNavbar -->
+<header class="h-16 px-8 flex items-center justify-between border-b border-slate-200/70 bg-transparent" data-purpose="top-navigation">
+<!-- Left: Hamburger toggle -->
+<button aria-label="Toggle Sidebar" class="text-slate-600 hover:text-slate-900 focus:outline-none p-1.5 rounded-lg hover:bg-slate-200/50" type="button">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<!-- Right: Notification Bell & Admin Profile Badge -->
+<div class="flex items-center space-x-6">
+<!-- Notification Bell Icon with Dot -->
+<button aria-label="Notifications" class="relative text-slate-500 hover:text-slate-700 focus:outline-none" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="absolute top-0 right-0 block h-2 w-2 rounded-full bg-blue-600 ring-2 ring-white"></span>
+</button>
+<!-- Admin Profile Pill -->
+<div class="flex items-center space-x-2.5 cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-[#133e75] text-white flex items-center justify-center font-bold text-xs">
+            A
+          </div>
+<span class="text-sm font-semibold text-slate-800">Admin</span>
+<svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+</header>
+<!-- END: TopNavbar -->
+<!-- BEGIN: MainContentArea -->
+<main class="flex-1 px-8 py-6" data-purpose="settings-main-container">
+<!-- Page Title & Breadcrumb -->
+<div class="mb-6">
+<h1 class="text-2xl font-bold text-slate-800 tracking-tight">Pengaturan</h1>
+<div class="flex items-center text-xs font-normal text-slate-500 mt-1 space-x-1.5">
+<span>Dashboard</span>
+<span class="text-slate-400">&gt;</span>
+<span class="text-slate-600 font-medium">Pengaturan</span>
+</div>
+</div>
+<!-- Settings Main Card -->
+<div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden" data-purpose="settings-card"><!-- Navigation Tabs -->
+<div class="border-b border-slate-200 px-6 pt-4 flex space-x-8 bg-white">
+  <button class="pb-3 text-sm font-semibold text-blue-600 border-b-2 border-blue-600 flex items-center space-x-2" type="button">
+    <span>Pengaturan Profil Admin</span>
+  </button>
+  <button class="pb-3 text-sm font-medium text-slate-500 hover:text-slate-700 transition-colors flex items-center space-x-2" type="button">
+    <span>Pengaturan Akun Pengguna</span>
+  </button>
+  <button class="pb-3 text-sm font-medium text-slate-500 hover:text-slate-700 transition-colors flex items-center space-x-2" type="button">
+    <span>Pengelolaan Hak Akses</span>
+  </button>
+</div>
+
+<div class="p-8 space-y-10">
+  <!-- SECTION 1: PENGATURAN PROFIL ADMIN -->
+  <section class="space-y-6">
+    <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+      <div>
+        <h2 class="text-base font-semibold text-slate-800">Pengaturan Profil Admin</h2>
+        <p class="text-xs text-slate-500 mt-0.5">Kelola identitas, foto profil, dan kredensial akun administrator utama.</p>
+      </div>
+      <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-100">Super Admin</span>
+    </div>
+
+    <!-- Avatar & Basic Details -->
+    <div class="flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-6 pb-6 border-b border-slate-100">
+      <div class="relative flex-shrink-0">
+        <div class="w-20 h-20 rounded-2xl bg-[#143e74] text-white flex items-center justify-center font-bold text-2xl shadow-sm ring-4 ring-slate-50">
+          A
+        </div>
+      </div>
+      <div class="space-y-1.5">
+        <label class="block text-xs font-semibold text-slate-700">Foto Profil Avatar</label>
+        <div class="flex flex-wrap items-center gap-3">
+          <button class="px-3.5 py-1.5 border border-slate-300 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors shadow-sm" type="button">
+            Ganti Foto
+          </button>
+          <button class="px-3.5 py-1.5 border border-slate-200 rounded-lg text-xs font-medium text-slate-500 hover:text-red-600 hover:border-red-200 transition-colors" type="button">
+            Hapus
+          </button>
+          <span class="text-xs text-slate-400">PNG, JPG maksimal 2MB. Resolusi disarankan 256x256 px.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Data Admin -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div>
+        <label class="block text-xs font-semibold text-slate-700 mb-1.5">Nama Lengkap</label>
+        <input class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" type="text" value="Administrator Bimbel">
+      </div>
+      <div>
+        <label class="block text-xs font-semibold text-slate-700 mb-1.5">Peran / Jabatan</label>
+        <input class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 bg-slate-50 text-slate-600 focus:outline-none cursor-not-allowed" type="text" value="Super Admin (Akses Penuh)" readonly="">
+      </div>
+      <div>
+        <label class="block text-xs font-semibold text-slate-700 mb-1.5">Email Resmi Admin</label>
+        <input class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" type="email" value="admin@tunascendekia.sch.id">
+      </div>
+      <div>
+        <label class="block text-xs font-semibold text-slate-700 mb-1.5">No. WhatsApp / Telepon</label>
+        <input class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" type="text" value="0812-3456-7890">
+      </div>
+    </div>
+
+    <!-- Ubah Kata Sandi Admin -->
+    <div class="pt-5 border-t border-slate-100">
+      <h3 class="text-sm font-semibold text-slate-800 mb-1">Ubah Kata Sandi Admin</h3>
+      <p class="text-xs text-slate-500 mb-4">Gunakan kombinasi minimal 8 karakter dengan perpaduan huruf, angka, dan simbol.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1.5">Kata Sandi Lama</label>
+          <input class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" type="password" placeholder="••••••••">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1.5">Kata Sandi Baru</label>
+          <input class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" type="password" placeholder="••••••••">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1.5">Konfirmasi Kata Sandi Baru</label>
+          <input class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" type="password" placeholder="••••••••">
+        </div>
+      </div>
+    </div>
+
+    <!-- Tombol Simpan Profil Admin -->
+    <div class="pt-4 flex items-center justify-end space-x-3">
+      <button class="px-5 py-2 rounded-xl border border-slate-300 text-slate-700 text-xs font-semibold hover:bg-slate-50 transition-colors" type="button">
+        Batal
+      </button>
+      <button class="px-5 py-2 rounded-xl bg-[#143e74] hover:bg-[#0f315d] text-white text-xs font-semibold shadow-sm transition-colors" type="button">
+        Simpan Perubahan
+      </button>
+    </div>
+  </section>
+
+  <!-- SECTION 2: PENGATURAN AKUN PENGGUNA -->
+  <section class="pt-8 border-t border-slate-200/80 space-y-5">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div>
+        <h2 class="text-base font-semibold text-slate-800">Pengaturan Akun Pengguna</h2>
+        <p class="text-xs text-slate-500 mt-0.5">Daftar akun pengguna sistem aktif mencakup Administrator, Pengajar, dan Siswa.</p>
+      </div>
+      <div class="flex items-center space-x-3">
+        <select class="px-3 py-1.5 text-xs font-medium border border-slate-300 rounded-lg text-slate-700 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="">Semua Peran</option>
+          <option value="Admin">Admin</option>
+          <option value="Pengajar">Pengajar</option>
+          <option value="Siswa">Siswa</option>
+        </select>
+        <button class="px-4 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-sm transition-colors flex items-center space-x-1.5" type="button">
+          <span>+ Tambah Akun Baru</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Table User Accounts -->
+    <div class="overflow-x-auto border border-slate-200 rounded-xl">
+      <table class="w-full text-left border-collapse text-xs">
+        <thead>
+          <tr class="bg-slate-50/80 text-slate-600 border-b border-slate-200">
+            <th class="py-3 px-4 font-semibold">Nama Akun</th>
+            <th class="py-3 px-4 font-semibold">Email</th>
+            <th class="py-3 px-4 font-semibold">Peran</th>
+            <th class="py-3 px-4 font-semibold">Status</th>
+            <th class="py-3 px-4 font-semibold">Tanggal Dibuat</th>
+            <th class="py-3 px-4 font-semibold text-right">Aksi</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100 text-slate-700">
+          <tr class="hover:bg-slate-50/50 transition-colors">
+            <td class="py-3 px-4 font-medium text-slate-900 flex items-center space-x-2">
+              <div class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center text-[10px]">AD</div>
+              <span>Administrator Bimbel</span>
+            </td>
+            <td class="py-3 px-4 font-mono text-slate-600">admin@tunascendekia.sch.id</td>
+            <td class="py-3 px-4">
+              <span class="bg-blue-50 text-blue-700 text-[10px] font-semibold px-2 py-0.5 rounded-full border border-blue-200">Super Admin</span>
+            </td>
+            <td class="py-3 px-4">
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input checked="" class="sr-only peer" type="checkbox">
+                <div class="w-8 h-4 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-blue-600"></div>
+                <span class="ml-2 text-[11px] font-medium text-emerald-600">Aktif</span>
+              </label>
+            </td>
+            <td class="py-3 px-4 text-slate-500">12 Jan 2024</td>
+            <td class="py-3 px-4 text-right space-x-2">
+              <button class="text-blue-600 hover:text-blue-800 font-medium" type="button">Edit</button>
+              <span class="text-slate-300">|</span>
+              <button class="text-slate-500 hover:text-slate-800 font-medium" type="button">Reset Password</button>
+            </td>
+          </tr>
+          <tr class="hover:bg-slate-50/50 transition-colors">
+            <td class="py-3 px-4 font-medium text-slate-900 flex items-center space-x-2">
+              <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center text-[10px]">BH</div>
+              <span>Budi Haryono, S.Pd</span>
+            </td>
+            <td class="py-3 px-4 font-mono text-slate-600">budi.haryono@tunascendekia.sch.id</td>
+            <td class="py-3 px-4">
+              <span class="bg-emerald-50 text-emerald-700 text-[10px] font-semibold px-2 py-0.5 rounded-full border border-emerald-200">Pengajar</span>
+            </td>
+            <td class="py-3 px-4">
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input checked="" class="sr-only peer" type="checkbox">
+                <div class="w-8 h-4 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-blue-600"></div>
+                <span class="ml-2 text-[11px] font-medium text-emerald-600">Aktif</span>
+              </label>
+            </td>
+            <td class="py-3 px-4 text-slate-500">05 Feb 2024</td>
+            <td class="py-3 px-4 text-right space-x-2">
+              <button class="text-blue-600 hover:text-blue-800 font-medium" type="button">Edit</button>
+              <span class="text-slate-300">|</span>
+              <button class="text-slate-500 hover:text-slate-800 font-medium" type="button">Reset Password</button>
+            </td>
+          </tr>
+          <tr class="hover:bg-slate-50/50 transition-colors">
+            <td class="py-3 px-4 font-medium text-slate-900 flex items-center space-x-2">
+              <div class="w-6 h-6 rounded-full bg-purple-100 text-purple-700 font-bold flex items-center justify-center text-[10px]">SR</div>
+              <span>Siti Rahmawati</span>
+            </td>
+            <td class="py-3 px-4 font-mono text-slate-600">siti.rahmawati@gmail.com</td>
+            <td class="py-3 px-4">
+              <span class="bg-slate-100 text-slate-700 text-[10px] font-semibold px-2 py-0.5 rounded-full border border-slate-200">Siswa</span>
+            </td>
+            <td class="py-3 px-4">
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input checked="" class="sr-only peer" type="checkbox">
+                <div class="w-8 h-4 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-blue-600"></div>
+                <span class="ml-2 text-[11px] font-medium text-emerald-600">Aktif</span>
+              </label>
+            </td>
+            <td class="py-3 px-4 text-slate-500">18 Mar 2024</td>
+            <td class="py-3 px-4 text-right space-x-2">
+              <button class="text-blue-600 hover:text-blue-800 font-medium" type="button">Edit</button>
+              <span class="text-slate-300">|</span>
+              <button class="text-slate-500 hover:text-slate-800 font-medium" type="button">Reset Password</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SECTION 3: PENGELOLAAN HAK AKSES -->
+  <section class="pt-8 border-t border-slate-200/80 space-y-5">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+      <div>
+        <h2 class="text-base font-semibold text-slate-800">Pengelolaan Hak Akses</h2>
+        <p class="text-xs text-slate-500 mt-0.5">Matriks perizinan modul operasional untuk setiap peran pengguna.</p>
+      </div>
+      <span class="text-xs text-slate-400">Tersimpan otomatis saat diubah</span>
+    </div>
+
+    <!-- Access Control Matrix Table -->
+    <div class="overflow-x-auto border border-slate-200 rounded-xl">
+      <table class="w-full text-center border-collapse text-xs">
+        <thead>
+          <tr class="bg-slate-50/80 text-slate-700 border-b border-slate-200">
+            <th class="py-3 px-4 text-left font-semibold">Modul Sistem</th>
+            <th class="py-3 px-4 font-semibold text-blue-700">Super Admin</th>
+            <th class="py-3 px-4 font-semibold text-slate-700">Admin Akademik</th>
+            <th class="py-3 px-4 font-semibold text-slate-700">Pengajar</th>
+            <th class="py-3 px-4 font-semibold text-slate-700">Siswa</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100 text-slate-700">
+          <tr class="hover:bg-slate-50/50 transition-colors">
+            <td class="py-3 px-4 text-left font-medium text-slate-900">Dashboard</td>
+            <td class="py-3 px-4 text-blue-600 font-bold">✓ Penuh</td>
+            <td class="py-3 px-4 text-emerald-600 font-medium">✓ Lihat &amp; Cetak</td>
+            <td class="py-3 px-4 text-emerald-600 font-medium">✓ Terbatas</td>
+            <td class="py-3 px-4 text-emerald-600 font-medium">✓ Terbatas</td>
+          </tr>
+          <tr class="hover:bg-slate-50/50 transition-colors">
+            <td class="py-3 px-4 text-left font-medium text-slate-900">Data Siswa</td>
+            <td class="py-3 px-4 text-blue-600 font-bold">✓ Penuh</td>
+            <td class="py-3 px-4 text-emerald-600 font-medium">✓ Kelola</td>
+            <td class="py-3 px-4 text-emerald-600 font-medium">✓ Lihat Kelas Saja</td>
+            <td class="py-3 px-4 text-slate-400 font-normal">—</td>
+          </tr>
+          <tr class="hover:bg-slate-50/50 transition-colors">
+            <td class="py-3 px-4 text-left font-medium text-slate-900">Data Pengajar</td>
+            <td class="py-3 px-4 text-blue-600 font-bold">✓ Penuh</td>
+            <td class="py-3 px-4 text-emerald-600 font-medium">✓ Kelola</td>
+            <td class="py-3 px-4 text-slate-400 font-normal">—</td>
+            <td class="py-3 px-4 text-slate-400 font-normal">—</td>
+          </tr>
+          <tr class="hover:bg-slate-50/50 transition-colors">
+            <td class="py-3 px-4 text-left font-medium text-slate-900">Jadwal Bimbingan</td>
+            <td class="py-3 px-4 text-blue-600 font-bold">✓ Penuh</td>
+            <td class="py-3 px-4 text-emerald-600 font-medium">✓ Kelola</td>
+            <td class="py-3 px-4 text-emerald-600 font-medium">✓ Presensi &amp; Jadwal</td>
+            <td class="py-3 px-4 text-emerald-600 font-medium">✓ Lihat Jadwal</td>
+          </tr>
+          <tr class="hover:bg-slate-50/50 transition-colors">
+            <td class="py-3 px-4 text-left font-medium text-slate-900">Pembayaran</td>
+            <td class="py-3 px-4 text-blue-600 font-bold">✓ Penuh</td>
+            <td class="py-3 px-4 text-emerald-600 font-medium">✓ Verifikasi Bukti</td>
+            <td class="py-3 px-4 text-slate-400 font-normal">—</td>
+            <td class="py-3 px-4 text-emerald-600 font-medium">✓ Bayar &amp; Riwayat</td>
+          </tr>
+          <tr class="hover:bg-slate-50/50 transition-colors">
+            <td class="py-3 px-4 text-left font-medium text-slate-900">Laporan</td>
+            <td class="py-3 px-4 text-blue-600 font-bold">✓ Penuh</td>
+            <td class="py-3 px-4 text-emerald-600 font-medium">✓ Cetak Akademik</td>
+            <td class="py-3 px-4 text-emerald-600 font-medium">✓ Input Nilai &amp; Evaluasi</td>
+            <td class="py-3 px-4 text-emerald-600 font-medium">✓ Rapor &amp; Hasil Tryout</td>
+          </tr>
+          <tr class="hover:bg-slate-50/50 transition-colors">
+            <td class="py-3 px-4 text-left font-medium text-slate-900">Pengaturan</td>
+            <td class="py-3 px-4 text-blue-600 font-bold">✓ Penuh</td>
+            <td class="py-3 px-4 text-slate-400 font-normal">—</td>
+            <td class="py-3 px-4 text-slate-400 font-normal">—</td>
+            <td class="py-3 px-4 text-slate-400 font-normal">—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div></div>
+</main>
+<!-- END: MainContentArea -->
+<!-- BEGIN: Footer -->
+<footer class="h-14 px-8 flex items-center justify-between text-xs text-slate-500 border-t border-slate-200/60 bg-transparent mt-auto" data-purpose="page-footer">
+<div class="flex items-center space-x-2"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMG2SThGRc5Pj__6ofn2O6sjv_S7-gw7iOrTPd0CsCiEIzkC03fy_TV8p9amtC4bkh1JC41CU9SNQKUdguSisD3rcfzWUX-ZukyL6MNTTWHw9CwRLtMf_krajdv4YUqz6hTZqYTSrIlnKuqoAcXjFMyKc1Bctq_MnzugXx423LVbRsfJR-GksQMCZHfiVPXwt2MJBUuexDr0dqpg3p1KpM5OzMtTgJjIjUOeVjMiUjrZrfR59la0F64w" class="w-5 h-5 object-contain inline-block mr-2" alt="Logo"><span>© 2025 Bimbel Tunas Cendekia. Hak Cipta Dilindungi.</span></div>
+<div class="flex items-center space-x-6">
+<a class="hover:text-slate-700 transition-colors" href="#">Bantuan</a>
+<a class="hover:text-slate-700 transition-colors" href="#">Kebijakan Privasi</a>
+<a class="hover:text-slate-700 transition-colors" href="#">Syarat &amp; Ketentuan</a>
+</div>
+</footer>
+<!-- END: Footer -->
+</div>
+<!-- END: MainContentWrapper -->
+
+
+
+
+</body></html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html><html lang="id" style="width: 1280px; height: 1034px; overflow: hidden; position: relative;"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="web_dashboard" name="shell-type">
+<title>Dashboard Pengajar - Bimbel Tunas Cendekia</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            adminNav: '#1b3e6b',
+            brandBlue: '#2563eb',
+            pageBg: '#F4F7FC',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-[#F4F7FC] text-slate-800 antialiased min-h-screen flex">
+<!-- SIDEBAR (PERSIS SCREEN_59 / SCREEN_79) -->
+<aside class="fixed left-0 top-0 h-full w-[250px] bg-[#1b3e6b] text-white flex flex-col justify-between z-50 select-none">
+<div class="flex flex-col">
+<!-- Logo Header persis SCREEN_59 -->
+<div class="h-20 px-6 flex items-center gap-3 border-b border-white/10">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm overflow-hidden shrink-0">
+<img alt="Logo Bimbel Tunas Cendekia" class="w-8 h-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFKr5R8BkFW5wPcv2eNILemDzqR9AK8ZqZ6xbkNNwpN3skDloU560D6a3JpSNN9nzWkph1o7QHOwXcTBYp89J6DoLB1DQin8Lv8P6kwk-DxGmsiLN0gic3OMOb7k06vFtyubYxAEcqDmE5eAlF8HKtmzB8lDhMcxt-zCQgpPy0CFJc8bNZ-ek0dDy942MbGhrqjnWGwraboj5ekXfM3ch-TIocAF4fZHXotUbIa1PIIEzVC--v0qbgfg">
+</div>
+<div>
+<div class="font-bold text-white text-base leading-tight">Bimbel</div>
+<div class="text-xs text-blue-200">Tunas Cendekia</div>
+</div>
+</div>
+<!-- Navigation Menu dengan Ikon Solid SVG -->
+<nav class="flex flex-col gap-1.5 px-4 py-6">
+<!-- Dashboard (Active Pill biru terang) -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-blue-600 text-white font-medium text-sm shadow-sm transition-all" href="#">
+<svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+<path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path>
+</svg>
+<span>Dashboard</span>
+</a>
+<!-- Jadwal Mengajar -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white font-medium text-sm transition-all" href="#">
+<svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+<path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"></path>
+</svg>
+<span>Jadwal Mengajar</span>
+</a>
+<!-- Data Siswa -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white font-medium text-sm transition-all" href="#">
+<svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+<path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"></path>
+</svg>
+<span>Data Siswa</span>
+</a>
+<!-- Absensi -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white font-medium text-sm transition-all" href="#">
+<svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+<path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm-2 14l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"></path>
+</svg>
+<span>Absensi</span>
+</a>
+<!-- Materi Pembelajaran -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white font-medium text-sm transition-all" href="#">
+<svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+<path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"></path>
+</svg>
+<span>Materi Pembelajaran</span>
+</a>
+<!-- Latihan Soal -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white font-medium text-sm transition-all" href="#">
+<svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+<path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"></path>
+</svg>
+<span>Latihan Soal</span>
+</a>
+<!-- Hasil Latihan -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white font-medium text-sm transition-all" href="#">
+<svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+<path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"></path>
+</svg>
+<span>Hasil Latihan</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Logout (mt-auto) -->
+<div class="p-4 border-t border-white/10 mt-auto">
+<a class="hover:text-white flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-lg hover:bg-white/10 transition-all text-slate-400" href="#">
+<svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+<path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"></path>
+</svg>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- MAIN WRAPPER -->
+<div class="pl-[250px] flex-1 flex flex-col min-h-screen bg-[#F4F7FC]">
+<!-- TOPBAR / HEADER (PERSIS SCREEN_79 & SCREEN_8) -->
+<header class="h-16 px-8 flex items-center justify-between border-b border-slate-200/80 bg-[#F4F7FC]/80 backdrop-blur-md sticky top-0 z-40">
+<!-- Left: Hamburger 3 garis rapi -->
+<button class="text-slate-700 hover:text-slate-900 focus:outline-none p-1.5 rounded-lg hover:bg-slate-200/50 transition" type="button">
+<svg class="w-6 h-6 stroke-current stroke-2" fill="none" viewBox="0 0 24 24">
+<line x1="4" x2="20" y1="6" y2="6"></line>
+<line x1="4" x2="20" y1="12" y2="12"></line>
+<line x1="4" x2="20" y1="18" y2="18"></line>
+</svg>
+</button>
+<!-- Right: Lonceng Notifikasi & User Dropdown Persis SCREEN_79 & SCREEN_8 -->
+<div class="flex items-center gap-6">
+<!-- Notification Bell -->
+<button class="text-slate-600 hover:text-slate-900 relative p-1.5 rounded-full hover:bg-slate-200/50 transition" type="button">
+<svg class="w-5 h-5 text-slate-700" fill="currentColor" viewBox="0 0 24 24">
+<path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"></path>
+</svg>
+<span class="absolute top-1 right-1 w-2 h-2 bg-[#ba1a1a] rounded-full ring-2 ring-white"></span>
+</button>
+<!-- User Profile Dropdown: Avatar inisial R + teks nama & jabatan -->
+<div class="relative select-none"><div class="flex items-center gap-3 cursor-pointer group py-1 px-2 rounded-xl hover:bg-slate-200/50 transition">
+  <div class="w-9 h-9 rounded-full bg-[#1b3e6b] text-white flex items-center justify-center font-bold text-sm shadow-sm ring-2 ring-white">
+    R
+  </div>
+  <div>
+    <div class="text-sm font-semibold text-gray-800 leading-tight">Dr. Rina Astuti</div>
+    <div class="text-xs text-gray-500 leading-tight">Tutor Pengajar</div>
+  </div>
+  <svg class="w-4 h-4 text-slate-500 group-hover:text-slate-800 transition-transform ml-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg>
+</div>
+<!-- Open State Profile Dropdown Popover Menu correctly positioned -->
+<div id="profile-dropdown-popover" class="absolute top-full right-0 mt-2 w-72 bg-white rounded-xl shadow-xl border border-slate-200/80 z-50 p-4">
+  <div class="flex items-center gap-3">
+    <div class="w-10 h-10 rounded-full bg-[#1b3e6b] text-white flex items-center justify-center font-bold text-sm shadow-sm shrink-0">
+      RA
+    </div>
+    <div class="min-w-0 flex-1">
+      <div class="font-bold text-slate-800 text-sm truncate">Dr. Rina Astuti</div>
+      <div class="text-xs text-slate-500 truncate">rina.astuti@tc.sch.id</div>
+      <span class="bg-blue-50 text-blue-700 text-xs font-semibold px-2.5 py-0.5 rounded-full inline-block mt-1">
+        Tutor Pengajar
+      </span>
+    </div>
+  </div>
+  <div class="border-t border-slate-100 my-3"></div>
+  <div class="space-y-1">
+    <a href="#" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors cursor-pointer">
+      <span class="material-symbols-outlined text-[18px] text-slate-500">person</span>
+      <span>Profil Saya</span>
+    </a>
+    
+  </div>
+  <div class="border-t border-slate-100 my-3"></div>
+  <div>
+    <a href="#" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium text-[#ba1a1a] hover:bg-red-50 transition-colors cursor-pointer"><span class="material-symbols-outlined text-[18px] text-[#ba1a1a]">logout</span><span class="text-[#ba1a1a] font-semibold">Keluar / Logout</span></a>
+  </div>
+</div></div>
+</div>
+</header>
+<!-- CONTENT BODY -->
+<main class="flex-1 px-8 py-6 max-w-7xl w-full mx-auto flex flex-col gap-6"><!-- Dashboard Header Section -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+  <div>
+    <h1 class="text-2xl font-bold text-slate-800 tracking-tight">Dashboard</h1>
+    <p class="text-sm text-slate-500 mt-1">Selamat datang, Dr. Rina Astuti!</p>
+  </div>
+  <div>
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-slate-600 font-medium text-xs shadow-sm">
+      <span class="material-symbols-outlined text-[16px] text-primary">calendar_today</span>
+      <span>Senin, 26 Mei 2025</span>
+    </div>
+  </div>
+</div>
+
+<!-- 3 Kartu Metrik Ringkas & Bersih -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+  <!-- Kartu 1: Deep Navy -->
+  <div class="p-5 rounded-xl bg-[#1b3e6b] text-white shadow-sm flex items-center justify-between">
+    <div>
+      <span class="text-xs text-blue-200 font-medium uppercase tracking-wider block">Siswa Diajar</span>
+      <div class="text-3xl font-bold text-white mt-2 tracking-tight">142</div>
+    </div>
+    <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-white">
+      <span class="material-symbols-outlined text-[28px]">groups</span>
+    </div>
+  </div>
+
+  <!-- Kartu 2: Soft Blue -->
+  <div class="p-5 rounded-xl bg-[#eff4ff] border border-blue-100 shadow-sm flex items-center justify-between">
+    <div>
+      <span class="text-xs text-secondary font-medium uppercase tracking-wider block">Kelas Diampu</span>
+      <div class="text-3xl font-bold text-primary mt-2 tracking-tight">4</div>
+    </div>
+    <div class="w-12 h-12 rounded-xl bg-blue-100 text-secondary flex items-center justify-center">
+      <span class="material-symbols-outlined text-[28px]">school</span>
+    </div>
+  </div>
+
+  <!-- Kartu 3: Soft Amber/Yellow -->
+  <div class="p-5 rounded-xl bg-[#fefce8] border border-amber-100 shadow-sm flex items-center justify-between">
+    <div>
+      <span class="text-xs text-amber-700 font-medium uppercase tracking-wider block">Jadwal Hari Ini</span>
+      <div class="text-3xl font-bold text-amber-900 mt-2 tracking-tight">2 Sesi</div>
+    </div>
+    <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center">
+      <span class="material-symbols-outlined text-[28px]">schedule</span>
+    </div>
+  </div>
+</div>
+
+<!-- Grid 2 Kolom Bersih & Lapang -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+  <!-- Kiri: Jadwal Mengajar Hari Ini (7 Kolom) -->
+  <div class="lg:col-span-7 flex flex-col">
+    <div class="bg-white border border-slate-200/80 p-6 rounded-xl shadow-sm flex-1 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between mb-5">
+          <h2 class="text-base font-bold text-slate-800">Jadwal Mengajar Hari Ini</h2>
+          <a class="text-xs font-semibold text-secondary hover:underline inline-flex items-center gap-1" href="#">
+            <span>Lihat Semua</span>
+            <span>→</span>
+          </a>
+        </div>
+        <div class="space-y-3">
+          <!-- Agenda 1 -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 hover:border-slate-200 transition-all">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-medium text-slate-500">Hari ini, 08:00 - 09:30</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-medium">
+                Sedang Berlangsung
+              </span>
+            </div>
+            <div class="font-bold text-slate-800 text-sm">Matematika Saintek (XII IPA 1)</div>
+            <div class="text-xs text-slate-600 mt-1">Materi: Kalkulus Integral</div>
+          </div>
+
+          <!-- Agenda 2 -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 hover:border-slate-200 transition-all">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-medium text-slate-500">Hari ini, 13:00 - 14:30</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-xs font-medium">
+                Akan Datang
+              </span>
+            </div>
+            <div class="font-bold text-slate-800 text-sm">Matematika Wajib (X IPA 2)</div>
+            <div class="text-xs text-slate-600 mt-1">Materi: SPLTV</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kanan: Informasi Kelas Diampu (5 Kolom) -->
+  <div class="lg:col-span-5 flex flex-col">
+    <div class="bg-white border border-slate-200/80 p-6 rounded-xl shadow-sm flex-1 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between mb-5">
+          <h2 class="text-base font-bold text-slate-800">Informasi Kelas Diampu</h2>
+          <a class="text-xs font-semibold text-secondary hover:underline inline-flex items-center gap-1" href="#">
+            <span>Lihat Semua</span>
+            <span>→</span>
+          </a>
+        </div>
+        <div class="space-y-2.5">
+          <!-- Item 1 -->
+          <div class="p-3 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 rounded-full bg-blue-100 text-secondary font-bold text-xs flex items-center justify-center shrink-0">1</span>
+              <div>
+                <span class="text-sm font-semibold text-slate-800">XII IPA 1</span>
+                <span class="text-xs text-slate-500 ml-1.5">(32 Siswa)</span>
+              </div>
+            </div>
+            <span class="text-xs font-medium text-slate-600">Matematika Saintek</span>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="p-3 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 rounded-full bg-blue-100 text-secondary font-bold text-xs flex items-center justify-center shrink-0">2</span>
+              <div>
+                <span class="text-sm font-semibold text-slate-800">XII IPA 2</span>
+                <span class="text-xs text-slate-500 ml-1.5">(30 Siswa)</span>
+              </div>
+            </div>
+            <span class="text-xs font-medium text-slate-600">Matematika Saintek</span>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="p-3 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 rounded-full bg-blue-100 text-secondary font-bold text-xs flex items-center justify-center shrink-0">3</span>
+              <div>
+                <span class="text-sm font-semibold text-slate-800">XI IPA 1</span>
+                <span class="text-xs text-slate-500 ml-1.5">(35 Siswa)</span>
+              </div>
+            </div>
+            <span class="text-xs font-medium text-slate-600">Matematika Wajib</span>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="p-3 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 rounded-full bg-blue-100 text-secondary font-bold text-xs flex items-center justify-center shrink-0">4</span>
+              <div>
+                <span class="text-sm font-semibold text-slate-800">X IPA 2</span>
+                <span class="text-xs text-slate-500 ml-1.5">(45 Siswa)</span>
+              </div>
+            </div>
+            <span class="text-xs font-medium text-slate-600">Matematika Wajib</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Card Bawah Lebar: Ringkasan Aktivitas Pembelajaran -->
+<div class="bg-white border border-slate-200/80 p-6 rounded-xl shadow-sm">
+  <div class="flex items-center justify-between mb-4">
+    <h2 class="text-base font-bold text-slate-800">Ringkasan Aktivitas Pembelajaran</h2>
+    <a class="text-xs font-semibold text-secondary hover:underline inline-flex items-center gap-1" href="#">
+      <span>Lihat Semua</span>
+      <span>→</span>
+    </a>
+  </div>
+  <div class="overflow-x-auto">
+    <table class="w-full text-left text-xs">
+      <thead>
+        <tr class="border-b border-slate-200 text-slate-500 uppercase tracking-wider font-semibold">
+          <th class="py-3 px-3 w-12 text-center">NO</th>
+          <th class="py-3 px-3">AKTIVITAS / MATERI</th>
+          <th class="py-3 px-3">KELAS</th>
+          <th class="py-3 px-3">KETERANGAN / NILAI</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-slate-100 text-slate-700">
+        <tr class="hover:bg-slate-50 transition-colors">
+          <td class="py-3 px-3 text-center font-medium text-slate-500">1</td>
+          <td class="py-3 px-3 font-semibold text-slate-800">Kuis Logaritma (Quizizz)</td>
+          <td class="py-3 px-3">XII IPA 1</td>
+          <td class="py-3 px-3"><span class="inline-flex items-center px-2 py-0.5 rounded bg-blue-50 text-blue-700 font-medium">Rata-rata: 86.5</span></td>
+        </tr>
+        <tr class="hover:bg-slate-50 transition-colors">
+          <td class="py-3 px-3 text-center font-medium text-slate-500">2</td>
+          <td class="py-3 px-3 font-semibold text-slate-800">Modul Vektor &amp; Geometri</td>
+          <td class="py-3 px-3">XI IPA 1</td>
+          <td class="py-3 px-3"><span class="text-slate-600">Terbit (24 Mei)</span></td>
+        </tr>
+        <tr class="hover:bg-slate-50 transition-colors">
+          <td class="py-3 px-3 text-center font-medium text-slate-500">3</td>
+          <td class="py-3 px-3 font-semibold text-slate-800">Latihan Soal Matriks</td>
+          <td class="py-3 px-3">XII IPA 2</td>
+          <td class="py-3 px-3"><span class="inline-flex items-center px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-medium">28/30 Siswa Selesai</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div></main>
+<!-- FOOTER (PERSIS SCREEN_59 / SCREEN_67 / SCREEN_79) -->
+<footer class="h-14 px-8 border-t border-slate-200/80 bg-white flex items-center justify-between text-xs text-slate-500">
+<div class="flex items-center gap-2.5">
+<div class="w-5 h-5 rounded-full bg-white shadow-sm border border-slate-200 overflow-hidden flex items-center justify-center shrink-0">
+<img alt="Logo Bimbel Tunas Cendekia" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFKr5R8BkFW5wPcv2eNILemDzqR9AK8ZqZ6xbkNNwpN3skDloU560D6a3JpSNN9nzWkph1o7QHOwXcTBYp89J6DoLB1DQin8Lv8P6kwk-DxGmsiLN0gic3OMOb7k06vFtyubYxAEcqDmE5eAlF8HKtmzB8lDhMcxt-zCQgpPy0CFJc8bNZ-ek0dDy942MbGhrqjnWGwraboj5ekXfM3ch-TIocAF4fZHXotUbIa1PIIEzVC--v0qbgfg">
+</div>
+<p>© 2025 Bimbel Tunas Cendekia. Hak Cipta Dilindungi.</p>
+</div>
+<div class="flex items-center gap-3 font-medium text-gray-500 text-xs">
+<a class="hover:text-slate-800 transition" href="#">Bantuan</a>
+<span>•</span>
+<a class="hover:text-slate-800 transition" href="#">Kebijakan Privasi</a>
+<span>•</span>
+<a class="hover:text-slate-800 transition" href="#">Syarat &amp; Ketentuan</a>
+</div>
+</footer>
+</div>
+
+
+
+
+</body></html>

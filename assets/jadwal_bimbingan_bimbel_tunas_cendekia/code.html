@@ -1,0 +1,454 @@
+<!DOCTYPE html><html lang="id" style="width: 1280px; height: 1024px; overflow: hidden; position: relative;"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Jadwal Bimbingan - Bimbel Tunas Cendekia</title>
+<!-- Tailwind CSS CDN v3 with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#153e75',
+              darkNavy: '#133565',
+              activeBlue: '#3b82f6',
+              lightBlueBg: '#e9f2ff',
+              cardBlue: '#2563eb',
+              cardSky: '#93c5fd',
+              cardYellow: '#fcd34d',
+              cardMuted: '#e0edfd',
+              canvasBg: '#f4f8fc'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Base Layout & Custom Styles matching Screen 8 -->
+<style data-purpose="base-layout">
+    body {
+      background-color: #f0f4f9;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body class="bg-[#eef4fb] min-h-screen flex text-slate-800 font-sans antialiased text-sm">
+<!-- BEGIN: Sidebar (Matching Screen 8 exactly) -->
+<aside class="w-64 bg-[#143d73] text-white flex-shrink-0 flex flex-col justify-between shadow-xl min-h-screen" data-purpose="admin-sidebar">
+<div>
+<!-- Brand Logo Section -->
+<div class="px-6 py-6 flex items-center gap-3">
+<!-- Logo Icon -->
+<div class="w-10 h-10 flex-shrink-0 relative flex items-center justify-center">
+<img alt="Logo Bimbel Tunas Cendekia" class="w-10 h-10 object-contain rounded-full bg-white p-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMEyB_S2xCqctDbZ_40saFvSrDj98eP_5PC-F7FkAX3wgnqGiKhn3ytoJnpwAaYWYS6QQ9YIPEAckfx4IFrs65T9VmMCMJ9faquhkKP6xTlZyzE01HgdSrmuzCQTldWzaUvJJJPwaYgPZXrxzc3zEDtk-wGwid8VDlQ68D9ukUL9yFmXCfx_l8PwKU-YI2UiXsm3KubhklHde-1NbehjA0Bj59VV3BMoAUTevRXmjczL2_pIXpkAni9Q">
+</div>
+<!-- Logo Text -->
+<div class="leading-tight">
+<h1 class="font-bold text-base tracking-wide text-white">Bimbel</h1>
+<p class="text-xs text-blue-100 font-medium tracking-tight">Tunas Cendekia</p>
+</div>
+</div>
+<!-- Navigation Menu (11 items, item 6 'Jadwal Bimbingan' active) -->
+<nav class="mt-2 px-3 space-y-1">
+<!-- 1. Dashboard -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+<path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+</svg>
+<span class="text-sm">Dashboard</span>
+</a>
+<!-- 2. Data Siswa -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+<path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path>
+</svg>
+<span class="text-sm">Data Siswa</span>
+</a>
+<!-- 3. Data Pengajar -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+<path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+</svg>
+<span class="text-sm">Data Pengajar</span>
+</a>
+<!-- 4. Data Kelas -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Data Kelas</span>
+</a>
+<!-- 5. Program Belajar -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Program Belajar</span>
+</a>
+<!-- 6. Jadwal Bimbingan (ACTIVE) -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg bg-[#3b82f6] text-white font-medium shadow-sm transition-colors" href="#">
+<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M8 7V3m8 7V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Jadwal Bimbingan</span>
+</a>
+<!-- 7. Pendaftaran Siswa -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+<path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path>
+</svg>
+<span class="text-sm">Pendaftaran Siswa</span>
+</a>
+<!-- 8. Pembayaran -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Pembayaran</span>
+</a>
+<!-- 9. Laporan -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Laporan</span>
+</a>
+<!-- 10. Pengaturan -->
+
+</nav>
+</div>
+<!-- 11. Logout (At bottom of sidebar) -->
+<div class="px-3 pb-6 pt-4">
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Logout</span>
+</a>
+</div>
+</aside>
+<!-- END: Sidebar -->
+<!-- BEGIN: MainContentWrapper -->
+<div class="flex-1 flex flex-col min-w-0">
+<!-- BEGIN: Topbar (Matching Screen 8 exactly) -->
+<header class="bg-white border-b border-slate-200/80 px-8 py-3.5 flex items-center justify-between sticky top-0 z-20 shadow-sm" data-purpose="top-navigation">
+<!-- Left: Hamburger & Brand Name -->
+<div class="flex items-center gap-3">
+
+
+<button aria-label="Toggle Menu" class="p-1 ml-1 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Right: Date, Notification & Admin Profile -->
+<div class="flex items-center gap-5">
+<!-- Date Pill -->
+
+<!-- Notification Bell -->
+<button aria-label="Notifikasi" class="relative text-slate-600 hover:text-slate-900 transition-colors">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="absolute top-0 right-0 w-2 h-2 bg-blue-600 rounded-full"></span>
+</button>
+<!-- Admin Profile Pill with Dropdown -->
+<div class="flex items-center gap-2.5 cursor-pointer select-none">
+<div class="w-8 h-8 rounded-full bg-[#143d73] flex items-center justify-center text-white text-sm font-semibold">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-sm font-semibold text-slate-700">Admin</span>
+<svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+</header>
+<!-- END: Topbar -->
+<!-- BEGIN: Page Content -->
+<main class="flex-1 p-8 space-y-6 overflow-y-auto" data-purpose="jadwal-main-content">
+<!-- Header Page: Title, Breadcrumb & Action Button -->
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+<div>
+<h2 class="text-2xl font-bold text-slate-900 tracking-tight">Jadwal Bimbingan</h2>
+<p class="text-slate-500 text-sm mt-0.5">Dashboard &gt; Jadwal Bimbingan</p>
+</div>
+<button class="inline-flex items-center justify-center gap-2 bg-[#143d73] hover:bg-[#0f2e57] text-white px-5 py-2.5 rounded-lg text-sm font-medium shadow-sm transition-colors w-fit">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>&nbsp;Tambah Jadwal</span>
+</button>
+</div>
+<!-- Kalender Mingguan / Selector Hari Simple (Matching IMAGE_30 Jadwal Bimbingan) -->
+<div class="bg-white rounded-xl border border-slate-200/80 p-5 shadow-xs">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<h3 class="font-bold text-slate-900 text-sm">Pilih Hari Bimbingan</h3>
+<span class="text-xs text-slate-400 font-medium">(Mei - Juni 2025)</span>
+</div>
+<a class="text-xs text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1" href="#">
+<span>Lihat Kalender</span>
+<span>→</span>
+</a>
+</div>
+<!-- Horizontal Day Selector Bar -->
+<div class="flex items-center gap-3">
+<!-- Chevron Left -->
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors flex-shrink-0">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- 7 Days Grid -->
+<div class="grid grid-cols-7 gap-3 flex-1">
+<!-- SEN 26 -->
+<button class="flex flex-col items-center justify-center py-3 px-2 rounded-xl border border-slate-200/80 bg-slate-50/50 hover:bg-slate-100 text-slate-600 transition-all">
+<span class="text-xs font-medium uppercase tracking-wider text-slate-500">Sen</span>
+<span class="text-base font-bold text-slate-800 mt-1">26</span>
+</button>
+<!-- SEL 27 -->
+<button class="flex flex-col items-center justify-center py-3 px-2 rounded-xl border border-slate-200/80 bg-slate-50/50 hover:bg-slate-100 text-slate-600 transition-all">
+<span class="text-xs font-medium uppercase tracking-wider text-slate-500">Sel</span>
+<span class="text-base font-bold text-slate-800 mt-1">27</span>
+</button>
+<!-- RAB 28 (AKTIF - Biru Solid Terang persis SCREEN_8 & IMAGE_30) -->
+<button class="flex flex-col items-center justify-center py-3 px-2 rounded-xl bg-[#3b82f6] text-white shadow-md shadow-blue-500/20 transition-all">
+<span class="text-xs font-semibold uppercase tracking-wider text-blue-100">Rab</span>
+<span class="text-base font-bold text-white mt-1">28</span>
+</button>
+<!-- KAM 29 -->
+<button class="flex flex-col items-center justify-center py-3 px-2 rounded-xl border border-slate-200/80 bg-slate-50/50 hover:bg-slate-100 text-slate-600 transition-all">
+<span class="text-xs font-medium uppercase tracking-wider text-slate-500">Kam</span>
+<span class="text-base font-bold text-slate-800 mt-1">29</span>
+</button>
+<!-- JUM 30 -->
+<button class="flex flex-col items-center justify-center py-3 px-2 rounded-xl border border-slate-200/80 bg-slate-50/50 hover:bg-slate-100 text-slate-600 transition-all">
+<span class="text-xs font-medium uppercase tracking-wider text-slate-500">Jum</span>
+<span class="text-base font-bold text-slate-800 mt-1">30</span>
+</button>
+<!-- SAB 31 -->
+<button class="flex flex-col items-center justify-center py-3 px-2 rounded-xl border border-slate-200/80 bg-slate-50/50 hover:bg-slate-100 text-slate-600 transition-all">
+<span class="text-xs font-medium uppercase tracking-wider text-slate-500">Sab</span>
+<span class="text-base font-bold text-slate-800 mt-1">31</span>
+</button>
+<!-- MIN 1 -->
+<button class="flex flex-col items-center justify-center py-3 px-2 rounded-xl border border-slate-200/80 bg-slate-50/50 hover:bg-slate-100 text-slate-600 transition-all">
+<span class="text-xs font-medium uppercase tracking-wider text-red-500">Min</span>
+<span class="text-base font-bold text-red-500 mt-1">1</span>
+</button>
+</div>
+<!-- Chevron Right -->
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors flex-shrink-0">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Card Tabel Sesi Jadwal Kelas Hari Ini (Rabu, 28 Mei 2025) -->
+<div class="bg-white rounded-xl border border-slate-200/80 shadow-xs overflow-hidden">
+<!-- Table Header Title Bar -->
+<div class="p-5 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+<div>
+<h3 class="font-bold text-slate-900 text-sm">Sesi Jadwal Hari Ini</h3>
+<p class="text-xs text-slate-500 mt-0.5">Daftar kelas bimbingan aktif untuk hari Rabu, 28 Mei 2025</p>
+</div>
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 border border-blue-200/60 rounded-md text-blue-700 text-xs font-semibold">
+<span class="w-2 h-2 rounded-full bg-blue-500"></span>
+<span>3 Sesi Terdaftar</span>
+</div>
+</div>
+<!-- Clean Structured Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left text-xs">
+<thead>
+<tr class="bg-slate-50/80 text-slate-500 font-semibold border-b border-slate-200/70">
+<th class="py-3 px-5 font-medium">Sesi</th>
+<th class="py-3 px-5 font-medium">Waktu</th>
+<th class="py-3 px-5 font-medium">Mata Pelajaran &amp; Kelas</th>
+<th class="py-3 px-5 font-medium">Pengajar</th>
+
+<th class="py-3 px-5 font-medium">Status</th>
+<th class="py-3 px-5 font-medium text-center">Aksi</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 text-slate-700">
+<!-- Sesi 1: 08:00 - 09:30 | Matematika - X IPA | Pengajar: Dr. Rina Astuti | Ruang A1 | Status: badge hijau Berlangsung | Aksi edit/delete -->
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-4 px-5 font-semibold text-slate-900">Sesi 1</td>
+<td class="py-4 px-5">
+<span class="font-bold text-slate-900 text-xs">08:00 - 09:30</span>
+<span class="block text-[11px] text-slate-400 mt-0.5">90 Menit</span>
+</td>
+<td class="py-4 px-5">
+<div class="font-bold text-slate-900 text-xs">Matematika - X IPA</div>
+<div class="text-[11px] text-slate-500 mt-0.5">Kelas Reguler</div>
+</td>
+<td class="py-4 px-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-blue-100 text-[#143d73] flex items-center justify-center font-bold text-[10px]">RA</div>
+<span class="font-medium text-slate-800">Dr. Rina Astuti</span>
+</div>
+</td>
+
+<td class="py-4 px-5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-100 text-emerald-700">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>Berlangsung</span>
+</span>
+</td>
+<td class="py-4 px-5 text-center">
+<div class="inline-flex items-center gap-1.5">
+<button class="p-1 rounded text-blue-600 hover:bg-blue-50 transition-colors" title="Edit Jadwal">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+</svg>
+</button>
+<button class="p-1 rounded text-red-500 hover:bg-red-50 transition-colors" title="Hapus Jadwal">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</td>
+</tr>
+<!-- Sesi 2: 10:00 - 11:30 | Fisika - XI IPA | Pengajar: Ahmad Fauzi | Ruang B2 | Status: badge biru Akan Datang | Aksi edit/delete -->
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-4 px-5 font-semibold text-slate-900">Sesi 2</td>
+<td class="py-4 px-5">
+<span class="font-bold text-slate-900 text-xs">10:00 - 11:30</span>
+<span class="block text-[11px] text-slate-400 mt-0.5">90 Menit</span>
+</td>
+<td class="py-4 px-5">
+<div class="font-bold text-slate-900 text-xs">Fisika - XI IPA</div>
+<div class="text-[11px] text-slate-500 mt-0.5">Intensif UTBK</div>
+</td>
+<td class="py-4 px-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-[10px]">AF</div>
+<span class="font-medium text-slate-800">Ahmad Fauzi</span>
+</div>
+</td>
+
+<td class="py-4 px-5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-blue-100 text-blue-700">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+<span>Akan Datang</span>
+</span>
+</td>
+<td class="py-4 px-5 text-center">
+<div class="inline-flex items-center gap-1.5">
+<button class="p-1 rounded text-blue-600 hover:bg-blue-50 transition-colors" title="Edit Jadwal">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+</svg>
+</button>
+<button class="p-1 rounded text-red-500 hover:bg-red-50 transition-colors" title="Hapus Jadwal">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</td>
+</tr>
+<!-- Sesi 3: 13:30 - 15:00 | Kimia - XII IPA | Pengajar: Sari Dewi | Ruang Lab IPA | Status: badge biru Akan Datang | Aksi edit/delete -->
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-4 px-5 font-semibold text-slate-900">Sesi 3</td>
+<td class="py-4 px-5">
+<span class="font-bold text-slate-900 text-xs">13:30 - 15:00</span>
+<span class="block text-[11px] text-slate-400 mt-0.5">90 Menit</span>
+</td>
+<td class="py-4 px-5">
+<div class="font-bold text-slate-900 text-xs">Kimia - XII IPA</div>
+<div class="text-[11px] text-slate-500 mt-0.5">Praktikum Mandiri</div>
+</td>
+<td class="py-4 px-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-[10px]">SD</div>
+<span class="font-medium text-slate-800">Sari Dewi</span>
+</div>
+</td>
+
+<td class="py-4 px-5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-blue-100 text-blue-700">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+<span>Akan Datang</span>
+</span>
+</td>
+<td class="py-4 px-5 text-center">
+<div class="inline-flex items-center gap-1.5">
+<button class="p-1 rounded text-blue-600 hover:bg-blue-50 transition-colors" title="Edit Jadwal">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+</svg>
+</button>
+<button class="p-1 rounded text-red-500 hover:bg-red-50 transition-colors" title="Hapus Jadwal">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Footer Info Table / Pagination Bar -->
+<div class="p-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+<span>Menampilkan 1–3 dari 3 sesi</span>
+<div class="flex items-center gap-1">
+<button class="w-7 h-7 rounded border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-slate-50" disabled="">‹</button>
+<button class="w-7 h-7 rounded bg-[#3b82f6] text-white font-semibold flex items-center justify-center">1</button>
+<button class="w-7 h-7 rounded border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-slate-50" disabled="">›</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BEGIN: Footer (Matching Screen 8 exactly) -->
+<footer class="bg-white border-t border-slate-200/80 px-8 py-4 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
+<div class="flex items-center gap-2">
+<img alt="Logo Tunas Cendekia" class="w-5 h-5 rounded-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMEyB_S2xCqctDbZ_40saFvSrDj98eP_5PC-F7FkAX3wgnqGiKhn3ytoJnpwAaYWYS6QQ9YIPEAckfx4IFrs65T9VmMCMJ9faquhkKP6xTlZyzE01HgdSrmuzCQTldWzaUvJJJPwaYgPZXrxzc3zEDtk-wGwid8VDlQ68D9ukUL9yFmXCfx_l8PwKU-YI2UiXsm3KubhklHde-1NbehjA0Bj59VV3BMoAUTevRXmjczL2_pIXpkAni9Q">
+<span>© 2025 Bimbel Tunas Cendekia. Hak Cipta Dilindungi.</span>
+</div>
+<div class="flex items-center gap-4">
+<a class="hover:text-blue-600 transition-colors" href="#">Bantuan</a>
+<a class="hover:text-blue-600 transition-colors" href="#">Kebijakan Privasi</a>
+<a class="hover:text-blue-600 transition-colors" href="#">Syarat &amp; Ketentuan</a>
+</div>
+</footer>
+<!-- END: Footer -->
+</div>
+<!-- END: MainContentWrapper -->
+
+
+
+
+
+
+</body></html>

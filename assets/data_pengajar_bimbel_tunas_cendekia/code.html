@@ -1,0 +1,394 @@
+<!DOCTYPE html><html lang="id"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Data Pengajar - Bimbel Tunas Cendekia</title>
+<!-- Tailwind CSS CDN v3 with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#153e75',
+              darkNavy: '#133565',
+              activeBlue: '#3b82f6',
+              lightBlueBg: '#e9f2ff',
+              cardBlue: '#2563eb',
+              cardSky: '#93c5fd',
+              cardYellow: '#fcd34d',
+              cardMuted: '#e0edfd',
+              canvasBg: '#f4f8fc'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: CustomStyles -->
+<style data-purpose="base-layout">
+    body {
+      background-color: #f0f4f9;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+<style data-purpose="custom-elements">
+    /* Subtle custom scrollbar for clean UI */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+<!-- END: CustomStyles -->
+</head>
+<body class="bg-[#eef4fb] min-h-screen flex text-slate-800 font-sans antialiased text-sm">
+<!-- BEGIN: Sidebar -->
+<aside class="w-64 bg-[#143d73] text-white flex-shrink-0 flex flex-col justify-between shadow-xl min-h-screen" data-purpose="admin-sidebar">
+<div>
+<!-- Brand Logo Section -->
+<div class="px-6 py-6 flex items-center gap-3">
+<!-- Logo Icon -->
+<div class="w-10 h-10 flex-shrink-0 relative flex items-center justify-center">
+<img alt="Logo Bimbel Tunas Cendekia" class="w-10 h-10 object-contain rounded-full bg-white p-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMEyB_S2xCqctDbZ_40saFvSrDj98eP_5PC-F7FkAX3wgnqGiKhn3ytoJnpwAaYWYS6QQ9YIPEAckfx4IFrs65T9VmMCMJ9faquhkKP6xTlZyzE01HgdSrmuzCQTldWzaUvJJJPwaYgPZXrxzc3zEDtk-wGwid8VDlQ68D9ukUL9yFmXCfx_l8PwKU-YI2UiXsm3KubhklHde-1NbehjA0Bj59VV3BMoAUTevRXmjczL2_pIXpkAni9Q">
+</div>
+<!-- Logo Text -->
+<div class="leading-tight">
+<h1 class="font-bold text-base tracking-wide text-white">Bimbel</h1>
+<p class="text-xs text-blue-100 font-medium tracking-tight">Tunas Cendekia</p>
+</div>
+</div>
+<!-- Navigation Menu (Strictly the 11 designated items) -->
+<nav class="mt-2 px-3 space-y-1">
+<!-- 1. Dashboard -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+<path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+</svg>
+<span class="text-sm">Dashboard</span>
+</a>
+<!-- 2. Data Siswa -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+<path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path>
+</svg>
+<span class="text-sm">Data Siswa</span>
+</a>
+<!-- 3. Data Pengajar (Active) -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg bg-[#3b82f6] text-white font-medium shadow-sm transition-colors" href="#">
+<svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+<path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+</svg>
+<span class="text-sm">Data Pengajar</span>
+</a>
+<!-- 4. Data Kelas -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Data Kelas</span>
+</a>
+<!-- 5. Program Belajar -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Program Belajar</span>
+</a>
+<!-- 6. Jadwal Bimbingan -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M8 7V3m8 7V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Jadwal Bimbingan</span>
+</a>
+<!-- 7. Pendaftaran Siswa -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+<path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path>
+</svg>
+<span class="text-sm">Pendaftaran Siswa</span>
+</a>
+<!-- 8. Pembayaran -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Pembayaran</span>
+</a>
+<!-- 9. Laporan -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Laporan</span>
+</a>
+<!-- 10. Pengaturan -->
+
+</nav>
+</div>
+<!-- 11. Logout (At bottom of sidebar) -->
+<div class="px-3 pb-6 pt-4">
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Logout</span>
+</a>
+</div>
+</aside>
+<!-- END: Sidebar -->
+<!-- BEGIN: MainContentWrapper -->
+<div class="flex-1 flex flex-col min-w-0">
+<!-- BEGIN: Topbar -->
+<header class="bg-white border-b border-slate-200/80 px-8 py-3.5 flex items-center justify-between sticky top-0 z-20 shadow-sm" data-purpose="top-navigation">
+<!-- Left: Hamburger icon -->
+<div class="flex items-center gap-3">
+<button aria-label="Toggle Menu" class="p-1 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Right: Notification & Admin Profile -->
+<div class="flex items-center gap-6">
+<!-- Date Badge -->
+
+<!-- Notification Bell -->
+<button aria-label="Notifikasi" class="relative text-slate-600 hover:text-slate-900 transition-colors">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="absolute top-0 right-0 w-2 h-2 bg-blue-600 rounded-full"></span>
+</button>
+<!-- Admin Profile Pill -->
+<div class="flex items-center gap-2.5 cursor-pointer select-none">
+<div class="w-8 h-8 rounded-full bg-[#143d73] flex items-center justify-center text-white text-sm font-semibold">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-sm font-semibold text-slate-700">Admin</span>
+<svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+</header>
+<!-- END: Topbar -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 p-8 overflow-y-auto space-y-6" data-purpose="teacher-data-content">
+<!-- Top Title & Action Button -->
+<section class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+<div>
+<h2 class="text-2xl font-bold text-slate-900 tracking-tight">Data Pengajar</h2>
+<p class="text-slate-500 text-xs mt-1">Dashboard &gt; Data Pengajar</p>
+</div>
+<button class="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 bg-[#143d73] hover:bg-[#0f2e56] text-white text-xs font-semibold rounded-lg shadow-sm transition-all" type="button">
+<span>+</span>
+<span>Tambah Pengajar</span>
+</button>
+</section>
+<!-- Content Card (Matching IMAGE_30 / IMAGE_31 Reference) -->
+<section class="bg-white rounded-xl border border-slate-200/80 shadow-xs p-6 space-y-5">
+<!-- Search Toolbar -->
+<div class="flex items-center justify-between gap-4">
+<div class="relative w-full max-w-sm">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+<input class="block w-full pl-9 pr-3 py-2 border border-slate-200 rounded-lg text-xs placeholder-slate-400 text-slate-800 bg-[#f8fafc] focus:outline-none focus:bg-white focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-colors" id="teacherSearch" placeholder="Cari nama pengajar..." type="text">
+</div>
+<div class="flex items-center gap-1.5">
+<button class="w-8 h-8 rounded-lg border border-slate-200 bg-white flex items-center justify-center text-slate-400 hover:text-slate-600 hover:bg-slate-50 transition-colors" title="Sebelumnya">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<button class="w-8 h-8 rounded-lg border border-slate-200 bg-white flex items-center justify-center text-slate-400 hover:text-slate-600 hover:bg-slate-50 transition-colors" title="Berikutnya">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left text-xs border-collapse">
+<thead>
+<tr class="text-slate-600 font-semibold border-b border-slate-100">
+<th class="py-3 px-3 w-12 font-semibold">No</th>
+<th class="py-3 px-3 font-semibold">ID Pengajar</th>
+<th class="py-3 px-3 font-semibold">Nama Pengajar</th>
+<th class="py-3 px-3 font-semibold">Mata Pelajaran</th>
+<th class="py-3 px-3 font-semibold">No. HP</th>
+<th class="py-3 px-3 font-semibold">Email</th>
+<th class="py-3 px-3 text-center font-semibold">Status</th>
+<th class="py-3 px-3 text-center w-24 font-semibold">Aksi</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 text-slate-700" id="teacherTableBody">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50/60 transition-colors">
+<td class="py-3.5 px-3 text-slate-500">1</td>
+<td class="py-3.5 px-3 font-medium text-slate-700">G001</td>
+<td class="py-3.5 px-3 font-semibold text-slate-900">Dr. Rina Astuti</td>
+<td class="py-3.5 px-3 text-slate-600">Matematika</td>
+<td class="py-3.5 px-3 text-slate-600">08123456789</td>
+<td class="py-3.5 px-3 text-slate-600">rina@tc.id</td>
+<td class="py-3.5 px-3 text-center">
+<span class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-[#ecfdf5] text-[#059669] border border-[#a7f3d0]">
+Aktif
+</span>
+</td>
+<td class="py-3.5 px-3 text-center">
+<div class="flex items-center justify-center gap-2.5">
+<button class="text-blue-500 hover:text-blue-700 transition-colors" title="Edit">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<button class="text-rose-500 hover:text-rose-700 transition-colors" title="Hapus">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50/60 transition-colors">
+<td class="py-3.5 px-3 text-slate-500">2</td>
+<td class="py-3.5 px-3 font-medium text-slate-700">G002</td>
+<td class="py-3.5 px-3 font-semibold text-slate-900">Ahmad Fauzi</td>
+<td class="py-3.5 px-3 text-slate-600">Fisika</td>
+<td class="py-3.5 px-3 text-slate-600">08123456788</td>
+<td class="py-3.5 px-3 text-slate-600">ahmad@tc.id</td>
+<td class="py-3.5 px-3 text-center">
+<span class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-[#ecfdf5] text-[#059669] border border-[#a7f3d0]">
+Aktif
+</span>
+</td>
+<td class="py-3.5 px-3 text-center">
+<div class="flex items-center justify-center gap-2.5">
+<button class="text-blue-500 hover:text-blue-700 transition-colors" title="Edit">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<button class="text-rose-500 hover:text-rose-700 transition-colors" title="Hapus">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50/60 transition-colors">
+<td class="py-3.5 px-3 text-slate-500">3</td>
+<td class="py-3.5 px-3 font-medium text-slate-700">G003</td>
+<td class="py-3.5 px-3 font-semibold text-slate-900">Sari Dewi</td>
+<td class="py-3.5 px-3 text-slate-600">Kimia</td>
+<td class="py-3.5 px-3 text-slate-600">08123456787</td>
+<td class="py-3.5 px-3 text-slate-600">sari@tc.id</td>
+<td class="py-3.5 px-3 text-center">
+<span class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-[#ecfdf5] text-[#059669] border border-[#a7f3d0]">
+Aktif
+</span>
+</td>
+<td class="py-3.5 px-3 text-center">
+<div class="flex items-center justify-center gap-2.5">
+<button class="text-blue-500 hover:text-blue-700 transition-colors" title="Edit">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<button class="text-rose-500 hover:text-rose-700 transition-colors" title="Hapus">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer (Matching Reference) -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2 text-xs text-slate-500">
+<span>Menampilkan 1–3 dari 3 data</span>
+<div class="flex items-center gap-1.5">
+<button class="w-7 h-7 rounded border border-slate-200 bg-white flex items-center justify-center text-slate-400 hover:text-slate-600 transition-colors" title="Prev">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<button class="w-7 h-7 rounded bg-[#3b82f6] text-white font-semibold flex items-center justify-center shadow-xs">
+1
+</button>
+<button class="w-7 h-7 rounded border border-slate-200 bg-white flex items-center justify-center text-slate-400 hover:text-slate-600 transition-colors" title="Next">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: Footer -->
+<footer class="bg-white border-t border-slate-200/80 px-8 py-4 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
+<div class="flex items-center gap-2">
+<img alt="Logo Tunas Cendekia" class="w-5 h-5 rounded-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMEyB_S2xCqctDbZ_40saFvSrDj98eP_5PC-F7FkAX3wgnqGiKhn3ytoJnpwAaYWYS6QQ9YIPEAckfx4IFrs65T9VmMCMJ9faquhkKP6xTlZyzE01HgdSrmuzCQTldWzaUvJJJPwaYgPZXrxzc3zEDtk-wGwid8VDlQ68D9ukUL9yFmXCfx_l8PwKU-YI2UiXsm3KubhklHde-1NbehjA0Bj59VV3BMoAUTevRXmjczL2_pIXpkAni9Q">
+<span>© 2025 Bimbel Tunas Cendekia. Hak Cipta Dilindungi.</span>
+</div>
+<div class="flex items-center gap-4">
+<a class="hover:text-blue-600 transition-colors" href="#">Bantuan</a>
+<a class="hover:text-blue-600 transition-colors" href="#">Kebijakan Privasi</a>
+<a class="hover:text-blue-600 transition-colors" href="#">Syarat &amp; Ketentuan</a>
+</div>
+</footer>
+<!-- END: Footer -->
+</div>
+<!-- END: MainContentWrapper -->
+<!-- Search filter script -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('teacherSearch');
+    const tableRows = document.querySelectorAll('#teacherTableBody tr');
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase();
+        tableRows.forEach(row => {
+          const text = row.textContent.toLowerCase();
+          row.style.display = text.includes(query) ? '' : 'none';
+        });
+      });
+    }
+  });
+</script>
+
+
+
+
+</body></html>

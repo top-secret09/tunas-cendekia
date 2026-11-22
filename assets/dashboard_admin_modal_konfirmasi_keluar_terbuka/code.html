@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dashboard Admin - Bimbel Tunas Cendekia</title>
+<!-- Tailwind CSS CDN v3 with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#153e75',
+              darkNavy: '#133565',
+              activeBlue: '#3b82f6',
+              lightBlueBg: '#e9f2ff',
+              cardBlue: '#2563eb',
+              cardSky: '#93c5fd',
+              cardYellow: '#fcd34d',
+              cardMuted: '#e0edfd',
+              canvasBg: '#f4f8fc'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: CustomStyles -->
+<style data-purpose="base-layout">
+    body {
+      background-color: #f0f4f9;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+<style data-purpose="custom-elements">
+    /* Subtle custom scrollbar for clean UI */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+<!-- END: CustomStyles -->
+</head>
+<body class="bg-[#eef4fb] min-h-screen flex text-slate-800 font-sans antialiased text-sm">
+<!-- BEGIN: Sidebar -->
+<aside class="w-64 bg-[#143d73] text-white flex-shrink-0 flex flex-col justify-between shadow-xl min-h-screen" data-purpose="admin-sidebar">
+<div>
+<!-- Brand Logo Section -->
+<div class="px-6 py-6 flex items-center gap-3">
+<!-- Logo Icon -->
+<div class="w-10 h-10 flex-shrink-0 relative flex items-center justify-center"><img alt="Logo Bimbel Tunas Cendekia" class="w-10 h-10 object-contain rounded-full bg-white p-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMEyB_S2xCqctDbZ_40saFvSrDj98eP_5PC-F7FkAX3wgnqGiKhn3ytoJnpwAaYWYS6QQ9YIPEAckfx4IFrs65T9VmMCMJ9faquhkKP6xTlZyzE01HgdSrmuzCQTldWzaUvJJJPwaYgPZXrxzc3zEDtk-wGwid8VDlQ68D9ukUL9yFmXCfx_l8PwKU-YI2UiXsm3KubhklHde-1NbehjA0Bj59VV3BMoAUTevRXmjczL2_pIXpkAni9Q"/></div>
+<!-- Logo Text -->
+<div class="leading-tight">
+<h1 class="font-bold text-base tracking-wide text-white">Bimbel</h1>
+<p class="text-xs text-blue-100 font-medium tracking-tight">Tunas Cendekia</p>
+</div>
+</div>
+<!-- Navigation Menu (Strictly the 11 designated items) -->
+<nav class="mt-2 px-3 space-y-1">
+<!-- 1. Dashboard (Active) -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg bg-[#3b82f6] text-white font-medium shadow-sm transition-colors" href="#">
+<svg class="w-5 h-5 text-white" fill="currentColor" viewbox="0 0 20 20">
+<path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+</svg>
+<span class="text-sm">Dashboard</span>
+</a>
+<!-- 2. Data Siswa -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="currentColor" viewbox="0 0 20 20">
+<path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path>
+</svg>
+<span class="text-sm">Data Siswa</span>
+</a>
+<!-- 3. Data Pengajar -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="currentColor" viewbox="0 0 20 20">
+<path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+</svg>
+<span class="text-sm">Data Pengajar</span>
+</a>
+<!-- 4. Data Kelas -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Data Kelas</span>
+</a>
+<!-- 5. Program Belajar -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Program Belajar</span>
+</a>
+<!-- 6. Jadwal Bimbingan -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M8 7V3m8 7V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Jadwal Bimbingan</span>
+</a>
+<!-- 7. Pendaftaran Siswa -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="currentColor" viewbox="0 0 20 20">
+<path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path>
+</svg>
+<span class="text-sm">Pendaftaran Siswa</span>
+</a>
+<!-- 8. Pembayaran -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Pembayaran</span>
+</a>
+<!-- 9. Laporan -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Laporan</span>
+</a>
+<!-- 10. Pengaturan -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Pengaturan</span>
+</a>
+</nav>
+</div>
+<!-- 11. Logout (At bottom of sidebar) -->
+<div class="px-3 pb-6 pt-4">
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#" id="sidebar-logout-btn">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Logout</span>
+</a>
+</div>
+</aside>
+<!-- END: Sidebar -->
+<!-- BEGIN: MainContentWrapper -->
+<div class="flex-1 flex flex-col min-w-0">
+<!-- BEGIN: Topbar -->
+<header class="bg-white border-b border-slate-200/80 px-8 py-3.5 flex items-center justify-between sticky top-0 z-20 shadow-sm" data-purpose="top-navigation"><!-- Left: Hamburger icon -->
+<div class="flex items-center gap-3">
+<button aria-label="Toggle Menu" class="p-1 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Right: Notification & Admin Profile -->
+<div class="flex items-center gap-6">
+<!-- Notification Bell -->
+<button aria-label="Notifikasi" class="relative text-slate-600 hover:text-slate-900 transition-colors">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="absolute top-0 right-0 w-2 h-2 bg-blue-600 rounded-full"></span>
+</button>
+<!-- Admin Profile Pill -->
+<div class="relative flex items-center select-none" id="admin-profile-menu-container"><button aria-expanded="false" class="flex items-center gap-2.5 cursor-pointer p-1 rounded-lg hover:bg-slate-50 transition-colors" id="admin-profile-btn" type="button"><div class="w-8 h-8 rounded-full bg-[#143d73] flex items-center justify-center text-white text-sm font-semibold"><svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" fill-rule="evenodd"></path></svg></div><span class="text-sm font-semibold text-slate-700">Admin</span><svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path></svg></button><div class="absolute right-0 top-full mt-2 w-64 bg-white rounded-xl shadow-xl border border-slate-100 z-50 py-2 divide-y divide-slate-100 hidden" id="admin-profile-dropdown"><div class="px-4 py-3 flex items-start gap-3"><div class="w-10 h-10 rounded-full bg-[#143d73] flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">A</div><div class="min-w-0 flex-1"><p class="text-sm font-semibold text-slate-800 truncate">Administrator Utama</p><p class="text-xs text-slate-500 truncate">admin@tunas-cendekia.sch.id</p><span class="inline-block mt-1.5 px-2 py-0.5 bg-blue-50 text-blue-600 rounded-full text-[11px] font-semibold tracking-wide border border-blue-100/60">Super Admin</span></div></div><div class="py-1.5"><a class="flex items-center gap-2.5 px-4 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition-colors" href="#" id="btn-trigger-profile-modal"><svg class="w-4 h-4 text-slate-400 stroke-2" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Profil Saya</span></a><a class="flex items-center gap-2.5 px-4 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition-colors" href="#"><svg class="w-4 h-4 text-slate-400 stroke-2" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Pengaturan Akun</span></a></div><div class="pt-1.5"><a class="flex items-center gap-2.5 px-4 py-2 text-xs font-semibold text-red-600 hover:bg-red-50 transition-colors" href="#" id="btn-trigger-logout-modal"><svg class="w-4 h-4 text-red-500 stroke-2" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Keluar / Logout</span></a></div></div></div>
+</div></header>
+<!-- END: Topbar -->
+<!-- BEGIN: DashboardBody -->
+<main class="flex-1 p-8 space-y-6 overflow-y-auto" data-purpose="dashboard-main-content">
+<!-- Page Header & Date Badge -->
+<section class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+<div>
+<h2 class="text-2xl font-bold text-slate-900 tracking-tight">Dashboard</h2>
+<p class="text-slate-500 text-sm mt-0.5">Selamat datang, Admin!</p>
+</div>
+<!-- Date Badge -->
+<div class="inline-flex items-center gap-2.5 px-4 py-2 bg-white border border-slate-200/90 rounded-lg text-slate-700 text-xs font-semibold shadow-xs">
+<svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M8 7V3m8 7V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Senin, 26 Mei 2025</span>
+</div>
+</section>
+<!-- BEGIN: 4 Stat Cards Row -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5" data-purpose="summary-cards">
+<!-- Card 1: Total Siswa (Dark Blue) -->
+<div class="bg-[#2962be] rounded-xl p-5 text-white shadow-sm flex flex-col justify-between">
+<div>
+<div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+<svg class="w-8 h-8 text-white" fill="currentColor" viewbox="0 0 24 24">
+<path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"></path>
+</svg>
+</div>
+<div class="text-xs font-medium text-blue-100">Total Siswa</div>
+<div class="text-3xl font-bold mt-1 text-white tracking-tight">1.250</div>
+</div>
+</div>
+<!-- Card 2: Total Pengajar (Sky Blue) -->
+<div class="bg-[#99c4ff] rounded-xl p-5 text-slate-800 shadow-sm flex flex-col justify-between">
+<div>
+<div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+<svg class="w-8 h-8 text-[#1e3a8a]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"></path>
+</svg>
+</div>
+<div class="text-xs font-semibold text-slate-800">Total Pengajar</div>
+<div class="text-3xl font-bold mt-1 text-slate-900 tracking-tight">45</div>
+</div>
+</div>
+<!-- Card 3: Total Kelas (Soft Yellow) -->
+<div class="bg-[#ffd778] rounded-xl p-5 text-slate-800 shadow-sm flex flex-col justify-between">
+<div>
+<div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+<svg class="w-8 h-8 text-[#854d0e]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.65 1 5.75v14.5c1.45-1.1 3.55-1.5 5.5-1.5 1.95 0 4.05.4 5.5 1.5 1.45-1.1 3.55-1.5 5.5-1.5 1.17 0 2.39.15 3.5.5V5zm-2 12c-.88-.23-1.84-.35-2.8-.35-1.4 0-2.82.3-4.2.9V7.1c1.13-.57 2.45-.85 3.7-.85 1.15 0 2.27.2 3.3.65v10.1z"></path>
+</svg>
+</div>
+<div class="text-xs font-semibold text-slate-800">Total Kelas</div>
+<div class="text-3xl font-bold mt-1 text-slate-900 tracking-tight">30</div>
+</div>
+</div>
+<!-- Card 4: Total Pendaftaran (Light Blue/Gray) -->
+<div class="bg-[#e4effb] rounded-xl p-5 text-slate-800 shadow-sm flex flex-col justify-between border border-blue-100/50">
+<div>
+<div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+<svg class="w-8 h-8 text-[#1e3a8a]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"></path>
+</svg>
+</div>
+<div class="text-xs font-semibold text-slate-800">Total Pendaftaran</div>
+<div class="text-3xl font-bold mt-1 text-slate-900 tracking-tight">120</div>
+</div>
+</div>
+</section>
+<!-- END: 4 Stat Cards Row -->
+<!-- BEGIN: Charts Section -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-5" data-purpose="charts-section">
+<!-- Left: Statistik Jumlah Siswa (Line Chart) -->
+<div class="bg-white p-5 rounded-xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
+<h3 class="font-bold text-slate-900 text-sm mb-4">Statistik Jumlah Siswa</h3>
+<div class="w-full flex items-center">
+<!-- Y-Axis Labels -->
+<div class="flex flex-col justify-between text-[11px] text-slate-500 font-medium h-44 pr-2 text-right w-10 select-none">
+<span>1.000</span>
+<span>750</span>
+<span>500</span>
+<span>250</span>
+<span>0</span>
+</div>
+<!-- Chart Area Container -->
+<div class="flex-1 flex flex-col">
+<!-- SVG Grid and Line Plot -->
+<div class="relative w-full h-44">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 500 176">
+<!-- Horizontal Grid Lines -->
+<line stroke="#e2e8f0" stroke-width="1" x1="0" x2="500" y1="8" y2="8"></line>
+<line stroke="#e2e8f0" stroke-width="1" x1="0" x2="500" y1="48" y2="48"></line>
+<line stroke="#e2e8f0" stroke-width="1" x1="0" x2="500" y1="88" y2="88"></line>
+<line stroke="#e2e8f0" stroke-width="1" x1="0" x2="500" y1="128" y2="128"></line>
+<line stroke="#cbd5e1" stroke-width="1.2" x1="0" x2="500" y1="168" y2="168"></line>
+<!-- Trend Line (Upward Curve) -->
+<!-- Points roughly: Jan=380, Feb=500, Mar=580, Apr=660, May=760, Jun=910 -->
+<polyline fill="none" points="35,110 115,95 200,82 285,70 375,50 460,25" stroke="#3b82f6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
+<!-- Data Point Dots -->
+<circle cx="35" cy="110" fill="#3b82f6" r="4.5" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="115" cy="95" fill="#3b82f6" r="4.5" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="200" cy="82" fill="#3b82f6" r="4.5" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="285" cy="70" fill="#3b82f6" r="4.5" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="375" cy="50" fill="#3b82f6" r="4.5" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="460" cy="25" fill="#3b82f6" r="4.5" stroke="#ffffff" stroke-width="1.5"></circle>
+</svg>
+</div>
+<!-- X-Axis Labels -->
+<div class="flex justify-between text-[11px] text-slate-500 font-medium px-4 pt-2 select-none">
+<span>Jan</span>
+<span>Feb</span>
+<span>Mar</span>
+<span>Apr</span>
+<span>Mei</span>
+<span>Jun</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Grafik Pembayaran (Bar Chart) -->
+<div class="bg-white p-5 rounded-xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
+<h3 class="font-bold text-slate-900 text-sm mb-4">Grafik Pembayaran</h3>
+<div class="w-full flex items-center">
+<!-- Y-Axis Labels -->
+<div class="flex flex-col justify-between text-[11px] text-slate-500 font-medium h-44 pr-2 text-right w-10 select-none">
+<span>75jt</span>
+<span>50jt</span>
+<span>25jt</span>
+<span>0</span>
+</div>
+<!-- Bar Chart Area Container -->
+<div class="flex-1 flex flex-col">
+<div class="relative w-full h-44 flex items-end">
+<!-- Horizontal Grid Lines inside Bar Chart -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none">
+<div class="border-b border-slate-200/70 w-full h-0"></div>
+<div class="border-b border-slate-200/70 w-full h-0"></div>
+<div class="border-b border-slate-200/70 w-full h-0"></div>
+<div class="border-b border-slate-300 w-full h-0"></div>
+</div>
+<!-- 6 Monthly Bars -->
+<div class="w-full flex justify-between items-end px-3 relative z-10 h-full pb-[1px]">
+<!-- Jan (approx 30jt) -->
+<div class="flex flex-col items-center w-8">
+<div class="w-5 bg-[#3177d6] rounded-t-sm h-[38%] transition-all hover:bg-blue-600"></div>
+</div>
+<!-- Feb (approx 48jt) -->
+<div class="flex flex-col items-center w-8">
+<div class="w-5 bg-[#3177d6] rounded-t-sm h-[58%] transition-all hover:bg-blue-600"></div>
+</div>
+<!-- Mar (approx 55jt) -->
+<div class="flex flex-col items-center w-8">
+<div class="w-5 bg-[#3177d6] rounded-t-sm h-[68%] transition-all hover:bg-blue-600"></div>
+</div>
+<!-- Apr (approx 49jt) -->
+<div class="flex flex-col items-center w-8">
+<div class="w-5 bg-[#3177d6] rounded-t-sm h-[60%] transition-all hover:bg-blue-600"></div>
+</div>
+<!-- Mei (approx 70jt) -->
+<div class="flex flex-col items-center w-8">
+<div class="w-5 bg-[#3177d6] rounded-t-sm h-[86%] transition-all hover:bg-blue-600"></div>
+</div>
+<!-- Jun (approx 59jt) -->
+<div class="flex flex-col items-center w-8">
+<div class="w-5 bg-[#3177d6] rounded-t-sm h-[72%] transition-all hover:bg-blue-600"></div>
+</div>
+</div>
+</div>
+<!-- X-Axis Labels -->
+<div class="flex justify-between text-[11px] text-slate-500 font-medium px-4 pt-2 select-none">
+<span>Jan</span>
+<span>Feb</span>
+<span>Mar</span>
+<span>Apr</span>
+<span>Mei</span>
+<span>Jun</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Charts Section -->
+<!-- BEGIN: Bottom Three Panels Row -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-5" data-purpose="recent-activities">
+<!-- Panel 1: Siswa Terbaru -->
+<div class="bg-white p-5 rounded-xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-bold text-slate-900 text-sm">Siswa Terbaru</h3>
+<a class="text-xs text-blue-600 hover:text-blue-700 font-medium flex items-center gap-0.5" href="#">
+                Lihat Semua →
+              </a>
+</div>
+<!-- Table of recent students -->
+<div class="overflow-x-auto">
+<table class="w-full text-left text-xs">
+<thead>
+<tr class="text-slate-500 font-semibold border-b border-slate-100">
+<th class="pb-2.5 font-medium">No</th>
+<th class="pb-2.5 font-medium">Nama Siswa</th>
+<th class="pb-2.5 font-medium">Kelas</th>
+<th class="pb-2.5 font-medium text-right">Tanggal Daftar</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 text-slate-700">
+<tr class="hover:bg-slate-50/60">
+<td class="py-2.5 font-medium text-slate-500">1</td>
+<td class="py-2.5 font-medium text-slate-900">Andi Pratama</td>
+<td class="py-2.5 text-slate-600">SMP</td>
+<td class="py-2.5 text-right text-slate-500 font-medium">25/05/2025</td>
+</tr>
+<tr class="hover:bg-slate-50/60">
+<td class="py-2.5 font-medium text-slate-500">2</td>
+<td class="py-2.5 font-medium text-slate-900">Siti Nurhaliza</td>
+<td class="py-2.5 text-slate-600">SMA</td>
+<td class="py-2.5 text-right text-slate-500 font-medium">24/05/2025</td>
+</tr>
+<tr class="hover:bg-slate-50/60">
+<td class="py-2.5 font-medium text-slate-500">3</td>
+<td class="py-2.5 font-medium text-slate-900">Budi Santoso</td>
+<td class="py-2.5 text-slate-600">SMP</td>
+<td class="py-2.5 text-right text-slate-500 font-medium">23/05/2025</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Panel 2: Jadwal Terdekat -->
+<div class="bg-white p-5 rounded-xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-bold text-slate-900 text-sm">Jadwal Terdekat</h3>
+<a class="text-xs text-blue-600 hover:text-blue-700 font-medium flex items-center gap-0.5" href="#">
+                Lihat Semua →
+              </a>
+</div>
+<!-- List of schedule items -->
+<div class="space-y-4">
+<div class="border-b border-slate-100 pb-3">
+<div class="text-xs font-bold text-slate-900">Hari ini, 08:00</div>
+<div class="text-xs text-slate-500 mt-0.5">Matematika - XI IPA</div>
+</div>
+<div>
+<div class="text-xs font-bold text-slate-900">Hari ini, 10:00</div>
+<div class="text-xs text-slate-500 mt-0.5">Fisika - XI IPA</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Panel 3: Notifikasi -->
+<div class="bg-white p-5 rounded-xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-bold text-slate-900 text-sm">Notifikasi</h3>
+<a class="text-xs text-blue-600 hover:text-blue-700 font-medium flex items-center gap-0.5" href="#">
+                Lihat Semua →
+              </a>
+</div>
+<!-- Notifications list -->
+<div class="space-y-3.5">
+<!-- Item 1: Pembayaran baru -->
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-amber-500 flex items-center justify-center text-white flex-shrink-0 mt-0.5 shadow-xs">
+<svg class="w-3.5 h-3.5 stroke-current stroke-2" fill="none" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div>
+<p class="text-xs font-bold text-slate-900">Pembayaran baru</p>
+<p class="text-[11px] text-slate-400 mt-0.5">2 menit yang lalu</p>
+</div>
+</div>
+<!-- Item 2: Pendaftaran baru -->
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-amber-500 flex items-center justify-center text-white flex-shrink-0 mt-0.5 shadow-xs">
+<svg class="w-3.5 h-3.5 stroke-current stroke-2" fill="none" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div>
+<p class="text-xs font-bold text-slate-900">Pendaftaran baru</p>
+<p class="text-[11px] text-slate-400 mt-0.5">10 menit yang lalu</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Bottom Three Panels Row -->
+</main><footer class="bg-white border-t border-slate-200/80 px-8 py-4 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2"><div class="flex items-center gap-2"><img alt="Logo Tunas Cendekia" class="w-5 h-5 rounded-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMEyB_S2xCqctDbZ_40saFvSrDj98eP_5PC-F7FkAX3wgnqGiKhn3ytoJnpwAaYWYS6QQ9YIPEAckfx4IFrs65T9VmMCMJ9faquhkKP6xTlZyzE01HgdSrmuzCQTldWzaUvJJJPwaYgPZXrxzc3zEDtk-wGwid8VDlQ68D9ukUL9yFmXCfx_l8PwKU-YI2UiXsm3KubhklHde-1NbehjA0Bj59VV3BMoAUTevRXmjczL2_pIXpkAni9Q"/><span>© 2025 Bimbel Tunas Cendekia. Hak Cipta Dilindungi.</span></div><div class="flex items-center gap-4"><a class="hover:text-blue-600 transition-colors" href="#">Bantuan</a><a class="hover:text-blue-600 transition-colors" href="#">Kebijakan Privasi</a><a class="hover:text-blue-600 transition-colors" href="#">Syarat &amp; Ketentuan</a></div></footer>
+<!-- END: DashboardBody -->
+</div>
+<!-- END: MainContentWrapper -->
+<!-- BEGIN: Modal Profil Saya -->
+<div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-200" id="modal-profile">
+<div class="bg-white rounded-2xl shadow-2xl border border-slate-100 max-w-lg w-full overflow-hidden transform scale-95 transition-transform duration-200" id="modal-profile-card">
+<!-- Header -->
+<div class="px-6 py-5 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
+<div>
+<h3 class="text-lg font-bold text-slate-900 tracking-tight">Profil Saya</h3>
+<p class="text-xs text-slate-500 mt-0.5">Informasi akun dan data pribadi administrator</p>
+</div>
+<button class="modal-close-profile w-8 h-8 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 flex items-center justify-center transition-colors" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+</div>
+<!-- Body -->
+<form class="p-6 space-y-4" id="profile-form" onsubmit="event.preventDefault();">
+<!-- Avatar row -->
+<div class="flex items-center gap-4 pb-4 border-b border-slate-100">
+<div class="w-16 h-16 rounded-full bg-[#143d73] text-white flex items-center justify-center text-2xl font-bold flex-shrink-0 shadow-md ring-4 ring-blue-50">
+          A
+        </div>
+<div class="space-y-1.5">
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 bg-[#143d73] hover:bg-[#1a4a88] text-white text-xs font-semibold rounded-lg shadow-sm transition-colors" type="button">
+              Ganti Foto
+            </button>
+<button class="px-3 py-1.5 border border-slate-200 text-slate-600 hover:bg-slate-50 text-xs font-medium rounded-lg transition-colors" type="button">
+              Hapus
+            </button>
+</div>
+<p class="text-[11px] text-slate-400">Format JPG, PNG maks. 2MB. Resolusi min. 200x200px.</p>
+</div>
+</div>
+<!-- Form Inputs -->
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1.5">Nama Lengkap</label>
+<input class="w-full px-3.5 py-2.5 text-sm rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-slate-800 font-medium" type="text" value="Administrator Utama"/>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1.5">Email Utama</label>
+<input class="w-full px-3.5 py-2.5 text-sm rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-slate-800 font-medium" type="email" value="admin@tunas-cendekia.sch.id"/>
+</div>
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1.5">Nomor Telepon / WhatsApp</label>
+<input class="w-full px-3.5 py-2.5 text-sm rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-slate-800 font-medium" type="text" value="0812-3456-7890"/>
+</div>
+</div>
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1.5">Peran Akun</label>
+<div class="flex items-center justify-between px-3.5 py-2.5 bg-slate-50 border border-slate-200/80 rounded-lg">
+<span class="text-xs font-medium text-slate-700">Peran Terkini:</span>
+<span class="px-2.5 py-0.5 bg-blue-50 text-blue-600 border border-blue-100 rounded-full text-xs font-semibold tracking-wide">Super Admin</span>
+</div>
+</div>
+<!-- Footer -->
+<div class="pt-4 flex items-center justify-end gap-2.5 border-t border-slate-100">
+<button class="modal-close-profile px-4 py-2 border border-slate-200/80 text-slate-700 hover:bg-slate-50 text-xs font-semibold rounded-lg transition-colors" type="button">
+          Batal
+        </button>
+<button class="modal-save-profile px-4 py-2 bg-[#143d73] hover:bg-[#1a4a88] text-white text-xs font-semibold rounded-lg shadow-sm transition-colors" type="submit">
+          Simpan Perubahan
+        </button>
+</div>
+</form>
+</div>
+</div>
+<!-- END: Modal Profil Saya -->
+<!-- BEGIN: Modal Konfirmasi Keluar -->
+<div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 transition-opacity duration-200" id="modal-logout">
+<div class="bg-white rounded-2xl shadow-2xl border border-slate-100 max-w-md w-full p-6 text-center transform transition-transform duration-200" id="modal-logout-card"><!-- Alert Icon -->
+<div class="w-14 h-14 rounded-full bg-red-50 text-red-600 flex items-center justify-center mx-auto mb-4 ring-8 ring-red-50/50">
+<svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<h3 class="text-xl font-bold text-slate-800 tracking-tight mb-2">Konfirmasi Keluar</h3>
+<p class="text-sm text-slate-500 leading-relaxed mb-6">
+  Apakah Anda yakin ingin keluar dari akun administrator Bimbel Tunas Cendekia? Anda perlu masuk kembali untuk mengakses sistem manajemen.
+</p>
+<div class="flex items-center justify-center gap-3 w-full">
+<button class="modal-close-logout flex-1 py-2.5 px-4 rounded-xl border border-slate-200 text-slate-700 font-medium hover:bg-slate-50 transition-colors text-xs" type="button">
+    Batal
+  </button>
+<button class="flex-1 py-2.5 px-4 rounded-xl bg-red-600 hover:bg-red-700 text-white font-medium shadow-md shadow-red-600/20 transition-colors text-xs" id="btn-confirm-logout" type="button">
+    Ya, Keluar
+  </button>
+</div></div>
+</div>
+<!-- END: Modal Konfirmasi Keluar -->
+<!-- Interactive Controller Script -->
+<script>
+(function() {
+  // Elements
+  var profileModal = document.getElementById('modal-profile');
+  var profileCard = document.getElementById('modal-profile-card');
+  var logoutModal = document.getElementById('modal-logout');
+  var logoutCard = document.getElementById('modal-logout-card');
+  var triggerProfile = document.getElementById('btn-trigger-profile-modal');
+  var triggerLogoutDropdown = document.getElementById('btn-trigger-logout-modal');
+  var triggerLogoutSidebar = document.getElementById('sidebar-logout-btn');
+
+  function openModal(modal, card) {
+    if (!modal) return;
+    modal.classList.remove('hidden');
+    requestAnimationFrame(function() {
+      modal.classList.remove('opacity-0');
+      if (card) {
+        card.classList.remove('scale-95');
+        card.classList.add('scale-100');
+      }
+    });
+  }
+
+  function closeModal(modal, card) {
+    if (!modal) return;
+    modal.classList.add('opacity-0');
+    if (card) {
+      card.classList.remove('scale-100');
+      card.classList.add('scale-95');
+    }
+    setTimeout(function() {
+      modal.classList.add('hidden');
+    }, 200);
+  }
+
+  // Profile modal triggers
+  if (triggerProfile) {
+    triggerProfile.addEventListener('click', function(e) {
+      e.preventDefault();
+      openModal(profileModal, profileCard);
+    });
+  }
+
+  document.querySelectorAll('.modal-close-profile, .modal-save-profile').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      closeModal(profileModal, profileCard);
+    });
+  });
+
+  if (profileModal) {
+    profileModal.addEventListener('click', function(e) {
+      if (e.target === profileModal) {
+        closeModal(profileModal, profileCard);
+      }
+    });
+  }
+
+  // Logout modal triggers
+  function handleLogoutTrigger(e) {
+    e.preventDefault();
+    openModal(logoutModal, logoutCard);
+  }
+
+  if (triggerLogoutDropdown) triggerLogoutDropdown.addEventListener('click', handleLogoutTrigger);
+  if (triggerLogoutSidebar) triggerLogoutSidebar.addEventListener('click', handleLogoutTrigger);
+
+  document.querySelectorAll('.modal-close-logout').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      closeModal(logoutModal, logoutCard);
+    });
+  });
+
+  var confirmLogout = document.getElementById('btn-confirm-logout');
+  if (confirmLogout) {
+    confirmLogout.addEventListener('click', function() {
+      closeModal(logoutModal, logoutCard);
+    });
+  }
+
+  if (logoutModal) {
+    logoutModal.addEventListener('click', function(e) {
+      if (e.target === logoutModal) {
+        closeModal(logoutModal, logoutCard);
+      }
+    });
+  }
+})();
+</script>
+</body></html>

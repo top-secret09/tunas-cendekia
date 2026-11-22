@@ -1,0 +1,674 @@
+<!DOCTYPE html><html lang="id"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Dashboard Admin - Bimbel Tunas Cendekia</title>
+<!-- Tailwind CSS CDN v3 with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#153e75',
+              darkNavy: '#133565',
+              activeBlue: '#3b82f6',
+              lightBlueBg: '#e9f2ff',
+              cardBlue: '#2563eb',
+              cardSky: '#93c5fd',
+              cardYellow: '#fcd34d',
+              cardMuted: '#e0edfd',
+              canvasBg: '#f4f8fc'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: CustomStyles -->
+<style data-purpose="base-layout">
+    body {
+      background-color: #f0f4f9;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+<style data-purpose="custom-elements">
+    /* Subtle custom scrollbar for clean UI */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+<!-- END: CustomStyles -->
+<meta content="web_dashboard" name="shell-type">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"></head>
+<body class="bg-[#eef4fb] min-h-screen flex text-slate-800 font-sans antialiased text-sm">
+<!-- BEGIN: Sidebar -->
+<aside class="w-64 bg-[#143d73] text-white flex-shrink-0 flex flex-col justify-between shadow-xl min-h-screen" data-purpose="admin-sidebar">
+<div>
+<!-- Brand Logo Section -->
+<div class="px-6 py-6 flex items-center gap-3">
+<!-- Logo Icon -->
+<div class="w-10 h-10 flex-shrink-0 relative flex items-center justify-center"><img alt="Logo Bimbel Tunas Cendekia" class="w-10 h-10 object-contain rounded-full bg-white p-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMEyB_S2xCqctDbZ_40saFvSrDj98eP_5PC-F7FkAX3wgnqGiKhn3ytoJnpwAaYWYS6QQ9YIPEAckfx4IFrs65T9VmMCMJ9faquhkKP6xTlZyzE01HgdSrmuzCQTldWzaUvJJJPwaYgPZXrxzc3zEDtk-wGwid8VDlQ68D9ukUL9yFmXCfx_l8PwKU-YI2UiXsm3KubhklHde-1NbehjA0Bj59VV3BMoAUTevRXmjczL2_pIXpkAni9Q"></div>
+<!-- Logo Text -->
+<div class="leading-tight">
+<h1 class="font-bold text-base tracking-wide text-white">Bimbel</h1>
+<p class="text-xs text-blue-100 font-medium tracking-tight">Tunas Cendekia</p>
+</div>
+</div>
+<!-- Navigation Menu (Strictly the 11 designated items) -->
+<nav class="mt-2 px-3 space-y-1">
+<!-- 1. Dashboard (Active) -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg bg-[#3b82f6] text-white font-medium shadow-sm transition-colors" href="#">
+<svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+<path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+</svg>
+<span class="text-sm">Dashboard</span>
+</a>
+<!-- 2. Data Siswa -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+<path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path>
+</svg>
+<span class="text-sm">Data Siswa</span>
+</a>
+<!-- 3. Data Pengajar -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+<path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+</svg>
+<span class="text-sm">Data Pengajar</span>
+</a>
+<!-- 4. Data Kelas -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Data Kelas</span>
+</a>
+<!-- 5. Program Belajar -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Program Belajar</span>
+</a>
+<!-- 6. Jadwal Bimbingan -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M8 7V3m8 7V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Jadwal Bimbingan</span>
+</a>
+<!-- 7. Pendaftaran Siswa -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+<path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path>
+</svg>
+<span class="text-sm">Pendaftaran Siswa</span>
+</a>
+<!-- 8. Pembayaran -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Pembayaran</span>
+</a>
+<!-- 9. Laporan -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Laporan</span>
+</a>
+<!-- 10. Pengaturan -->
+</nav>
+</div>
+<!-- 11. Logout (At bottom of sidebar) -->
+<div class="px-3 pb-6 pt-4">
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#" id="sidebar-logout-btn">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Logout</span>
+</a>
+</div>
+</aside>
+<!-- END: Sidebar -->
+<!-- BEGIN: MainContentWrapper -->
+<div class="flex-1 flex flex-col min-w-0">
+<!-- BEGIN: Topbar -->
+<header class="bg-white border-b border-slate-200/80 px-8 py-3.5 flex items-center justify-between sticky top-0 z-20 shadow-sm" data-purpose="top-navigation"><!-- Left: Hamburger icon -->
+<div class="flex items-center gap-3">
+  <button aria-label="Toggle Menu" class="p-1 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+  </button>
+</div>
+<!-- Right: Date, Notification & Admin Profile -->
+<div class="flex items-center gap-6">
+  <div class="hidden md:flex items-center gap-2 text-slate-600 font-medium text-xs bg-slate-100/80 px-3 py-1.5 rounded-full border border-slate-200/60">
+  <span class="material-symbols-outlined text-[16px] text-slate-500">calendar_today</span>
+  <span>Senin, 26 Mei 2025</span>
+</div>
+  <!-- Notification Bell (Active) -->
+  <button aria-label="Notifikasi" class="relative text-slate-700 hover:text-slate-900 transition-colors p-1.5 rounded-lg bg-blue-50 text-blue-600 cursor-pointer">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+    <span class="absolute top-1 right-1 w-2.5 h-2.5 bg-red-600 rounded-full ring-2 ring-white"></span>
+  </button>
+  <!-- Admin Profile Pill -->
+  <div class="relative flex items-center select-none" id="admin-profile-menu-container">
+    <button aria-expanded="false" class="flex items-center gap-2.5 cursor-pointer p-1 rounded-lg hover:bg-slate-50 transition-colors" id="admin-profile-btn" type="button">
+      <div class="w-8 h-8 rounded-full bg-[#143d73] flex items-center justify-center text-white text-sm font-semibold">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+          <path clip-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" fill-rule="evenodd"></path>
+        </svg>
+      </div>
+      <span class="text-sm font-semibold text-slate-700">Admin</span>
+      <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </button>
+  </div>
+</div></header>
+<!-- END: Topbar -->
+<!-- BEGIN: DashboardBody -->
+<main class="flex-1 p-8 space-y-6 overflow-y-auto" data-purpose="dashboard-main-content"><div class="flex flex-col w-full relative">
+  <!-- Notification Popover Overlay Anchored Under the Bell -->
+  <div class="absolute top-1 right-8 z-50 w-96 max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden transition-all duration-300" id="notification-popover"><div class="p-4 bg-slate-50/90 border-b border-slate-100 flex items-center justify-between"><div class="flex items-center gap-2"><h2 class="font-headline-sm text-headline-sm text-slate-900 font-semibold">Notifikasi</h2><span class="inline-flex items-center px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 font-label-sm text-label-sm font-semibold">3 Baru</span></div><button class="font-label-md text-label-md text-blue-600 hover:text-blue-800 transition-colors cursor-pointer focus:outline-none" id="mark-all-read-btn">Tandai Dibaca</button></div><div class="flex px-4 bg-slate-50/90 border-b border-slate-100 gap-2"><button class="notification-tab active font-label-md text-label-md text-blue-600 pb-2.5 px-3 relative focus:outline-none font-semibold">Semua<span class="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 rounded-full"></span></button><button class="notification-tab font-label-md text-label-md text-slate-500 hover:text-slate-800 pb-2.5 px-3 transition-colors focus:outline-none">Belum Dibaca</button></div><div class="max-h-[380px] overflow-y-auto divide-y-0" id="notification-items-wrapper"><div class="notification-item p-3.5 bg-white hover:bg-slate-50 transition-colors cursor-pointer flex items-start gap-3 relative border-b border-slate-100"><div class="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 flex-shrink-0 mt-0.5"><span class="material-symbols-outlined text-[19px]">account_balance_wallet</span></div><div class="flex-1 min-w-0 pr-4"><div class="flex items-center justify-between"><span class="font-label-md text-label-md text-blue-600 font-semibold">Pembayaran SPP Masuk</span><span class="font-label-sm text-label-sm text-slate-400">5 menit lalu</span></div><p class="font-body-sm text-body-sm text-slate-600 mt-0.5 leading-snug">Andi Pratama - Reguler SMA (Rp 800.000)</p></div><span class="w-2 h-2 rounded-full bg-blue-600 absolute top-4 right-3 unread-dot"></span></div><div class="notification-item p-3.5 bg-white hover:bg-slate-50 transition-colors cursor-pointer flex items-start gap-3 relative border-b border-slate-100"><div class="w-9 h-9 rounded-full bg-blue-50 flex items-center justify-center text-primary flex-shrink-0 mt-0.5"><span class="material-symbols-outlined text-[19px]">person_add</span></div><div class="flex-1 min-w-0 pr-4"><div class="flex items-center justify-between"><span class="font-label-md text-label-md text-slate-800 font-semibold">Pendaftaran Siswa Baru</span><span class="font-label-sm text-label-sm text-slate-400">30 menit lalu</span></div><p class="font-body-sm text-body-sm text-slate-600 mt-0.5 leading-snug">Budi Santoso mendaftar Program UTBK</p></div><span class="w-2 h-2 rounded-full bg-blue-600 absolute top-4 right-3 unread-dot"></span></div><div class="notification-item p-3.5 bg-white hover:bg-slate-50 transition-colors cursor-pointer flex items-start gap-3 relative border-b border-slate-100"><div class="w-9 h-9 rounded-full bg-amber-50 flex items-center justify-center text-amber-600 flex-shrink-0 mt-0.5"><span class="material-symbols-outlined text-[19px]">assignment_turned_in</span></div><div class="flex-1 min-w-0 pr-4"><div class="flex items-center justify-between"><span class="font-label-md text-label-md text-amber-600 font-semibold">Laporan Presensi Kelas</span><span class="font-label-sm text-label-sm text-slate-400">2 jam lalu</span></div><p class="font-body-sm text-body-sm text-slate-600 mt-0.5 leading-snug">Dr. Rina Astuti mengisi absensi Fisika XII IPA 1</p></div><span class="w-2 h-2 rounded-full bg-blue-600 absolute top-4 right-3 unread-dot"></span></div><div class="notification-item p-3.5 bg-white hover:bg-slate-50 transition-colors cursor-pointer flex items-start gap-3 relative border-b border-slate-100 opacity-90"><div class="w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 flex-shrink-0 mt-0.5"><span class="material-symbols-outlined text-[19px]">calendar_month</span></div><div class="flex-1 min-w-0 pr-4"><div class="flex items-center justify-between"><span class="font-label-md text-label-md text-slate-800 font-semibold">Jadwal Bimbingan</span><span class="font-label-sm text-label-sm text-slate-400">4 jam lalu</span></div><p class="font-body-sm text-body-sm text-slate-600 mt-0.5 leading-snug">Sesi bimbingan sore dimulai pukul 15:30 WIB</p></div></div><div class="notification-item p-3.5 bg-white hover:bg-slate-50 transition-colors cursor-pointer flex items-start gap-3 relative opacity-90"><div class="w-9 h-9 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 flex-shrink-0 mt-0.5"><span class="material-symbols-outlined text-[19px]">verified</span></div><div class="flex-1 min-w-0 pr-4"><div class="flex items-center justify-between"><span class="font-label-md text-label-md text-slate-800 font-semibold">Verifikasi Pembayaran</span><span class="font-label-sm text-label-sm text-slate-400">1 hari lalu</span></div><p class="font-body-sm text-body-sm text-slate-600 mt-0.5 leading-snug">2 pembayaran diverifikasi sistem</p></div></div></div></div>
+
+  <!-- Dashboard Header Title -->
+  <div class="mb-6">
+    <h1 class="text-2xl font-bold text-slate-900 tracking-tight">Dashboard</h1>
+    <p class="text-sm text-slate-500 mt-0.5">Selamat datang, Admin!</p>
+  </div>
+
+  <!-- 4 Core Metric KPI Summary Cards -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6"><!-- Metric 1: Total Siswa (Solid Blue card bg-[#2563eb] text-white) -->
+<div class="bg-[#2563eb] text-white p-5 rounded-xl shadow-sm flex items-center justify-between">
+  <div>
+    <p class="text-xs font-medium text-blue-100 uppercase tracking-wide">Total Siswa</p>
+    <h3 class="text-2xl font-bold text-white mt-1">1.250</h3>
+    <p class="text-[11px] text-blue-100 font-medium mt-1 flex items-center gap-1">
+      <span class="material-symbols-outlined text-[14px]">trending_up</span> +8% bulan ini
+    </p>
+  </div>
+  <div class="w-12 h-12 rounded-xl bg-white/20 text-white flex items-center justify-center flex-shrink-0">
+    <span class="material-symbols-outlined text-[26px]">group</span>
+  </div>
+</div>
+
+<!-- Metric 2: Total Pengajar (Light soft blue card) -->
+<div class="bg-[#bfdbfe] text-slate-800 p-5 rounded-xl shadow-sm flex items-center justify-between border border-blue-200/60">
+  <div>
+    <p class="text-xs font-medium text-slate-600 uppercase tracking-wide">Total Pengajar</p>
+    <h3 class="text-2xl font-bold text-slate-900 mt-1">45</h3>
+    <p class="text-[11px] text-slate-600 font-medium mt-1">Tutor Ahli</p>
+  </div>
+  <div class="w-12 h-12 rounded-xl bg-white/60 text-blue-800 flex items-center justify-center flex-shrink-0">
+    <span class="material-symbols-outlined text-[26px]">school</span>
+  </div>
+</div>
+
+<!-- Metric 3: Total Kelas (Warm pastel yellow card) -->
+<div class="bg-[#fde047] text-slate-800 p-5 rounded-xl shadow-sm flex items-center justify-between border border-yellow-300/60">
+  <div>
+    <p class="text-xs font-medium text-amber-900 uppercase tracking-wide">Total Kelas</p>
+    <h3 class="text-2xl font-bold text-slate-900 mt-1">30</h3>
+    <p class="text-[11px] text-amber-900 font-medium mt-1">12 Reguler &amp; 18 Intensif</p>
+  </div>
+  <div class="w-12 h-12 rounded-xl bg-white/60 text-amber-800 flex items-center justify-center flex-shrink-0">
+    <span class="material-symbols-outlined text-[26px]">menu_book</span>
+  </div>
+</div>
+
+<!-- Metric 4: Total Pendaftaran (Clean light card bg-[#eff6ff]) -->
+<div class="bg-[#eff6ff] text-slate-800 p-5 rounded-xl shadow-sm flex items-center justify-between border border-blue-100">
+  <div>
+    <p class="text-xs font-medium text-slate-500 uppercase tracking-wide">Total Pendaftaran</p>
+    <h3 class="text-2xl font-bold text-slate-900 mt-1">120</h3>
+    <p class="text-[11px] text-emerald-600 font-medium mt-1 flex items-center gap-1">
+      <span class="material-symbols-outlined text-[14px]">check_circle</span> 94% SPP Terkonfirmasi
+    </p>
+  </div>
+  <div class="w-12 h-12 rounded-xl bg-blue-100/70 text-blue-700 flex items-center justify-center flex-shrink-0">
+    <span class="material-symbols-outlined text-[26px]">description</span>
+  </div>
+</div></div>
+
+  <!-- Row 2: 2 Chart Cards (Statistik Jumlah Siswa & Grafik Pembayaran) -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6"><!-- Chart 1: Statistik Jumlah Siswa (Line Chart Jan - Jun) -->
+<div class="bg-white p-6 rounded-xl border border-slate-200/80 shadow-sm flex flex-col justify-between">
+  <div class="flex items-center justify-between mb-4">
+    <div>
+      <h3 class="font-bold text-slate-900 text-base">Statistik Jumlah Siswa</h3>
+      <p class="text-xs text-slate-400 mt-0.5">Pertumbuhan siswa 6 bulan terakhir</p>
+    </div>
+    <span class="text-xs text-slate-500 font-medium bg-slate-100 px-2.5 py-1 rounded-md">2024/2025</span>
+  </div>
+  <div class="w-full h-44 relative flex items-end">
+    <svg class="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 460 140">
+      <line stroke="#f1f5f9" stroke-width="1.5" x1="0" x2="460" y1="20" y2="20"></line>
+      <line stroke="#f1f5f9" stroke-width="1.5" x1="0" x2="460" y1="60" y2="60"></line>
+      <line stroke="#f1f5f9" stroke-width="1.5" x1="0" x2="460" y1="100" y2="100"></line>
+      <line stroke="#e2e8f0" stroke-width="1.5" x1="0" x2="460" y1="135" y2="135"></line>
+      <!-- Smooth Minimalist Curve Line connecting Jan to Jun (Jan: 400, Feb: 500, Mar: 600, Apr: 650, Mei: 750, Jun: 900) -->
+      <path d="M 38 105 Q 115 88, 192 72 T 269 62 T 346 45 T 422 20" fill="none" stroke="#2563eb" stroke-linecap="round" stroke-width="3"></path>
+      <circle cx="38" cy="105" fill="#2563eb" r="4.5" stroke="#ffffff" stroke-width="2"></circle>
+      <circle cx="115" cy="88" fill="#2563eb" r="4.5" stroke="#ffffff" stroke-width="2"></circle>
+      <circle cx="192" cy="72" fill="#2563eb" r="4.5" stroke="#ffffff" stroke-width="2"></circle>
+      <circle cx="269" cy="62" fill="#2563eb" r="4.5" stroke="#ffffff" stroke-width="2"></circle>
+      <circle cx="346" cy="45" fill="#2563eb" r="4.5" stroke="#ffffff" stroke-width="2"></circle>
+      <circle cx="422" cy="20" fill="#1d4ed8" r="5" stroke="#ffffff" stroke-width="2"></circle>
+    </svg>
+  </div>
+  <div class="flex justify-between items-center px-4 pt-3 text-slate-400 text-xs">
+    <span>Jan</span>
+    <span>Feb</span>
+    <span>Mar</span>
+    <span>Apr</span>
+    <span>Mei</span>
+    <span>Jun</span>
+  </div>
+</div>
+
+<!-- Chart 2: Grafik Pembayaran (Bar Chart Jan - Jun) -->
+<div class="bg-white p-6 rounded-xl border border-slate-200/80 shadow-sm flex flex-col justify-between">
+  <div class="flex items-center justify-between mb-4">
+    <div>
+      <h3 class="font-bold text-slate-900 text-base">Grafik Pembayaran</h3>
+      <p class="text-xs text-slate-400 mt-0.5">Realisasi SPP lunas vs pending</p>
+    </div>
+    <div class="flex items-center gap-3 text-xs">
+      <span class="flex items-center gap-1.5 text-slate-600"><span class="w-2.5 h-2.5 rounded-full bg-[#1b3e6b]"></span> Lunas</span>
+      <span class="flex items-center gap-1.5 text-slate-600"><span class="w-2.5 h-2.5 rounded-full bg-blue-300"></span> Pending</span>
+    </div>
+  </div>
+  <div class="w-full h-44 relative flex items-end">
+    <svg class="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 460 140">
+      <line stroke="#f1f5f9" stroke-width="1.5" x1="0" x2="460" y1="20" y2="20"></line>
+      <line stroke="#f1f5f9" stroke-width="1.5" x1="0" x2="460" y1="60" y2="60"></line>
+      <line stroke="#f1f5f9" stroke-width="1.5" x1="0" x2="460" y1="100" y2="100"></line>
+      <line stroke="#e2e8f0" stroke-width="1.5" x1="0" x2="460" y1="135" y2="135"></line>
+      <!-- Bars Jan -->
+      <rect fill="#1b3e6b" height="60" rx="2" width="14" x="30" y="75"></rect>
+      <rect fill="#93c5fd" height="20" rx="2" width="14" x="48" y="115"></rect>
+      <!-- Bars Feb -->
+      <rect fill="#1b3e6b" height="75" rx="2" width="14" x="105" y="60"></rect>
+      <rect fill="#93c5fd" height="25" rx="2" width="14" x="123" y="110"></rect>
+      <!-- Bars Mar -->
+      <rect fill="#1b3e6b" height="90" rx="2" width="14" x="180" y="45"></rect>
+      <rect fill="#93c5fd" height="28" rx="2" width="14" x="198" y="107"></rect>
+      <!-- Bars Apr -->
+      <rect fill="#1b3e6b" height="80" rx="2" width="14" x="255" y="55"></rect>
+      <rect fill="#93c5fd" height="22" rx="2" width="14" x="273" y="113"></rect>
+      <!-- Bars Mei -->
+      <rect fill="#1b3e6b" height="105" rx="2" width="14" x="330" y="30"></rect>
+      <rect fill="#93c5fd" height="26" rx="2" width="14" x="348" y="109"></rect>
+      <!-- Bars Jun -->
+      <rect fill="#1b3e6b" height="118" rx="2" width="14" x="405" y="17"></rect>
+      <rect fill="#93c5fd" height="18" rx="2" width="14" x="423" y="117"></rect>
+    </svg>
+  </div>
+  <div class="flex justify-between items-center px-4 pt-3 text-slate-400 text-xs">
+    <span>Jan</span>
+    <span>Feb</span>
+    <span>Mar</span>
+    <span>Apr</span>
+    <span>Mei</span>
+    <span>Jun</span>
+  </div>
+</div></div>
+
+  <!-- Row 3: 3 Cards (Siswa Terbaru, Jadwal Terdekat, Aktivitas Terbaru) -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-2"><!-- Card 1: Siswa Terbaru -->
+<div class="bg-white rounded-xl border border-slate-200/80 shadow-sm p-5 flex flex-col justify-between">
+  <div>
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="font-bold text-slate-900 text-sm">Siswa Terbaru</h3>
+      <a class="text-xs text-blue-600 hover:text-blue-700 font-semibold flex items-center gap-0.5" href="#">
+        Lihat Semua <span class="text-[11px]">→</span>
+      </a>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-left text-xs">
+        <thead>
+          <tr class="border-b border-slate-100 text-slate-400 font-medium">
+            <th class="pb-2 font-normal w-6">No</th>
+            <th class="pb-2 font-normal">Nama Siswa</th>
+            <th class="pb-2 font-normal">Kelas</th>
+            <th class="pb-2 font-normal text-right">Tanggal Daftar</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-50 text-slate-700">
+          <tr>
+            <td class="py-2.5 font-medium text-slate-400">1</td>
+            <td class="py-2.5 font-semibold text-slate-800">Andi Pratama</td>
+            <td class="py-2.5 text-slate-500">SMP</td>
+            <td class="py-2.5 text-right text-slate-500 font-medium">25/05/2025</td>
+          </tr>
+          <tr>
+            <td class="py-2.5 font-medium text-slate-400">2</td>
+            <td class="py-2.5 font-semibold text-slate-800">Siti Nurhaliza</td>
+            <td class="py-2.5 text-slate-500">SMA</td>
+            <td class="py-2.5 text-right text-slate-500 font-medium">24/05/2025</td>
+          </tr>
+          <tr>
+            <td class="py-2.5 font-medium text-slate-400">3</td>
+            <td class="py-2.5 font-semibold text-slate-800">Budi Santoso</td>
+            <td class="py-2.5 text-slate-500">SMP</td>
+            <td class="py-2.5 text-right text-slate-500 font-medium">23/05/2025</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Card 2: Jadwal Terdekat -->
+<div class="bg-white rounded-xl border border-slate-200/80 shadow-sm p-5 flex flex-col justify-between">
+  <div>
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="font-bold text-slate-900 text-sm">Jadwal Terdekat</h3>
+      <a class="text-xs text-blue-600 hover:text-blue-700 font-semibold flex items-center gap-0.5" href="#">
+        Lihat Semua <span class="text-[11px]">→</span>
+      </a>
+    </div>
+    <div class="space-y-3">
+      <div class="flex items-center justify-between p-3 rounded-lg bg-slate-50 border border-slate-100">
+        <div class="min-w-0">
+          <p class="text-xs font-semibold text-slate-800">Matematika - XI IPA</p>
+          <p class="text-[11px] text-slate-500 mt-0.5">Hari ini, 08:00</p>
+        </div>
+        <span class="px-2.5 py-1 rounded-md bg-blue-50 text-blue-600 font-medium text-xs">Kelas A</span>
+      </div>
+      <div class="flex items-center justify-between p-3 rounded-lg bg-slate-50 border border-slate-100">
+        <div class="min-w-0">
+          <p class="text-xs font-semibold text-slate-800">Fisika - XI IPA</p>
+          <p class="text-[11px] text-slate-500 mt-0.5">Hari ini, 10:00</p>
+        </div>
+        <span class="px-2.5 py-1 rounded-md bg-blue-50 text-blue-600 font-medium text-xs">Kelas B</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Card 3: Notifikasi -->
+<div class="bg-white rounded-xl border border-slate-200/80 shadow-sm p-5 flex flex-col justify-between">
+  <div>
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="font-bold text-slate-900 text-sm">Notifikasi</h3>
+      <a class="text-xs text-blue-600 hover:text-blue-700 font-semibold flex items-center gap-0.5" href="#">
+        Lihat Semua <span class="text-[11px]">→</span>
+      </a>
+    </div>
+    <div class="space-y-3">
+      <div class="flex items-start gap-3 p-2.5 rounded-lg hover:bg-slate-50 transition-colors border border-slate-100">
+        <div class="w-7 h-7 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 mt-0.5 font-bold text-sm">
+          +
+        </div>
+        <div class="min-w-0 flex-1">
+          <p class="text-xs font-semibold text-slate-800">Pembayaran baru</p>
+          <p class="text-[11px] text-slate-400 mt-0.5">2 menit yang lalu</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-3 p-2.5 rounded-lg hover:bg-slate-50 transition-colors border border-slate-100">
+        <div class="w-7 h-7 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0 mt-0.5 font-bold text-sm">
+          +
+        </div>
+        <div class="min-w-0 flex-1">
+          <p class="text-xs font-semibold text-slate-800">Pendaftaran baru</p>
+          <p class="text-[11px] text-slate-400 mt-0.5">10 menit yang lalu</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></div>
+</div>
+
+<script>
+  (function() {
+    var tabs = document.querySelectorAll('.notification-tab');
+    var markBtn = document.getElementById('mark-all-read-btn');
+    var dots = document.querySelectorAll('.unread-dot');
+    var badge = document.querySelector('#notification-popover .bg-blue-100');
+
+    tabs.forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        tabs.forEach(function(t) {
+          t.classList.remove('font-semibold', 'text-blue-600');
+          t.classList.add('text-slate-500');
+          var span = t.querySelector('span');
+          if (span) span.remove();
+        });
+        tab.classList.add('font-semibold', 'text-blue-600');
+        tab.classList.remove('text-slate-500');
+        
+        var indicator = document.createElement('span');
+        indicator.className = 'absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 rounded-full';
+        tab.appendChild(indicator);
+      });
+    });
+
+    if (markBtn) {
+      markBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        dots.forEach(function(dot) {
+          dot.style.display = 'none';
+        });
+        if (badge) {
+          badge.textContent = '0 Baru';
+          badge.className = 'inline-flex items-center px-2 py-0.5 rounded-full bg-slate-100 text-slate-500 font-label-sm text-label-sm font-semibold';
+        }
+        markBtn.textContent = 'Semua Dibaca';
+        markBtn.classList.add('opacity-50', 'pointer-events-none');
+      });
+    }
+  })();
+</script></main><footer class="bg-white border-t border-slate-200/80 px-8 py-4 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2"><div class="flex items-center gap-2"><img alt="Logo Tunas Cendekia" class="w-5 h-5 rounded-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMEyB_S2xCqctDbZ_40saFvSrDj98eP_5PC-F7FkAX3wgnqGiKhn3ytoJnpwAaYWYS6QQ9YIPEAckfx4IFrs65T9VmMCMJ9faquhkKP6xTlZyzE01HgdSrmuzCQTldWzaUvJJJPwaYgPZXrxzc3zEDtk-wGwid8VDlQ68D9ukUL9yFmXCfx_l8PwKU-YI2UiXsm3KubhklHde-1NbehjA0Bj59VV3BMoAUTevRXmjczL2_pIXpkAni9Q"><span>© 2025 Bimbel Tunas Cendekia. Hak Cipta Dilindungi.</span></div><div class="flex items-center gap-4"><a class="hover:text-blue-600 transition-colors" href="#">Bantuan</a><a class="hover:text-blue-600 transition-colors" href="#">Kebijakan Privasi</a><a class="hover:text-blue-600 transition-colors" href="#">Syarat &amp; Ketentuan</a></div></footer>
+<!-- END: DashboardBody -->
+</div>
+<!-- END: MainContentWrapper -->
+<!-- BEGIN: Modal Profil Saya -->
+<div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-200" id="modal-profile">
+<div class="bg-white rounded-2xl shadow-2xl border border-slate-100 max-w-lg w-full overflow-hidden transform scale-95 transition-transform duration-200" id="modal-profile-card">
+<!-- Header -->
+<div class="px-6 py-5 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
+<div>
+<h3 class="text-lg font-bold text-slate-900 tracking-tight">Profil Saya</h3>
+<p class="text-xs text-slate-500 mt-0.5">Informasi akun dan data pribadi administrator</p>
+</div>
+<button class="modal-close-profile w-8 h-8 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 flex items-center justify-center transition-colors" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+</div>
+<!-- Body -->
+<form class="p-6 space-y-4" id="profile-form" onsubmit="event.preventDefault();">
+<!-- Avatar row -->
+<div class="flex items-center gap-4 pb-4 border-b border-slate-100">
+<div class="w-16 h-16 rounded-full bg-[#143d73] text-white flex items-center justify-center text-2xl font-bold flex-shrink-0 shadow-md ring-4 ring-blue-50">
+          A
+        </div>
+<div class="space-y-1.5">
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 bg-[#143d73] hover:bg-[#1a4a88] text-white text-xs font-semibold rounded-lg shadow-sm transition-colors" type="button">
+              Ganti Foto
+            </button>
+<button class="px-3 py-1.5 border border-slate-200 text-slate-600 hover:bg-slate-50 text-xs font-medium rounded-lg transition-colors" type="button">
+              Hapus
+            </button>
+</div>
+<p class="text-[11px] text-slate-400">Format JPG, PNG maks. 2MB. Resolusi min. 200x200px.</p>
+</div>
+</div>
+<!-- Form Inputs -->
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1.5">Nama Lengkap</label>
+<input class="w-full px-3.5 py-2.5 text-sm rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-slate-800 font-medium" type="text" value="Administrator Utama">
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1.5">Email Utama</label>
+<input class="w-full px-3.5 py-2.5 text-sm rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-slate-800 font-medium" type="email" value="admin@tunas-cendekia.sch.id">
+</div>
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1.5">Nomor Telepon / WhatsApp</label>
+<input class="w-full px-3.5 py-2.5 text-sm rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-slate-800 font-medium" type="text" value="0812-3456-7890">
+</div>
+</div>
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1.5">Peran Akun</label>
+<div class="flex items-center justify-between px-3.5 py-2.5 bg-slate-50 border border-slate-200/80 rounded-lg">
+<span class="text-xs font-medium text-slate-700">Peran Terkini:</span>
+<span class="px-2.5 py-0.5 bg-blue-50 text-blue-600 border border-blue-100 rounded-full text-xs font-semibold tracking-wide">Super Admin</span>
+</div>
+</div>
+<!-- Footer -->
+<div class="pt-4 flex items-center justify-end gap-2.5 border-t border-slate-100">
+<button class="modal-close-profile px-4 py-2 border border-slate-200/80 text-slate-700 hover:bg-slate-50 text-xs font-semibold rounded-lg transition-colors" type="button">
+          Batal
+        </button>
+<button class="modal-save-profile px-4 py-2 bg-[#143d73] hover:bg-[#1a4a88] text-white text-xs font-semibold rounded-lg shadow-sm transition-colors" type="submit">
+          Simpan Perubahan
+        </button>
+</div>
+</form>
+</div>
+</div>
+<!-- END: Modal Profil Saya -->
+<!-- BEGIN: Modal Konfirmasi Keluar -->
+<div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-200" id="modal-logout">
+<div class="bg-white rounded-2xl shadow-2xl border border-slate-100 max-w-md w-full p-6 text-center transform scale-95 transition-transform duration-200" id="modal-logout-card">
+<!-- Alert Icon -->
+<div class="w-14 h-14 rounded-full bg-red-50 text-red-600 flex items-center justify-center mx-auto mb-4 ring-8 ring-red-50/50">
+<svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<h3 class="text-lg font-bold text-slate-900 tracking-tight mb-2">Konfirmasi Keluar</h3>
+<p class="text-xs text-slate-600 leading-relaxed mb-6">
+      Apakah Anda yakin ingin keluar dari akun administrator Bimbel Tunas Cendekia? Anda perlu masuk kembali untuk mengakses sistem.
+    </p>
+<div class="flex items-center justify-center gap-3">
+<button class="modal-close-logout flex-1 px-4 py-2.5 border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-semibold rounded-xl transition-colors" type="button">
+        Batal
+      </button>
+<button class="flex-1 px-4 py-2.5 bg-red-600 hover:bg-red-700 text-white text-xs font-semibold rounded-xl shadow-sm transition-colors shadow-red-600/20" id="btn-confirm-logout" type="button">
+        Ya, Keluar
+      </button>
+</div>
+</div>
+</div>
+<!-- END: Modal Konfirmasi Keluar -->
+<!-- Interactive Controller Script -->
+<script>
+(function() {
+  // Elements
+  var profileModal = document.getElementById('modal-profile');
+  var profileCard = document.getElementById('modal-profile-card');
+  var logoutModal = document.getElementById('modal-logout');
+  var logoutCard = document.getElementById('modal-logout-card');
+  var triggerProfile = document.getElementById('btn-trigger-profile-modal');
+  var triggerLogoutDropdown = document.getElementById('btn-trigger-logout-modal');
+  var triggerLogoutSidebar = document.getElementById('sidebar-logout-btn');
+
+  function openModal(modal, card) {
+    if (!modal) return;
+    modal.classList.remove('hidden');
+    requestAnimationFrame(function() {
+      modal.classList.remove('opacity-0');
+      if (card) {
+        card.classList.remove('scale-95');
+        card.classList.add('scale-100');
+      }
+    });
+  }
+
+  function closeModal(modal, card) {
+    if (!modal) return;
+    modal.classList.add('opacity-0');
+    if (card) {
+      card.classList.remove('scale-100');
+      card.classList.add('scale-95');
+    }
+    setTimeout(function() {
+      modal.classList.add('hidden');
+    }, 200);
+  }
+
+  // Profile modal triggers
+  if (triggerProfile) {
+    triggerProfile.addEventListener('click', function(e) {
+      e.preventDefault();
+      openModal(profileModal, profileCard);
+    });
+  }
+
+  document.querySelectorAll('.modal-close-profile, .modal-save-profile').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      closeModal(profileModal, profileCard);
+    });
+  });
+
+  if (profileModal) {
+    profileModal.addEventListener('click', function(e) {
+      if (e.target === profileModal) {
+        closeModal(profileModal, profileCard);
+      }
+    });
+  }
+
+  // Logout modal triggers
+  function handleLogoutTrigger(e) {
+    e.preventDefault();
+    openModal(logoutModal, logoutCard);
+  }
+
+  if (triggerLogoutDropdown) triggerLogoutDropdown.addEventListener('click', handleLogoutTrigger);
+  if (triggerLogoutSidebar) triggerLogoutSidebar.addEventListener('click', handleLogoutTrigger);
+
+  document.querySelectorAll('.modal-close-logout').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      closeModal(logoutModal, logoutCard);
+    });
+  });
+
+  var confirmLogout = document.getElementById('btn-confirm-logout');
+  if (confirmLogout) {
+    confirmLogout.addEventListener('click', function() {
+      closeModal(logoutModal, logoutCard);
+    });
+  }
+
+  if (logoutModal) {
+    logoutModal.addEventListener('click', function(e) {
+      if (e.target === logoutModal) {
+        closeModal(logoutModal, logoutCard);
+      }
+    });
+  }
+})();
+</script>
+
+
+</body></html>

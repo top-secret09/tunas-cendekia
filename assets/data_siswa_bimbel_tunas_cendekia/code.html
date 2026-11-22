@@ -1,0 +1,516 @@
+<!DOCTYPE html><html lang="id"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Data Siswa - Bimbel Tunas Cendekia</title>
+<!-- Tailwind CSS CDN v3 with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#143d73',
+              darkNavy: '#133565',
+              activeBlue: '#3b82f6',
+              lightBlueBg: '#e9f2ff',
+              cardBlue: '#2563eb',
+              canvasBg: '#eef4fb'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: CustomStyles -->
+<style data-purpose="base-layout">
+    body {
+      background-color: #eef4fb;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+<!-- END: CustomStyles -->
+</head>
+<body class="bg-[#eef4fb] min-h-screen flex text-slate-800 font-sans antialiased text-sm">
+<!-- BEGIN: Sidebar (Identik persis dengan SCREEN_8 dan referensi IMAGE_31/32) -->
+<aside class="w-64 bg-[#143d73] text-white flex-shrink-0 flex flex-col justify-between shadow-xl min-h-screen" data-purpose="admin-sidebar">
+<div>
+<!-- Brand Logo Section -->
+<div class="px-6 py-6 flex items-center gap-3">
+<div class="w-10 h-10 flex-shrink-0 relative flex items-center justify-center">
+<img alt="Logo Bimbel Tunas Cendekia" class="w-10 h-10 object-contain rounded-full bg-white p-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMEyB_S2xCqctDbZ_40saFvSrDj98eP_5PC-F7FkAX3wgnqGiKhn3ytoJnpwAaYWYS6QQ9YIPEAckfx4IFrs65T9VmMCMJ9faquhkKP6xTlZyzE01HgdSrmuzCQTldWzaUvJJJPwaYgPZXrxzc3zEDtk-wGwid8VDlQ68D9ukUL9yFmXCfx_l8PwKU-YI2UiXsm3KubhklHde-1NbehjA0Bj59VV3BMoAUTevRXmjczL2_pIXpkAni9Q">
+</div>
+<div class="leading-tight">
+<h1 class="font-bold text-base tracking-wide text-white">Bimbel</h1>
+<p class="text-xs text-blue-100 font-medium tracking-tight">Tunas Cendekia</p>
+</div>
+</div>
+<!-- Navigation Menu (Strictly the 11 designated items, Data Siswa AKTIF) -->
+<nav class="mt-2 px-3 space-y-1">
+<!-- 1. Dashboard -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+<path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+</svg>
+<span class="text-sm">Dashboard</span>
+</a>
+<!-- 2. Data Siswa (Aktif Highlight Biru) -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg bg-[#3b82f6] text-white font-medium shadow-sm transition-colors" href="#">
+<svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+<path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path>
+</svg>
+<span class="text-sm">Data Siswa</span>
+</a>
+<!-- 3. Data Pengajar -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+<path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+</svg>
+<span class="text-sm">Data Pengajar</span>
+</a>
+<!-- 4. Data Kelas -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Data Kelas</span>
+</a>
+<!-- 5. Program Belajar -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Program Belajar</span>
+</a>
+<!-- 6. Jadwal Bimbingan -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M8 7V3m8 7V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Jadwal Bimbingan</span>
+</a>
+<!-- 7. Pendaftaran Siswa -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+<path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path>
+</svg>
+<span class="text-sm">Pendaftaran Siswa</span>
+</a>
+<!-- 8. Pembayaran -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Pembayaran</span>
+</a>
+<!-- 9. Laporan -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Laporan</span>
+</a>
+<!-- 10. Pengaturan -->
+
+</nav>
+</div>
+<!-- 11. Logout (At bottom of sidebar) -->
+<div class="px-3 pb-6 pt-4">
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Logout</span>
+</a>
+</div>
+</aside>
+<!-- END: Sidebar -->
+<!-- BEGIN: MainContentWrapper -->
+<div class="flex-1 flex flex-col min-w-0">
+<!-- BEGIN: Topbar (Clean persis SCREEN_8) -->
+<header class="bg-white border-b border-slate-200/80 px-8 py-3.5 flex items-center justify-between sticky top-0 z-20 shadow-sm" data-purpose="top-navigation">
+<!-- Left: Hamburger icon -->
+<div class="flex items-center gap-3">
+<button aria-label="Toggle Menu" class="p-1 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Right: Notification, Date Badge & Admin Profile -->
+<div class="flex items-center gap-5">
+<!-- Date Badge -->
+
+<!-- Notification Bell -->
+<button aria-label="Notifikasi" class="relative text-slate-600 hover:text-slate-900 transition-colors p-1">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="absolute top-1 right-1 w-2 h-2 bg-blue-600 rounded-full"></span>
+</button>
+<!-- Admin Profile Pill -->
+<div class="flex items-center gap-2 cursor-pointer select-none">
+<div class="w-8 h-8 rounded-full bg-[#143d73] flex items-center justify-center text-white text-sm font-semibold">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-sm font-semibold text-slate-700">Admin</span>
+<svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+</header>
+<!-- END: Topbar -->
+<!-- BEGIN: Main Content Area (Clean, minimal, persis screenshot IMAGE_31 Data Siswa) -->
+<main class="flex-1 p-8 space-y-6 overflow-y-auto">
+<!-- Top Header: Title, Breadcrumb & Action Button -->
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+<div>
+<h2 class="text-2xl font-bold text-slate-900 tracking-tight">Data Siswa</h2>
+<div class="flex items-center gap-1.5 text-xs text-slate-500 mt-1 font-medium">
+<a class="hover:text-blue-600 transition-colors" href="#">Dashboard</a>
+<span>›</span>
+<span class="text-slate-700 font-semibold">Data Siswa</span>
+</div>
+</div>
+<div>
+<button class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 font-medium text-xs shadow-xs transition-all active:scale-95 mr-2" id="btnExportExcel" type="button"><svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9 9h1m0 3h1m-1 3h1" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Export Excel</span></button><button class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#143d73] hover:bg-[#0f2e57] text-white font-medium text-xs shadow-sm transition-all active:scale-95" id="btnTambahSiswa" type="button">
+<span class="text-base font-bold leading-none">+</span>
+<span>Tambah Siswa</span>
+</button>
+</div>
+</div>
+<!-- Filter & Search Controls (Persis acuan IMAGE_31) -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4"><div class="bg-white p-4 rounded-xl border border-slate-200/90 shadow-xs flex items-center gap-3.5"><div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 flex-shrink-0"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path></svg></div><div><p class="text-xs text-slate-500 font-medium leading-none mb-1">Total Siswa</p><h3 class="text-lg font-bold text-slate-900 leading-tight">53 Siswa</h3></div></div></div><div class="flex flex-col md:flex-row items-stretch md:items-center gap-3">
+<!-- Search Input -->
+<div class="relative flex-1">
+<svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<input class="w-full pl-9 pr-4 py-2 bg-white border border-slate-200 rounded-lg text-xs text-slate-800 placeholder-slate-400 outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 shadow-xs" id="searchStudentInput" placeholder="Cari nama siswa..." type="text">
+</div>
+<!-- Filter: Semua Kelas -->
+<div class="relative md:w-44">
+<select class="w-full appearance-none pl-3.5 pr-8 py-2 bg-white border border-slate-200 rounded-lg text-xs text-slate-700 outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 shadow-xs cursor-pointer" id="filterClassSelect">
+<option value="all">Semua Kelas</option>
+<option value="SD">SD</option>
+<option value="SMP">SMP</option>
+<option value="SMA">SMA</option>
+</select>
+<svg class="w-4 h-4 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<!-- Filter: Semua Status -->
+<div class="relative md:w-44">
+<select class="w-full appearance-none pl-3.5 pr-8 py-2 bg-white border border-slate-200 rounded-lg text-xs text-slate-700 outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 shadow-xs cursor-pointer" id="filterStatusSelect">
+<option value="all">Semua Status</option>
+<option value="Aktif">Aktif</option>
+<option value="Cuti">Cuti</option>
+<option value="Non-Aktif">Non-Aktif</option>
+</select>
+<svg class="w-4 h-4 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<!-- Button: Cari -->
+<button class="px-5 py-2 rounded-lg bg-[#143d73] hover:bg-[#0f2e57] text-white text-xs font-semibold shadow-xs transition-colors" id="btnSearch" type="button">
+        Cari
+      </button>
+</div>
+<!-- Data Table Card (Clean & Simple persis tabel IMAGE_31) -->
+<div class="bg-white rounded-xl border border-slate-200/90 shadow-xs overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left text-xs" id="studentsTable">
+<thead>
+<tr class="text-slate-700 font-semibold border-b border-slate-200/80 bg-slate-50/70">
+<th class="py-3 px-4 font-semibold text-slate-600">No</th>
+<th class="py-3 px-4 font-semibold text-slate-600">ID Siswa</th>
+<th class="py-3 px-4 font-semibold text-slate-600">Nama Siswa</th>
+<th class="py-3 px-4 font-semibold text-slate-600">Jenis Kelamin</th>
+<th class="py-3 px-4 font-semibold text-slate-600">Kelas Sekolah</th>
+<th class="py-3 px-4 font-semibold text-slate-600">Program</th>
+<th class="py-3 px-4 font-semibold text-slate-600">No. HP</th>
+<th class="py-3 px-4 font-semibold text-slate-600">Status</th>
+<th class="py-3 px-4 font-semibold text-slate-600 text-center">Aksi</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 text-slate-700" id="studentTableBody">
+<!-- Baris 1: Andi Pratama -->
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-3 px-4 text-slate-500">1</td>
+<td class="py-3 px-4 font-medium text-slate-800">S001</td>
+<td class="py-3 px-4 font-medium text-slate-900">Andi Pratama</td>
+<td class="py-3 px-4 text-slate-600">Laki-laki</td>
+<td class="py-3 px-4 text-slate-600">SMP</td>
+<td class="py-3 px-4 text-slate-600">Reguler</td>
+<td class="py-3 px-4 text-slate-600">08123456789</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-emerald-100 text-emerald-700 border border-emerald-200">
+                  Aktif
+                </span>
+</td>
+<td class="py-3 px-4 text-center">
+<div class="inline-flex items-center justify-center gap-2.5">
+<button class="text-blue-600 hover:text-blue-800 transition-colors" title="Edit">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<button class="text-rose-500 hover:text-rose-700 transition-colors" title="Delete">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</td>
+</tr>
+<!-- Baris 2: Siti Nurhaliza -->
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-3 px-4 text-slate-500">2</td>
+<td class="py-3 px-4 font-medium text-slate-800">S002</td>
+<td class="py-3 px-4 font-medium text-slate-900">Siti Nurhaliza</td>
+<td class="py-3 px-4 text-slate-600">Perempuan</td>
+<td class="py-3 px-4 text-slate-600">SMA</td>
+<td class="py-3 px-4 text-slate-600">Intensif</td>
+<td class="py-3 px-4 text-slate-600">08123456788</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-emerald-100 text-emerald-700 border border-emerald-200">
+                  Aktif
+                </span>
+</td>
+<td class="py-3 px-4 text-center">
+<div class="inline-flex items-center justify-center gap-2.5">
+<button class="text-blue-600 hover:text-blue-800 transition-colors" title="Edit">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<button class="text-rose-500 hover:text-rose-700 transition-colors" title="Delete">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</td>
+</tr>
+<!-- Baris 3: Budi Santoso -->
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-3 px-4 text-slate-500">3</td>
+<td class="py-3 px-4 font-medium text-slate-800">S003</td>
+<td class="py-3 px-4 font-medium text-slate-900">Budi Santoso</td>
+<td class="py-3 px-4 text-slate-600">Laki-laki</td>
+<td class="py-3 px-4 text-slate-600">SMP</td>
+<td class="py-3 px-4 text-slate-600">Reguler</td>
+<td class="py-3 px-4 text-slate-600">08123456787</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-emerald-100 text-emerald-700 border border-emerald-200">
+                  Aktif
+                </span>
+</td>
+<td class="py-3 px-4 text-center">
+<div class="inline-flex items-center justify-center gap-2.5">
+<button class="text-blue-600 hover:text-blue-800 transition-colors" title="Edit">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<button class="text-rose-500 hover:text-rose-700 transition-colors" title="Delete">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination / Footer Info (Persis acuan IMAGE_31: Menampilkan 1-3 dari 3 data, tombol pagination) -->
+<div class="px-5 py-3.5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+<div>
+          Menampilkan <span class="font-medium text-slate-700">1–3</span> dari <span class="font-medium text-slate-700">3</span> data
+        </div>
+<div class="flex items-center gap-1.5">
+<!-- Prev Button -->
+<button class="w-7 h-7 rounded border border-slate-200 bg-white flex items-center justify-center text-slate-400 hover:text-slate-600 disabled:opacity-50" disabled="">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Active Page 1 -->
+<button class="w-7 h-7 rounded bg-[#3b82f6] text-white font-medium flex items-center justify-center text-xs shadow-xs">
+            1
+          </button>
+<!-- Next Button -->
+<button class="w-7 h-7 rounded border border-slate-200 bg-white flex items-center justify-center text-slate-400 hover:text-slate-600 disabled:opacity-50" disabled="">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- END: Main Content Area -->
+<!-- BEGIN: Footer (Clean persis SCREEN_8) -->
+<footer class="bg-white border-t border-slate-200/80 px-8 py-4 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
+<div class="flex items-center gap-2">
+<img alt="Logo Tunas Cendekia" class="w-5 h-5 rounded-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMEyB_S2xCqctDbZ_40saFvSrDj98eP_5PC-F7FkAX3wgnqGiKhn3ytoJnpwAaYWYS6QQ9YIPEAckfx4IFrs65T9VmMCMJ9faquhkKP6xTlZyzE01HgdSrmuzCQTldWzaUvJJJPwaYgPZXrxzc3zEDtk-wGwid8VDlQ68D9ukUL9yFmXCfx_l8PwKU-YI2UiXsm3KubhklHde-1NbehjA0Bj59VV3BMoAUTevRXmjczL2_pIXpkAni9Q">
+<span>© 2025 Bimbel Tunas Cendekia. Hak Cipta Dilindungi.</span>
+</div>
+<div class="flex items-center gap-4">
+<a class="hover:text-blue-600 transition-colors" href="#">Bantuan</a>
+<a class="hover:text-blue-600 transition-colors" href="#">Kebijakan Privasi</a>
+<a class="hover:text-blue-600 transition-colors" href="#">Syarat &amp; Ketentuan</a>
+</div>
+</footer>
+<!-- END: Footer -->
+</div>
+<!-- END: MainContentWrapper -->
+<!-- Modal Tambah Siswa Baru (Clean popup) -->
+<div class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-xs hidden items-center justify-center p-4" id="addStudentModal">
+<div class="bg-white rounded-xl shadow-xl w-full max-w-md overflow-hidden animate-in fade-in zoom-in-95 duration-150 border border-slate-200">
+<div class="px-5 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/70">
+<h3 class="font-bold text-slate-900 text-sm">Tambah Siswa Baru</h3>
+<button class="text-slate-400 hover:text-slate-600" id="closeModalBtn" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<form class="p-5 space-y-4 text-xs" id="formTambahSiswa">
+<div>
+<label class="block font-medium text-slate-700 mb-1">Nama Lengkap Siswa</label>
+<input class="w-full px-3 py-2 border border-slate-200 rounded-lg outline-none focus:ring-1 focus:ring-blue-500" placeholder="Contoh: Andi Pratama" required="" type="text">
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block font-medium text-slate-700 mb-1">Jenis Kelamin</label>
+<select class="w-full px-3 py-2 border border-slate-200 rounded-lg outline-none focus:ring-1 focus:ring-blue-500">
+<option>Laki-laki</option>
+<option>Perempuan</option>
+</select>
+</div>
+<div>
+<label class="block font-medium text-slate-700 mb-1">Kelas Sekolah</label>
+<select class="w-full px-3 py-2 border border-slate-200 rounded-lg outline-none focus:ring-1 focus:ring-blue-500">
+<option>SD</option>
+<option>SMP</option>
+<option>SMA</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block font-medium text-slate-700 mb-1">Program Belajar</label>
+<select class="w-full px-3 py-2 border border-slate-200 rounded-lg outline-none focus:ring-1 focus:ring-blue-500">
+<option>Reguler</option>
+<option>Intensif</option>
+<option>Prestasi</option>
+</select>
+</div>
+<div>
+<label class="block font-medium text-slate-700 mb-1">No. HP</label>
+<input class="w-full px-3 py-2 border border-slate-200 rounded-lg outline-none focus:ring-1 focus:ring-blue-500" placeholder="08123456789" type="tel">
+</div>
+</div>
+<div class="pt-2 flex justify-end gap-2">
+<button class="px-4 py-2 rounded-lg bg-slate-100 text-slate-700 font-medium hover:bg-slate-200 transition-colors" id="cancelModalBtn" type="button">
+          Batal
+        </button>
+<button class="px-4 py-2 rounded-lg bg-[#143d73] text-white font-medium hover:bg-[#0f2e57] transition-colors shadow-xs" type="submit">
+          Simpan Data
+        </button>
+</div>
+</form>
+</div>
+</div>
+<script>
+  const modal = document.getElementById('addStudentModal');
+  const btnTambah = document.getElementById('btnTambahSiswa');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+  const cancelModalBtn = document.getElementById('cancelModalBtn');
+  const searchInput = document.getElementById('searchStudentInput');
+  const filterClass = document.getElementById('filterClassSelect');
+  const filterStatus = document.getElementById('filterStatusSelect');
+  const tableRows = document.querySelectorAll('#studentTableBody tr');
+
+  function openModal() {
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  }
+
+  function closeModal() {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }
+
+  if (btnTambah) btnTambah.addEventListener('click', openModal);
+  if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+  if (cancelModalBtn) cancelModalBtn.addEventListener('click', closeModal);
+
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+  }
+
+  function filterTable() {
+    const query = (searchInput.value || '').toLowerCase();
+    const selClass = filterClass.value;
+    const selStatus = filterStatus.value;
+
+    tableRows.forEach(row => {
+      const name = row.children[2]?.innerText.toLowerCase() || '';
+      const rowClass = row.children[4]?.innerText.trim() || '';
+      const rowStatus = row.children[7]?.innerText.trim() || '';
+
+      const matchName = name.includes(query);
+      const matchClass = (selClass === 'all') || (rowClass.includes(selClass));
+      const matchStatus = (selStatus === 'all') || (rowStatus.includes(selStatus));
+
+      if (matchName && matchClass && matchStatus) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+
+  if (searchInput) searchInput.addEventListener('input', filterTable);
+  if (filterClass) filterClass.addEventListener('change', filterTable);
+  if (filterStatus) filterStatus.addEventListener('change', filterTable);
+  const btnSearch = document.getElementById('btnSearch');
+  if (btnSearch) btnSearch.addEventListener('click', filterTable);
+</script>
+
+
+
+
+
+
+</body></html>

@@ -1,0 +1,742 @@
+<!DOCTYPE html><html lang="id"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Data Siswa - Bimbel Tunas Cendekia</title>
+<!-- Tailwind CSS CDN v3 with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#143d73',
+              darkNavy: '#133565',
+              activeBlue: '#3b82f6',
+              lightBlueBg: '#e9f2ff',
+              cardBlue: '#2563eb',
+              canvasBg: '#eef4fb'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: CustomStyles -->
+<style data-purpose="base-layout">
+    body {
+      background-color: #eef4fb;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+<!-- END: CustomStyles -->
+<meta content="web_dashboard" name="shell-type">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"></head>
+<body class="bg-[#eef4fb] min-h-screen flex text-slate-800 font-sans antialiased text-sm">
+<!-- BEGIN: Sidebar (Identik persis dengan SCREEN_8 dan referensi IMAGE_31/32) -->
+<aside class="w-64 bg-[#143d73] text-white flex-shrink-0 flex flex-col justify-between shadow-xl min-h-screen" data-purpose="admin-sidebar">
+<div>
+<!-- Brand Logo Section -->
+<div class="px-6 py-6 flex items-center gap-3">
+<div class="w-10 h-10 flex-shrink-0 relative flex items-center justify-center">
+<img alt="Logo Bimbel Tunas Cendekia" class="w-10 h-10 object-contain rounded-full bg-white p-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMEyB_S2xCqctDbZ_40saFvSrDj98eP_5PC-F7FkAX3wgnqGiKhn3ytoJnpwAaYWYS6QQ9YIPEAckfx4IFrs65T9VmMCMJ9faquhkKP6xTlZyzE01HgdSrmuzCQTldWzaUvJJJPwaYgPZXrxzc3zEDtk-wGwid8VDlQ68D9ukUL9yFmXCfx_l8PwKU-YI2UiXsm3KubhklHde-1NbehjA0Bj59VV3BMoAUTevRXmjczL2_pIXpkAni9Q">
+</div>
+<div class="leading-tight">
+<h1 class="font-bold text-base tracking-wide text-white">Bimbel</h1>
+<p class="text-xs text-blue-100 font-medium tracking-tight">Tunas Cendekia</p>
+</div>
+</div>
+<!-- Navigation Menu (Strictly the 11 designated items, Data Siswa AKTIF) -->
+<nav class="mt-2 px-3 space-y-1">
+<!-- 1. Dashboard -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+<path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+</svg>
+<span class="text-sm">Dashboard</span>
+</a>
+<!-- 2. Data Siswa (Aktif Highlight Biru) -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+<path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path>
+</svg>
+<span class="text-sm">Data Siswa</span>
+</a>
+<!-- 3. Data Pengajar -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+<path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+</svg>
+<span class="text-sm">Data Pengajar</span>
+</a>
+<!-- 4. Data Kelas -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg bg-[#3b82f6] text-white font-medium shadow-sm transition-colors" href="#">
+<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm font-semibold">Data Kelas</span>
+</a>
+<!-- 5. Program Belajar -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Program Belajar</span>
+</a>
+<!-- 6. Jadwal Bimbingan -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M8 7V3m8 7V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Jadwal Bimbingan</span>
+</a>
+<!-- 7. Pendaftaran Siswa -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+<path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path>
+</svg>
+<span class="text-sm">Pendaftaran Siswa</span>
+</a>
+<!-- 8. Pembayaran -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Pembayaran</span>
+</a>
+<!-- 9. Laporan -->
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Laporan</span>
+</a>
+<!-- 10. Pengaturan -->
+</nav>
+</div>
+<!-- 11. Logout (At bottom of sidebar) -->
+<div class="px-3 pb-6 pt-4">
+<a class="flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 transition-colors" href="#">
+<svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Logout</span>
+</a>
+</div>
+</aside>
+<!-- END: Sidebar -->
+<!-- BEGIN: MainContentWrapper -->
+<div class="flex-1 flex flex-col min-w-0">
+<!-- BEGIN: Topbar (Clean persis SCREEN_8) -->
+<header class="bg-white border-b border-slate-200/80 px-8 py-3.5 flex items-center justify-between sticky top-0 z-20 shadow-sm" data-purpose="top-navigation">
+<!-- Left: Hamburger icon -->
+<div class="flex items-center gap-3">
+<button aria-label="Toggle Menu" class="p-1 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Right: Notification, Date Badge & Admin Profile -->
+<div class="flex items-center gap-5">
+<!-- Date Badge -->
+<!-- Notification Bell -->
+<button aria-label="Notifikasi" class="relative text-slate-600 hover:text-slate-900 transition-colors p-1">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="absolute top-1 right-1 w-2 h-2 bg-blue-600 rounded-full"></span>
+</button>
+<!-- Admin Profile Pill -->
+<div class="flex items-center gap-2 cursor-pointer select-none">
+<div class="w-8 h-8 rounded-full bg-[#143d73] flex items-center justify-center text-white text-sm font-semibold">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-sm font-semibold text-slate-700">Admin</span>
+<svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+</header>
+<!-- END: Topbar -->
+<!-- BEGIN: Main Content Area (Clean, minimal, persis screenshot IMAGE_31 Data Siswa) -->
+<main class="flex-1 p-8 space-y-6 overflow-y-auto"><div class="flex flex-col w-full space-y-6">
+<!-- Header Konten & Breadcrumb Section -->
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"><div>
+<h1 class="text-2xl font-bold text-slate-900 tracking-tight">Data Kelas</h1>
+<nav class="flex items-center gap-1.5 mt-1 text-sm text-slate-500">
+<a class="hover:text-blue-600 transition-colors" href="#">Dashboard</a>
+<span class="text-xs text-slate-400">›</span>
+<span class="text-slate-700 font-medium">Data Kelas</span>
+</nav>
+</div>
+<div class="flex items-center gap-3">
+<button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#143d73] text-white font-semibold text-sm hover:bg-[#0f2e57] shadow-sm transition-all duration-200 cursor-pointer" id="btnTambahKelas" type="button">
+<span class="material-symbols-outlined text-base">add</span>
+<span>Tambah Kelas</span>
+</button>
+</div></div>
+<!-- Filter & Pencarian Bar -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl">
+  <div class="bg-white border border-slate-200/80 rounded-xl p-5 shadow-sm flex items-center justify-between transition-all hover:shadow-md">
+    <div>
+      <span class="text-xs font-semibold uppercase tracking-wider text-slate-500 block mb-1">Total Kelas</span>
+      <div class="flex items-baseline gap-2">
+        <span class="text-2xl font-bold text-slate-900">12</span>
+        <span class="text-xs text-slate-500 font-medium">Kelas</span>
+      </div>
+      <p class="text-xs text-slate-400 mt-1">8 Reguler • 4 Intensif</p>
+    </div>
+    <div class="w-11 h-11 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0">
+      <span class="material-symbols-outlined text-2xl">meeting_room</span>
+    </div>
+  </div>
+
+  <div class="bg-white border border-slate-200/80 rounded-xl p-5 shadow-sm flex items-center justify-between transition-all hover:shadow-md">
+    <div>
+      <span class="text-xs font-semibold uppercase tracking-wider text-slate-500 block mb-1">Kelas Aktif</span>
+      <div class="flex items-baseline gap-2">
+        <span class="text-2xl font-bold text-slate-900">10</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-600">Berjalan</span>
+      </div>
+      <p class="text-xs text-slate-400 mt-1">2 Kelas Persiapan</p>
+    </div>
+    <div class="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0">
+      <span class="material-symbols-outlined text-2xl">check_circle</span>
+    </div>
+  </div>
+</div><div class="bg-white border border-slate-200/80 rounded-xl p-4 shadow-sm flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3.5">
+<!-- Input Search Field -->
+<div class="relative flex-1">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+<span class="material-symbols-outlined text-lg">search</span>
+</div>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-50 text-slate-800 placeholder:text-slate-400 text-sm rounded-lg outline-none border border-slate-200/80 focus:bg-white focus:ring-2 focus:ring-blue-500 transition-all" id="searchClassInput" placeholder="Cari kelas, jenjang, atau pengajar..." type="text">
+</div>
+<!-- Dropdown Filters & Search Button -->
+<div class="flex flex-wrap items-center gap-2.5">
+<!-- Filter Jenjang -->
+<div class="relative min-w-[140px]">
+<select class="w-full appearance-none pl-3.5 pr-8 py-2 bg-slate-50 text-slate-700 text-sm rounded-lg border border-slate-200/80 outline-none focus:bg-white focus:ring-2 focus:ring-blue-500 transition-all cursor-pointer" id="filterJenjangSelect">
+<option value="all">Semua Jenjang</option>
+<option value="SD">SD</option>
+<option value="SMP">SMP</option>
+<option value="SMA">SMA</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 text-base">expand_more</span>
+</div>
+<!-- Filter Status -->
+<div class="relative min-w-[140px]">
+<select class="w-full appearance-none pl-3.5 pr-8 py-2 bg-slate-50 text-slate-700 text-sm rounded-lg border border-slate-200/80 outline-none focus:bg-white focus:ring-2 focus:ring-blue-500 transition-all cursor-pointer" id="filterStatusKelasSelect">
+<option value="all">Semua Status</option>
+<option value="Aktif">Aktif</option>
+<option value="Selesai">Selesai</option>
+<option value="Persiapan">Persiapan</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 text-base">expand_more</span>
+</div>
+<!-- Tombol Cari -->
+<button class="px-5 py-2 rounded-lg bg-[#143d73] text-white font-medium text-sm hover:bg-[#0f2e57] shadow-sm transition-all duration-150 inline-flex items-center gap-1.5 cursor-pointer" id="btnFilterTrigger" type="button">
+<span class="material-symbols-outlined text-sm">filter_alt</span>
+<span>Cari</span>
+</button>
+</div>
+</div>
+<!-- Tabel Data Kelas Wrapper -->
+<div class="bg-white border border-slate-200/80 rounded-xl shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm" id="classTable">
+<thead>
+<tr class="bg-slate-50 border-b border-slate-200 text-slate-600 font-semibold text-xs tracking-wider uppercase">
+<th class="py-3.5 px-5 w-14 text-center">NO</th>
+<th class="py-3.5 px-5">NAMA KELAS</th>
+<th class="py-3.5 px-5">JENJANG</th>
+<th class="py-3.5 px-5">MATA PELAJARAN</th>
+<th class="py-3.5 px-5">PENGAJAR</th>
+<th class="py-3.5 px-5 text-center">KAPASITAS</th>
+<th class="py-3.5 px-5 text-center">STATUS KELAS</th>
+<th class="py-3.5 px-5 text-center w-28">AKSI PENGELOLAAN</th>
+</tr>
+</thead>
+<tbody class="text-slate-800 divide-y divide-slate-100" id="classTableBody">
+<!-- Baris 1: Kelas X IPA -->
+<tr class="hover:bg-slate-50/70 transition-colors group">
+<td class="py-3.5 px-5 text-center font-medium text-slate-400 text-xs">1</td>
+<td class="py-3.5 px-5">
+<span class="font-semibold text-slate-900 block">Kelas X IPA</span>
+</td>
+<td class="py-3.5 px-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-semibold bg-blue-50 text-blue-600">
+  SMA
+</span>
+</td>
+<td class="py-3.5 px-5">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+<span class="font-medium text-slate-700">Matematika &amp; Fisika</span>
+</div>
+</td>
+<td class="py-3.5 px-5">
+<span class="text-slate-700">Dr. Rina Astuti</span>
+</td>
+<td class="py-3.5 px-5 text-center">
+<span class="inline-flex items-center gap-1.5 text-xs text-slate-600 font-medium">
+<span class="material-symbols-outlined text-sm text-slate-400">group</span>
+<span>30 Siswa</span>
+</span>
+</td>
+<td class="py-3.5 px-5 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-600">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+Aktif
+</span>
+</td>
+<td class="py-3.5 px-5 text-center">
+<div class="flex items-center justify-center gap-1.5">
+<button class="w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors" title="Lihat Detail">
+<span class="material-symbols-outlined text-base">visibility</span>
+</button>
+<button class="w-7 h-7 rounded-lg flex items-center justify-center text-blue-600 hover:text-blue-800 hover:bg-blue-50 transition-colors" title="Ubah Data">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="w-7 h-7 rounded-lg flex items-center justify-center text-red-500 hover:text-red-700 hover:bg-red-50 transition-colors" title="Hapus Kelas">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Baris 2: Kelas XI IPS -->
+<tr class="hover:bg-slate-50/70 transition-colors group">
+<td class="py-3.5 px-5 text-center font-medium text-slate-400 text-xs">2</td>
+<td class="py-3.5 px-5">
+<span class="font-semibold text-slate-900 block">Kelas XI IPS</span>
+</td>
+<td class="py-3.5 px-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-semibold bg-blue-50 text-blue-600">
+  SMA
+</span>
+</td>
+<td class="py-3.5 px-5">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+<span class="font-medium text-slate-700">Ekonomi &amp; Sosiologi</span>
+</div>
+</td>
+<td class="py-3.5 px-5">
+<span class="text-slate-700">Ahmad Fauzi, M.Pd</span>
+</td>
+<td class="py-3.5 px-5 text-center">
+<span class="inline-flex items-center gap-1.5 text-xs text-slate-600 font-medium">
+<span class="material-symbols-outlined text-sm text-slate-400">group</span>
+<span>25 Siswa</span>
+</span>
+</td>
+<td class="py-3.5 px-5 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-600">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+Aktif
+</span>
+</td>
+<td class="py-3.5 px-5 text-center">
+<div class="flex items-center justify-center gap-1.5">
+<button class="w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors" title="Lihat Detail">
+<span class="material-symbols-outlined text-base">visibility</span>
+</button>
+<button class="w-7 h-7 rounded-lg flex items-center justify-center text-blue-600 hover:text-blue-800 hover:bg-blue-50 transition-colors" title="Ubah Data">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="w-7 h-7 rounded-lg flex items-center justify-center text-red-500 hover:text-red-700 hover:bg-red-50 transition-colors" title="Hapus Kelas">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Baris 3: Kelas VII A -->
+<tr class="hover:bg-slate-50/70 transition-colors group">
+<td class="py-3.5 px-5 text-center font-medium text-slate-400 text-xs">3</td>
+<td class="py-3.5 px-5">
+<span class="font-semibold text-slate-900 block">Kelas VII SMP</span>
+</td>
+<td class="py-3.5 px-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-semibold bg-blue-50 text-blue-600">
+  SMP
+</span>
+</td>
+<td class="py-3.5 px-5">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+<span class="font-medium text-slate-700">IPA Terpadu</span>
+</div>
+</td>
+<td class="py-3.5 px-5">
+<span class="text-slate-700">Sari Dewi, S.Si</span>
+</td>
+<td class="py-3.5 px-5 text-center">
+<span class="inline-flex items-center gap-1.5 text-xs text-slate-600 font-medium">
+<span class="material-symbols-outlined text-sm text-slate-400">group</span>
+<span>35 Siswa</span>
+</span>
+</td>
+<td class="py-3.5 px-5 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-600">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+Aktif
+</span>
+</td>
+<td class="py-3.5 px-5 text-center">
+<div class="flex items-center justify-center gap-1.5">
+<button class="w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors" title="Lihat Detail">
+<span class="material-symbols-outlined text-base">visibility</span>
+</button>
+<button class="w-7 h-7 rounded-lg flex items-center justify-center text-blue-600 hover:text-blue-800 hover:bg-blue-50 transition-colors" title="Ubah Data">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="w-7 h-7 rounded-lg flex items-center justify-center text-red-500 hover:text-red-700 hover:bg-red-50 transition-colors" title="Hapus Kelas">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Baris 4: Kelas XII IPA 1 -->
+<tr class="hover:bg-slate-50/70 transition-colors group">
+<td class="py-3.5 px-5 text-center font-medium text-slate-400 text-xs">4</td>
+<td class="py-3.5 px-5">
+<span class="font-semibold text-slate-900 block">Kelas XII IPA 1</span>
+</td>
+<td class="py-3.5 px-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-semibold bg-blue-50 text-blue-600">
+  SMA
+</span>
+</td>
+<td class="py-3.5 px-5">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+<span class="font-medium text-slate-700">Fisika Lanjutan &amp; UTBK</span>
+</div>
+</td>
+<td class="py-3.5 px-5">
+<span class="text-slate-700">Bambang Susilo, M.Sc</span>
+</td>
+<td class="py-3.5 px-5 text-center">
+<span class="inline-flex items-center gap-1.5 text-xs text-slate-600 font-medium">
+<span class="material-symbols-outlined text-sm text-slate-400">group</span>
+<span>28 Siswa</span>
+</span>
+</td>
+<td class="py-3.5 px-5 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-600">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+Aktif
+</span>
+</td>
+<td class="py-3.5 px-5 text-center">
+<div class="flex items-center justify-center gap-1.5">
+<button class="w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors" title="Lihat Detail">
+<span class="material-symbols-outlined text-base">visibility</span>
+</button>
+<button class="w-7 h-7 rounded-lg flex items-center justify-center text-blue-600 hover:text-blue-800 hover:bg-blue-50 transition-colors" title="Ubah Data">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="w-7 h-7 rounded-lg flex items-center justify-center text-red-500 hover:text-red-700 hover:bg-red-50 transition-colors" title="Hapus Kelas">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Baris Paginasi Bawah -->
+<div class="px-5 py-3.5 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+<div>
+        Menampilkan <span class="font-semibold text-slate-800" id="paginationInfo">1-4</span> dari <span class="font-semibold text-slate-800">4</span> data kelas
+</div>
+<div class="flex items-center gap-1.5">
+<button aria-label="Halaman Sebelumnya" class="w-8 h-8 rounded-lg flex items-center justify-center bg-white border border-slate-200 text-slate-400 opacity-50 cursor-not-allowed" disabled="" type="button">
+<span class="material-symbols-outlined text-base">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center bg-[#143d73] text-white font-semibold text-xs shadow-xs" type="button">
+  1
+</button>
+<button aria-label="Halaman Selanjutnya" class="w-8 h-8 rounded-lg flex items-center justify-center bg-white border border-slate-200 text-slate-400 opacity-50 cursor-not-allowed" disabled="" type="button">
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Micro Modal: Tambah Kelas Baru -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-xs hidden items-center justify-center p-4" id="modalTambahKelas">
+<div class="bg-surface-container-lowest rounded-xl shadow-xl w-full max-w-lg overflow-hidden transition-all duration-200">
+<div class="px-6 py-4 bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">meeting_room</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Tambah Data Kelas Baru</h3>
+</div>
+<button class="text-outline hover:text-on-surface p-1 rounded-lg transition-colors" id="btnTutupModalKelas" type="button">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</div>
+<form class="p-6 space-y-4" id="formTambahKelasBaru">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Nama Kelas</label>
+<input class="w-full px-3.5 py-2 bg-surface-container-low text-on-surface placeholder:text-outline font-body-md text-body-md rounded-lg outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-secondary" placeholder="Contoh: Kelas X IPA 2" required="" type="text">
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Jenjang</label>
+<select class="w-full px-3 py-2 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-secondary">
+<option>SMA</option>
+<option>SMP</option>
+<option>SD</option>
+</select>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Kapasitas (Siswa)</label>
+<input class="w-full px-3.5 py-2 bg-surface-container-low text-on-surface placeholder:text-outline font-body-md text-body-md rounded-lg outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-secondary" placeholder="Contoh: 30" type="number" value="30">
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Mata Pelajaran</label>
+<input class="w-full px-3.5 py-2 bg-surface-container-low text-on-surface placeholder:text-outline font-body-md text-body-md rounded-lg outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-secondary" placeholder="Contoh: Matematika &amp; Sains" required="" type="text">
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Nama Pengajar</label>
+<input class="w-full px-3.5 py-2 bg-surface-container-low text-on-surface placeholder:text-outline font-body-md text-body-md rounded-lg outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-secondary" placeholder="Contoh: Dr. Rina Astuti" required="" type="text">
+</div>
+<div class="pt-3 flex items-center justify-end gap-3">
+<button class="px-4 py-2 rounded-lg bg-surface-container-high text-on-surface font-headline-sm text-headline-sm hover:bg-surface-container transition-colors" id="btnBatalModalKelas" type="button">
+            Batal
+          </button>
+<button class="px-5 py-2 rounded-lg bg-primary text-on-primary font-headline-sm text-headline-sm hover:bg-primary-container shadow-xs transition-colors" type="submit">
+            Simpan Kelas
+          </button>
+</div>
+</form>
+</div>
+</div>
+<script>
+    // Filtering and Modal Interaction Logic
+    const classModal = document.getElementById('modalTambahKelas');
+    const openClassModalBtn = document.getElementById('btnTambahKelas');
+    const closeClassModalBtn = document.getElementById('btnTutupModalKelas');
+    const cancelClassModalBtn = document.getElementById('btnBatalModalKelas');
+    const searchClassInput = document.getElementById('searchClassInput');
+    const filterJenjangSelect = document.getElementById('filterJenjangSelect');
+    const filterStatusKelasSelect = document.getElementById('filterStatusKelasSelect');
+    const btnFilterTrigger = document.getElementById('btnFilterTrigger');
+    const classRows = document.querySelectorAll('#classTableBody tr');
+    const paginationInfo = document.getElementById('paginationInfo');
+
+    function toggleModal(show) {
+      if (!classModal) return;
+      if (show) {
+        classModal.classList.remove('hidden');
+        classModal.classList.add('flex');
+      } else {
+        classModal.classList.add('hidden');
+        classModal.classList.remove('flex');
+      }
+    }
+
+    if (openClassModalBtn) openClassModalBtn.addEventListener('click', () => toggleModal(true));
+    if (closeClassModalBtn) closeClassModalBtn.addEventListener('click', () => toggleModal(false));
+    if (cancelClassModalBtn) cancelClassModalBtn.addEventListener('click', () => toggleModal(false));
+    if (classModal) {
+      classModal.addEventListener('click', (e) => {
+        if (e.target === classModal) toggleModal(false);
+      });
+    }
+
+    function applyClassFilter() {
+      const q = (searchClassInput?.value || '').toLowerCase().trim();
+      const jenjang = filterJenjangSelect?.value || 'all';
+      const status = filterStatusKelasSelect?.value || 'all';
+      let visibleCount = 0;
+
+      classRows.forEach(row => {
+        const rowText = row.innerText.toLowerCase();
+        const rowJenjang = row.children[2]?.innerText.trim() || '';
+        const rowStatus = row.children[6]?.innerText.trim() || '';
+
+        const matchesQuery = !q || rowText.includes(q);
+        const matchesJenjang = (jenjang === 'all') || (rowJenjang.includes(jenjang));
+        const matchesStatus = (status === 'all') || (rowStatus.includes(status));
+
+        if (matchesQuery && matchesJenjang && matchesStatus) {
+          row.style.display = '';
+          visibleCount++;
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      if (paginationInfo) {
+        paginationInfo.innerText = visibleCount === 0 ? '0' : `1-${visibleCount}`;
+      }
+    }
+
+    if (searchClassInput) searchClassInput.addEventListener('input', applyClassFilter);
+    if (filterJenjangSelect) filterJenjangSelect.addEventListener('change', applyClassFilter);
+    if (filterStatusKelasSelect) filterStatusKelasSelect.addEventListener('change', applyClassFilter);
+    if (btnFilterTrigger) btnFilterTrigger.addEventListener('click', applyClassFilter);
+  </script>
+</div></main>
+<!-- END: Main Content Area -->
+<!-- BEGIN: Footer (Clean persis SCREEN_8) -->
+<footer class="bg-white border-t border-slate-200/80 px-8 py-4 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
+<div class="flex items-center gap-2">
+<img alt="Logo Tunas Cendekia" class="w-5 h-5 rounded-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMEyB_S2xCqctDbZ_40saFvSrDj98eP_5PC-F7FkAX3wgnqGiKhn3ytoJnpwAaYWYS6QQ9YIPEAckfx4IFrs65T9VmMCMJ9faquhkKP6xTlZyzE01HgdSrmuzCQTldWzaUvJJJPwaYgPZXrxzc3zEDtk-wGwid8VDlQ68D9ukUL9yFmXCfx_l8PwKU-YI2UiXsm3KubhklHde-1NbehjA0Bj59VV3BMoAUTevRXmjczL2_pIXpkAni9Q">
+<span>© 2025 Bimbel Tunas Cendekia. Hak Cipta Dilindungi.</span>
+</div>
+<div class="flex items-center gap-4">
+<a class="hover:text-blue-600 transition-colors" href="#">Bantuan</a>
+<a class="hover:text-blue-600 transition-colors" href="#">Kebijakan Privasi</a>
+<a class="hover:text-blue-600 transition-colors" href="#">Syarat &amp; Ketentuan</a>
+</div>
+</footer>
+<!-- END: Footer -->
+</div>
+<!-- END: MainContentWrapper -->
+<!-- Modal Tambah Siswa Baru (Clean popup) -->
+<div class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-xs hidden items-center justify-center p-4" id="addStudentModal">
+<div class="bg-white rounded-xl shadow-xl w-full max-w-md overflow-hidden animate-in fade-in zoom-in-95 duration-150 border border-slate-200">
+<div class="px-5 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/70">
+<h3 class="font-bold text-slate-900 text-sm">Tambah Siswa Baru</h3>
+<button class="text-slate-400 hover:text-slate-600" id="closeModalBtn" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<form class="p-5 space-y-4 text-xs" id="formTambahSiswa">
+<div>
+<label class="block font-medium text-slate-700 mb-1">Nama Lengkap Siswa</label>
+<input class="w-full px-3 py-2 border border-slate-200 rounded-lg outline-none focus:ring-1 focus:ring-blue-500" placeholder="Contoh: Andi Pratama" required="" type="text">
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block font-medium text-slate-700 mb-1">Jenis Kelamin</label>
+<select class="w-full px-3 py-2 border border-slate-200 rounded-lg outline-none focus:ring-1 focus:ring-blue-500">
+<option>Laki-laki</option>
+<option>Perempuan</option>
+</select>
+</div>
+<div>
+<label class="block font-medium text-slate-700 mb-1">Kelas Sekolah</label>
+<select class="w-full px-3 py-2 border border-slate-200 rounded-lg outline-none focus:ring-1 focus:ring-blue-500">
+<option>SD</option>
+<option>SMP</option>
+<option>SMA</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block font-medium text-slate-700 mb-1">Program Belajar</label>
+<select class="w-full px-3 py-2 border border-slate-200 rounded-lg outline-none focus:ring-1 focus:ring-blue-500">
+<option>Reguler</option>
+<option>Intensif</option>
+<option>Prestasi</option>
+</select>
+</div>
+<div>
+<label class="block font-medium text-slate-700 mb-1">No. HP</label>
+<input class="w-full px-3 py-2 border border-slate-200 rounded-lg outline-none focus:ring-1 focus:ring-blue-500" placeholder="08123456789" type="tel">
+</div>
+</div>
+<div class="pt-2 flex justify-end gap-2">
+<button class="px-4 py-2 rounded-lg bg-slate-100 text-slate-700 font-medium hover:bg-slate-200 transition-colors" id="cancelModalBtn" type="button">
+          Batal
+        </button>
+<button class="px-4 py-2 rounded-lg bg-[#143d73] text-white font-medium hover:bg-[#0f2e57] transition-colors shadow-xs" type="submit">
+          Simpan Data
+        </button>
+</div>
+</form>
+</div>
+</div>
+<script>
+  const modal = document.getElementById('addStudentModal');
+  const btnTambah = document.getElementById('btnTambahSiswa');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+  const cancelModalBtn = document.getElementById('cancelModalBtn');
+  const searchInput = document.getElementById('searchStudentInput');
+  const filterClass = document.getElementById('filterClassSelect');
+  const filterStatus = document.getElementById('filterStatusSelect');
+  const tableRows = document.querySelectorAll('#studentTableBody tr');
+
+  function openModal() {
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  }
+
+  function closeModal() {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }
+
+  if (btnTambah) btnTambah.addEventListener('click', openModal);
+  if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+  if (cancelModalBtn) cancelModalBtn.addEventListener('click', closeModal);
+
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+  }
+
+  function filterTable() {
+    const query = (searchInput.value || '').toLowerCase();
+    const selClass = filterClass.value;
+    const selStatus = filterStatus.value;
+
+    tableRows.forEach(row => {
+      const name = row.children[2]?.innerText.toLowerCase() || '';
+      const rowClass = row.children[4]?.innerText.trim() || '';
+      const rowStatus = row.children[7]?.innerText.trim() || '';
+
+      const matchName = name.includes(query);
+      const matchClass = (selClass === 'all') || (rowClass.includes(selClass));
+      const matchStatus = (selStatus === 'all') || (rowStatus.includes(selStatus));
+
+      if (matchName && matchClass && matchStatus) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+
+  if (searchInput) searchInput.addEventListener('input', filterTable);
+  if (filterClass) filterClass.addEventListener('change', filterTable);
+  if (filterStatus) filterStatus.addEventListener('change', filterTable);
+  const btnSearch = document.getElementById('btnSearch');
+  if (btnSearch) btnSearch.addEventListener('click', filterTable);
+</script>
+
+
+</body></html>

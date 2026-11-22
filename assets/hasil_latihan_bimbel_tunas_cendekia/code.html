@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="id"><svg class="inline-defs-container" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"></svg><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="web_dashboard" name="shell-type">
+<title>Hasil Latihan Siswa - Portal Pengajar Bimbel Tunas Cendekia</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            adminNav: '#1b3e6b',
+            brandBlue: '#2563eb',
+            pageBg: '#F4F7FC',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-[#F4F7FC] text-slate-800 antialiased min-h-screen flex">
+<!-- SIDEBAR -->
+<aside class="fixed left-0 top-0 h-full w-[250px] bg-[#1b3e6b] text-white flex flex-col justify-between z-50 select-none">
+<div class="flex flex-col">
+<!-- Logo Header -->
+<div class="h-20 px-6 flex items-center gap-3 border-b border-white/10">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm overflow-hidden shrink-0">
+<img alt="Logo Bimbel Tunas Cendekia" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDusUCHkuzsSfB9gw3WXj6bdeWyk5YV-ikNZiwBzA2mxAJP5n7SHuUo4Q974mW-GfmuKMog3mHsdcORHoMP0jR3C-xVIWMITrKtPJCjo3vJX7r_uc3oj02mhJG_1FRs88rpTMUOdq3oguaoYkdxo9YnDZ5Yk4rl0JPCpm0G9hSHmgJrB5UBLlaSdtqEw6pV1sShABw9FVvXornAOEn826xw7kyIGnOPoj2IAaOe-Uqz3NFBUSs1Qjj9hQ">
+</div>
+<div>
+<div class="font-bold text-white text-base leading-tight">Bimbel</div>
+<div class="text-xs text-blue-200">Tunas Cendekia</div>
+</div>
+</div>
+<!-- Navigation Menu -->
+<nav class="flex flex-col gap-1.5 px-4 py-6">
+<!-- Dashboard -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white font-medium text-sm transition-all" href="#">
+<svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path></svg>
+<span>Dashboard</span>
+</a>
+<!-- Jadwal Mengajar -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white font-medium text-sm transition-all" href="#">
+<svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"></path></svg>
+<span>Jadwal Mengajar</span>
+</a>
+<!-- Data Siswa -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white font-medium text-sm transition-all" href="#">
+<svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"></path></svg>
+<span>Data Siswa</span>
+</a>
+<!-- Absensi -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white font-medium text-sm transition-all" href="#">
+<svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm-2 14l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"></path></svg>
+<span>Absensi</span>
+</a>
+<!-- Materi Pembelajaran (Active Menu) -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg font-medium text-sm transition-all text-white/80 hover:bg-white/10 hover:text-white" href="#">
+<svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"></path></svg>
+<span>Materi Pembelajaran</span>
+</a>
+<!-- Latihan Soal -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white font-medium text-sm transition-all" href="#">
+<svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"></path></svg>
+<span>Latihan Soal</span>
+</a>
+<!-- Hasil Latihan -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg font-medium text-sm transition-all bg-blue-600 text-white shadow-sm" href="#">
+<svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"></path></svg>
+<span>Hasil Latihan</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Logout -->
+<div class="p-4 border-t border-white/10 mt-auto">
+<a class="hover:text-white flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-lg hover:bg-white/10 transition-all text-slate-300" href="#">
+<svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"></path></svg>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- MAIN WRAPPER -->
+<div class="pl-[250px] flex-1 flex flex-col min-h-screen bg-[#F4F7FC]">
+<!-- TOPBAR / HEADER -->
+<header class="h-16 px-8 flex items-center justify-between border-b border-slate-200/80 bg-white sticky top-0 z-40">
+<!-- Left: Hamburger button -->
+<button class="text-slate-700 hover:text-slate-900 focus:outline-none p-2 rounded-lg hover:bg-slate-100 transition" type="button">
+<svg class="w-6 h-6 stroke-current stroke-2" fill="none" viewBox="0 0 24 24">
+<line x1="4" x2="20" y1="6" y2="6"></line>
+<line x1="4" x2="20" y1="12" y2="12"></line>
+<line x1="4" x2="20" y1="18" y2="18"></line>
+</svg>
+</button>
+<!-- Right: Notification Bell & User Profile -->
+<div class="flex items-center gap-5">
+<button class="text-slate-600 hover:text-slate-900 relative p-2 rounded-full hover:bg-slate-100 transition" type="button">
+<svg class="w-5 h-5 text-slate-700" fill="currentColor" viewBox="0 0 24 24">
+<path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"></path>
+</svg>
+<span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-red-500 rounded-full ring-2 ring-white"></span>
+</button>
+<div class="flex items-center gap-3 cursor-pointer select-none group border-l border-slate-200 pl-5">
+<div class="w-9 h-9 rounded-full bg-[#1b3e6b] text-white flex items-center justify-center font-bold text-sm shadow-sm">
+      R
+    </div>
+<div class="text-left">
+<div class="text-sm font-semibold text-slate-800 leading-tight">Dr. Rina Astuti</div>
+<div class="text-xs text-slate-500 leading-tight">Tutor Pengajar</div>
+</div>
+<svg class="w-4 h-4 text-slate-400 group-hover:text-slate-700 transition ml-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+</header>
+<!-- CONTENT BODY -->
+<main class="flex-1 p-8 w-full max-w-full flex flex-col gap-6"><div class="flex flex-col w-full gap-6"><div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-1"><div><h1 class="text-2xl font-bold text-slate-800 tracking-tight leading-tight">Hasil Latihan</h1><div class="flex items-center gap-1.5 text-xs text-slate-500 mt-1 font-medium"><span>Dashboard</span><span class="material-symbols-outlined text-[13px] text-slate-400">chevron_right</span><span class="text-slate-700 font-semibold">Hasil Latihan</span></div></div><div class="flex items-center gap-3"><button type="button" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 px-3.5 py-2 rounded-lg text-sm font-medium flex items-center gap-1.5 shadow-sm transition"><span class="material-symbols-outlined text-[18px] text-slate-500">download</span><span>Export Nilai</span></button><button type="button" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-1.5 shadow-sm transition"><span class="material-symbols-outlined text-[18px]">add</span><span>&nbsp;Input Nilai Baru</span></button></div></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"><div class="bg-white rounded-xl p-5 border border-slate-200/80 shadow-sm flex items-center justify-between"><div class="flex flex-col"><span class="text-slate-500 text-xs font-semibold uppercase tracking-wider">Total Nilai Masuk</span><span class="text-2xl font-bold text-slate-900 mt-1.5">142 <span class="text-sm font-normal text-slate-500">Data</span></span><span class="text-xs text-emerald-700 font-medium mt-1 inline-flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">trending_up</span>+12 minggu ini</span></div><div class="w-11 h-11 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[22px]">assignment_turned_in</span></div></div><div class="bg-white rounded-xl p-5 border border-slate-200/80 shadow-sm flex items-center justify-between"><div class="flex flex-col"><span class="text-slate-500 text-xs font-semibold uppercase tracking-wider">Rata-rata Nilai</span><span class="text-2xl font-bold text-slate-900 mt-1.5">87.6</span><span class="text-xs text-emerald-700 font-medium mt-1 inline-flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">trending_up</span>+2.4 target 85</span></div><div class="w-11 h-11 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[22px]">analytics</span></div></div><div class="bg-white rounded-xl p-5 border border-slate-200/80 shadow-sm flex items-center justify-between"><div class="flex flex-col"><span class="text-slate-500 text-xs font-semibold uppercase tracking-wider">Tertinggi</span><span class="text-2xl font-bold text-slate-900 mt-1.5">98 <span class="text-xs text-slate-400 font-normal">/ 100</span></span><span class="text-xs text-slate-500 mt-1">Tryout Fisika Modern</span></div><div class="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[22px]">military_tech</span></div></div><div class="bg-white rounded-xl p-5 border border-slate-200/80 shadow-sm flex items-center justify-between"><div class="flex flex-col"><span class="text-slate-500 text-xs font-semibold uppercase tracking-wider">Perlu Remedial</span><span class="text-2xl font-bold text-slate-900 mt-1.5">8 <span class="text-sm font-normal text-slate-500">Nilai di bawah KKM 75</span></span><span class="text-xs text-slate-500 mt-1">Nilai di bawah KKM 75</span></div><div class="w-11 h-11 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[22px]">warning</span></div></div></div><div class="bg-white rounded-xl p-4 border border-slate-200/80 shadow-sm"><div class="flex flex-col lg:flex-row items-center gap-3"><div class="relative w-full lg:flex-1"><span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">search</span><input type="text" placeholder="Cari nama siswa, latihan, atau materi..." class="w-full pl-10 pr-4 py-2 bg-[#F4F7FC] text-slate-800 placeholder:text-outline rounded-lg text-sm focus:outline-none focus:bg-white border border-transparent focus:border-slate-200 transition-all"></div><div class="flex flex-wrap sm:flex-nowrap items-center gap-2.5 w-full lg:w-auto"><div class="relative flex-1 sm:w-36"><select class="w-full appearance-none bg-[#F4F7FC] text-slate-700 border border-transparent focus:border-slate-200 py-2 pl-3 pr-7 rounded-lg text-xs font-medium focus:outline-none cursor-pointer"><option value="">Semua Kelas</option><option value="XII-IPA-1">XII IPA 1</option><option value="XII-IPA-2">XII IPA 2</option><option value="XI-IPA-1">XI IPA 1</option><option value="X-IPA-2">X IPA 2</option></select><span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 text-[18px]">expand_more</span></div><div class="relative flex-1 sm:w-48"><select class="w-full appearance-none bg-[#F4F7FC] text-slate-700 border border-transparent focus:border-slate-200 py-2 pl-3 pr-7 rounded-lg text-xs font-medium focus:outline-none cursor-pointer"><option value="">Semua Platform</option><option value="Quizizz">Quizizz</option><option value="CBT Mandiri">CBT Mandiri</option><option value="Google Form">Google Form</option></select><span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 text-[18px]">expand_more</span></div><div class="relative flex-1 sm:w-36"><select class="w-full appearance-none bg-[#F4F7FC] text-slate-700 border border-transparent focus:border-slate-200 py-2 pl-3 pr-7 rounded-lg text-xs font-medium focus:outline-none cursor-pointer"><option value="">Status Nilai</option><option value="Tuntas">Tuntas (&gt;= 75)</option><option value="Remedial">Remedial (&lt; 75)</option></select><span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 text-[18px]">expand_more</span></div><button type="button" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#1b3e6b] text-white hover:bg-primary-container text-xs font-medium transition shrink-0"><span class="material-symbols-outlined text-[17px]">filter_list</span><span>Filter</span></button></div></div></div><div class="bg-white rounded-xl border border-slate-200/80 shadow-sm overflow-hidden"><div class="overflow-x-auto w-full"><table class="w-full text-left min-w-[840px]"><thead><tr class="bg-slate-50 text-slate-500 text-xs font-semibold uppercase tracking-wider border-b border-slate-200/80"><th scope="col" class="py-3.5 px-5 w-14 text-center">NO</th><th scope="col" class="py-3.5 px-4">DAFTAR SISWA</th><th scope="col" class="py-3.5 px-4">NAMA LATIHAN</th><th scope="col" class="py-3.5 px-4">PLATFORM ASAL</th><th scope="col" class="py-3.5 px-4 text-center">NILAI SISWA</th><th scope="col" class="py-3.5 px-4">TANGGAL PENGERJAAN</th><th scope="col" class="py-3.5 px-5 text-center w-36">AKSI</th></tr></thead><tbody class="divide-y divide-slate-100 text-sm text-slate-700"><tr class="hover:bg-slate-50/80 transition-colors"><td class="py-4 px-5 text-center text-slate-400 font-semibold text-xs">01</td><td class="py-4 px-4"><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-blue-50 text-blue-700 font-bold text-xs flex items-center justify-center shrink-0 border border-blue-200/50">AP</div><div class="flex flex-col"><span class="block text-sm font-semibold text-slate-800 leading-snug">Andi Pratama</span><span class="block text-xs text-slate-500 mt-0.5 leading-none">NIS: S-1021 • XII IPA 1</span></div></div></td><td class="py-4 px-4"><div class="font-medium text-slate-800 leading-snug text-sm">Tryout Mandiri Fisika Modern</div><div class="text-xs text-slate-400 mt-0.5">Fisika</div></td><td class="py-4 px-4"><span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-purple-50 text-purple-700">Quizizz</span></td><td class="py-4 px-4 text-center"><span class="inline-block px-3 py-1 rounded-lg bg-emerald-50 text-emerald-700 font-bold text-xs">92</span></td><td class="py-4 px-4"><div class="text-slate-700 text-xs font-medium leading-snug">24 Mei 2025</div><div class="text-slate-400 text-xs mt-0.5">15:30 WIB</div></td><td class="py-4 px-5 text-center"><div class="flex items-center justify-center gap-1.5"><button type="button" title="Edit Nilai" class="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 hover:bg-[#1b3e6b] hover:text-white transition flex items-center justify-center"><span class="material-symbols-outlined text-[17px]">edit</span></button><button type="button" title="Detail Hasil" class="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 hover:bg-[#1b3e6b] hover:text-white transition flex items-center justify-center"><span class="material-symbols-outlined text-[17px]">visibility</span></button></div></td></tr><tr class="hover:bg-slate-50/80 transition-colors bg-white"><td class="py-4 px-5 text-center text-slate-400 font-semibold text-xs">02</td><td class="py-4 px-4"><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-blue-50 text-blue-700 font-bold text-xs flex items-center justify-center shrink-0 border border-blue-200/50">SN</div><div class="flex flex-col"><span class="block text-sm font-semibold text-slate-800 leading-snug">Siti Nurhaliza</span><span class="block text-xs text-slate-500 mt-0.5 leading-none">NIS: S-1022 • XII IPA 2</span></div></div></td><td class="py-4 px-4"><div class="font-medium text-slate-800 leading-snug text-sm">Kuis Termodinamika &amp; Kalor</div><div class="text-xs text-slate-400 mt-0.5">Fisika</div></td><td class="py-4 px-4"><span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700">CBT Mandiri</span></td><td class="py-4 px-4 text-center"><span class="inline-block px-3 py-1 rounded-lg bg-emerald-50 text-emerald-700 font-bold text-xs">88</span></td><td class="py-4 px-4"><div class="text-slate-700 text-xs font-medium leading-snug">24 Mei 2025</div><div class="text-slate-400 text-xs mt-0.5">14:15 WIB</div></td><td class="py-4 px-5 text-center"><div class="flex items-center justify-center gap-1.5"><button type="button" title="Edit Nilai" class="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 hover:bg-[#1b3e6b] hover:text-white transition flex items-center justify-center"><span class="material-symbols-outlined text-[17px]">edit</span></button><button type="button" title="Detail Hasil" class="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 hover:bg-[#1b3e6b] hover:text-white transition flex items-center justify-center"><span class="material-symbols-outlined text-[17px]">visibility</span></button></div></td></tr><tr class="hover:bg-slate-50/80 transition-colors"><td class="py-4 px-5 text-center text-slate-400 font-semibold text-xs">03</td><td class="py-4 px-4"><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-blue-50 text-blue-700 font-bold text-xs flex items-center justify-center shrink-0 border border-blue-200/50">BS</div><div class="flex flex-col"><span class="block text-sm font-semibold text-slate-800 leading-snug">Budi Santoso</span><span class="block text-xs text-slate-500 mt-0.5 leading-none">NIS: S-1025 • XI IPA 1</span></div></div></td><td class="py-4 px-4"><div class="font-medium text-slate-800 leading-snug text-sm">Latihan Matriks Dasar</div><div class="text-xs text-slate-400 mt-0.5">Matematika</div></td><td class="py-4 px-4"><span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700">Google Form</span></td><td class="py-4 px-4 text-center"><span class="inline-block px-3 py-1 rounded-lg bg-emerald-50 text-emerald-700 font-bold text-xs">78</span></td><td class="py-4 px-4"><div class="text-slate-700 text-xs font-medium leading-snug">23 Mei 2025</div><div class="text-slate-400 text-xs mt-0.5">16:00 WIB</div></td><td class="py-4 px-5 text-center"><div class="flex items-center justify-center gap-1.5"><button type="button" title="Edit Nilai" class="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 hover:bg-[#1b3e6b] hover:text-white transition flex items-center justify-center"><span class="material-symbols-outlined text-[17px]">edit</span></button><button type="button" title="Detail Hasil" class="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 hover:bg-[#1b3e6b] hover:text-white transition flex items-center justify-center"><span class="material-symbols-outlined text-[17px]">visibility</span></button></div></td></tr><tr class="hover:bg-slate-50/80 transition-colors bg-white"><td class="py-4 px-5 text-center text-slate-400 font-semibold text-xs">04</td><td class="py-4 px-4"><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-blue-50 text-blue-700 font-bold text-xs flex items-center justify-center shrink-0 border border-blue-200/50">RH</div><div class="flex flex-col"><span class="block text-sm font-semibold text-slate-800 leading-snug">Rian Hidayat</span><span class="block text-xs text-slate-500 mt-0.5 leading-none">NIS: S-1033 • XII IPA 1</span></div></div></td><td class="py-4 px-4"><div class="font-medium text-slate-800 leading-snug text-sm">Evaluasi Listrik Dinamis</div><div class="text-xs text-slate-400 mt-0.5">Fisika</div></td><td class="py-4 px-4"><span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-purple-50 text-purple-700">Quizizz</span></td><td class="py-4 px-4 text-center"><span class="inline-block px-3 py-1 rounded-lg bg-emerald-50 text-emerald-700 font-bold text-xs">95</span></td><td class="py-4 px-4"><div class="text-slate-700 text-xs font-medium leading-snug">23 Mei 2025</div><div class="text-slate-400 text-xs mt-0.5">10:45 WIB</div></td><td class="py-4 px-5 text-center"><div class="flex items-center justify-center gap-1.5"><button type="button" title="Edit Nilai" class="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 hover:bg-[#1b3e6b] hover:text-white transition flex items-center justify-center"><span class="material-symbols-outlined text-[17px]">edit</span></button><button type="button" title="Detail Hasil" class="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 hover:bg-[#1b3e6b] hover:text-white transition flex items-center justify-center"><span class="material-symbols-outlined text-[17px]">visibility</span></button></div></td></tr><tr class="hover:bg-slate-50/80 transition-colors"><td class="py-4 px-5 text-center text-slate-400 font-semibold text-xs">05</td><td class="py-4 px-4"><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-blue-50 text-blue-700 font-bold text-xs flex items-center justify-center shrink-0 border border-blue-200/50">AP</div><div class="flex flex-col"><span class="block text-sm font-semibold text-slate-800 leading-snug">Amanda Putri</span><span class="block text-xs text-slate-500 mt-0.5 leading-none">NIS: S-1010 • XI IPA 1</span></div></div></td><td class="py-4 px-4"><div class="font-medium text-slate-800 leading-snug text-sm">Ulangan Vektor &amp; Kinematika</div><div class="text-xs text-slate-400 mt-0.5">Fisika</div></td><td class="py-4 px-4"><span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700">CBT Mandiri</span></td><td class="py-4 px-4 text-center"><span class="inline-block px-3 py-1 rounded-lg bg-emerald-50 text-emerald-700 font-bold text-xs">85</span></td><td class="py-4 px-4"><div class="text-slate-700 text-xs font-medium leading-snug">22 Mei 2025</div><div class="text-slate-400 text-xs mt-0.5">11:20 WIB</div></td><td class="py-4 px-5 text-center"><div class="flex items-center justify-center gap-1.5"><button type="button" title="Edit Nilai" class="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 hover:bg-[#1b3e6b] hover:text-white transition flex items-center justify-center"><span class="material-symbols-outlined text-[17px]">edit</span></button><button type="button" title="Detail Hasil" class="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 hover:bg-[#1b3e6b] hover:text-white transition flex items-center justify-center"><span class="material-symbols-outlined text-[17px]">visibility</span></button></div></td></tr></tbody></table></div><div class="p-4 bg-white border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-3"><span class="text-slate-500 text-sm">Menampilkan <span class="text-slate-800 font-semibold">1 - 5</span> dari <span class="text-slate-800 font-semibold">142</span> data</span><div class="flex items-center gap-1.5"><button type="button" disabled="" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-slate-400 hover:bg-slate-100 hover:text-slate-700 text-xs font-medium transition disabled:opacity-40"><span class="material-symbols-outlined text-[16px]">chevron_left</span><span>Sebelumnya</span></button><button type="button" class="w-8 h-8 rounded-lg bg-[#1b3e6b] text-white text-xs font-semibold shadow-sm flex items-center justify-center">1</button><button type="button" class="w-8 h-8 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 text-xs font-medium flex items-center justify-center transition">2</button><button type="button" class="w-8 h-8 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 text-xs font-medium flex items-center justify-center transition">3</button><span class="px-1.5 text-slate-400 text-xs">...</span><button type="button" class="w-8 h-8 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 text-xs font-medium flex items-center justify-center transition">29</button><button type="button" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-slate-700 hover:bg-slate-100 text-xs font-medium transition"><span>Berikutnya</span><span class="material-symbols-outlined text-[16px]">chevron_right</span></button></div></div></div></div></main>
+<!-- 6. FOOTER RESMI -->
+<footer class="w-full py-6 px-8 mt-auto bg-white border-t border-slate-200 shrink-0 text-slate-500 text-sm flex items-center justify-between"><div class="flex items-center gap-3"><div class="w-6 h-6 rounded-full bg-white shadow-sm border border-slate-200 overflow-hidden flex items-center justify-center shrink-0"><img alt="Logo Bimbel Tunas Cendekia" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDusUCHkuzsSfB9gw3WXj6bdeWyk5YV-ikNZiwBzA2mxAJP5n7SHuUo4Q974mW-GfmuKMog3mHsdcORHoMP0jR3C-xVIWMITrKtPJCjo3vJX7r_uc3oj02mhJG_1FRs88rpTMUOdq3oguaoYkdxo9YnDZ5Yk4rl0JPCpm0G9hSHmgJrB5UBLlaSdtqEw6pV1sShABw9FVvXornAOEn826xw7kyIGnOPoj2IAaOe-Uqz3NFBUSs1Qjj9hQ"></div><p class="font-medium text-slate-600">© 2025 Bimbel Tunas Cendekia. Hak Cipta Dilindungi.</p></div><div class="flex items-center gap-3 font-medium text-slate-500 text-xs"><a class="hover:text-blue-600 transition" href="#">Bantuan</a><span>•</span><a class="hover:text-blue-600 transition" href="#">Kebijakan Privasi</a><span>•</span><a class="hover:text-blue-600 transition" href="#">Syarat &amp; Ketentuan</a></div></footer>
+</div>
+<script>
+  // Simple client-side modal toggling
+  const openUploadBtn = document.getElementById('openUploadBtn');
+  const uploadModal = document.getElementById('uploadModal');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+  const cancelModalBtn = document.getElementById('cancelModalBtn');
+
+  if (openUploadBtn && uploadModal) {
+    openUploadBtn.addEventListener('click', () => {
+      uploadModal.classList.remove('hidden');
+      uploadModal.classList.add('flex');
+    });
+  }
+
+  function hideModal() {
+    if (uploadModal) {
+      uploadModal.classList.add('hidden');
+      uploadModal.classList.remove('flex');
+    }
+  }
+
+  if (closeModalBtn) closeModalBtn.addEventListener('click', hideModal);
+  if (cancelModalBtn) cancelModalBtn.addEventListener('click', hideModal);
+</script>
+
+
+</body></html>
